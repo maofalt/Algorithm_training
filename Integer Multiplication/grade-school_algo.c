@@ -104,17 +104,18 @@ int	grade_school_algo(int nbr1, int nbr2)
 		multiplier = nbr2  % 10;
 		nbr2 /= 10;
 		power = 0;
+		tmp = 0;
 		while (tmp_nbr1)
 		{
 			rest = tmp_nbr1 % 10;
 			tmp_nbr1 /= 10;
 			tmp_res = rest * multiplier;
-			printf("%d x %d = %d\n", multiplier, rest, tmp_res);
-			tmp_res *= pow(10, power);
-			//printf("power %f\n", pow(10, power++));
+			//printf("%d x %d = %d\n", multiplier, rest, tmp_res);
+			tmp_res *= pow(10, power++);
+			//printf("line result  with power %d\n",tmp_res);
 			tmp += tmp_res;
 		}
-		printf("%d\n",tmp);
+		//printf("------------------\n%d\n",tmp);
 		result += (tmp * pow(10, power2++));
 		tmp_nbr1 = nbr1;
 	}
@@ -151,6 +152,10 @@ int	main(int argc, char **argv)
 		printf("x\t%d\n",nbr2);
 		printf("____________________\n");
 		printf("\t%d",result);
+		if (nbr1*nbr2 == result)
+			printf("\nRight Result\n");
+		else
+			printf("\ngo review your code\n Result  must be %d\n ", nbr1*nbr2);
 		return (1);
 	}
 	else

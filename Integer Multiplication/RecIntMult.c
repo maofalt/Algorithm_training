@@ -86,24 +86,38 @@ int	ft_size_nbr(int nbr)
 	return (size);
 }
 
-int	*ft_char_to_int(char *str_nbr)
+int	*ft_char_to_int(char *str_nbr, int *max)
 {
 	int	*nbr;
-	int	size_nbr = strlen(str_nbr);
+	int size_nbr = strlen(str_nbr);
+	int	i = 0;
+	int	par = 0;
+	int	j = 0;
 
 	if (size_nbr % 2)
-		size_nbr += 1;
-	nbr = (int *)malloc(sizeof(int) * size_nbr);
-	while (str_nbr)
+		par = 1;
+	size_nbr += par;
+	if ((int)size_nbr > *max)
+		*max = size_nbr;
+	nbr = (int *)malloc(sizeof(int) * (*max));
+	while (j < (*max - (size_nbr  - par)))
 	{
-		*nbr = *str_nbr - '0';
-		(*str_nbr)++;
-		(*nbr)++;
+		nbr[j++] = 0;
 	}
-	if (str_nbr == 0)
-		*nbr = 0;
+	while (str_nbr[i])
+	{
+		nbr[i + j] = str_nbr[i] - '0';
+		i++;
+	}
+	size_nbr += par;
 	return (nbr);
 }
+
+/*int	*RecIntMult(int *nbr1, int size_nbr, int *nbr2)*/
+/*{*/
+	/*if (size\)*/
+/*}*/
+
 //1-Verification fo only two Arguments
 //2- Transform the numbers with atoi
 //3-We apply the algortihm Multiplication
@@ -111,22 +125,34 @@ int	*ft_char_to_int(char *str_nbr)
 //5- We veriffy the result is correct
 int	main(int argc, char **argv)
 {
-	//int i = 1;
+	int i = 0;
 	int	*nbr1;
-	int	size_nbr1;
-	int	size_nbr2;
 	int *nbr2;
-	//int	result = 0;
+	static int max = 0;
 
 	if  (argc == 3)
 	{
 		//Transform said numbers to int (atoi)
-		nbr1 = ft_char_to_int(argv[1]);
-		nbr2 = ft_char_to_int(argv[2]);
-		size_nbr1 = sizeof(nbr1) / sizeof(nbr1[0]);
-		printf("size of nbr1 is %d\n",size_nbr1);
-		size_nbr2 = sizeof(nbr2)/sizeof(nbr2[0]);
-		printf("size of nbr2 is %d\n",size_nbr2);
+		if (strlen(argv[1]) > strlen(argv[2]))
+		{
+			nbr1 = ft_char_to_int(argv[1], &max);
+			nbr2 = ft_char_to_int(argv[2], &max);
+		}
+		else
+		{
+			nbr1 = ft_char_to_int(argv[2], &max);
+			nbr2 = ft_char_to_int(argv[1], &max);
+		}
+		printf("size of array is %d\n",  max);
+		printf("First number is ");
+		while (i < (int)max)
+			printf("%d", nbr1[i++]);
+		printf("\nSecond number is ");
+		i = 0;
+		while (i < (int)max)
+			printf("%d", nbr2[i++]);
+		free(nbr1);
+		free(nbr2);
 		//Algorithm Multiplication
 		/*result = RecIntMult(nbr1, nbr2);*/
 		/*printf("\t%d\n", nbr1);*/

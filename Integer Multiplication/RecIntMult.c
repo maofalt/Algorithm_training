@@ -113,10 +113,57 @@ int	*ft_char_to_int(char *str_nbr, int *max)
 	return (nbr);
 }
 
-/*int	*RecIntMult(int *nbr1, int size_nbr, int *nbr2)*/
-/*{*/
-	/*if (size\)*/
-/*}*/
+int	*ft_int_to_array(int nbr)
+{
+	int	*array;
+	int	digit;
+	int i = 0;
+
+	array =  malloc(sizeof(int) * ft_size_nbr(nbr));
+	while (nbr)
+	{
+		digit = nbr % 10;
+		array[i++] = digit;
+		nbr /= 10;
+	}
+	return (array);
+}
+
+int	*ft_array_to_array(int *nbr, int size, int start)
+{
+	int	*array;
+	int	i = 0;
+
+	array = malloc(sizeof(int) * size);
+	while (i < size)
+	{
+		array[i] = nbr[start + i];
+		i++;
+	}
+	return (array);
+}
+
+int	*RecIntMult(int *nbr1, int *nbr2, int size)
+{
+	int	*a, *b, *c, *d;
+	int	*ac, *ad, *bc, *bd;
+	int	result[100];
+
+	if (size = 1)
+		return (ft_int_to_array(nbr1[0] * nbr2[0]));
+	a = ft_array_to_array(nbr1, size/2, 0);
+	b = ft_array_to_array(nbr1, size/2, size/2);
+	c = ft_array_to_array(nbr2, size/2, 0);
+	d = ft_array_to_array(nbr2, size/2, size/2);
+	ac = RecIntMult(a, c, size/2);
+	ad = RecIntMult(a, d, size/2);
+	bc = RecIntMult(b, c, size/2);
+	bd = RecIntMult(b, d, size/2);
+	//ralloc adding ac adding n zeros, same function for (ad+bc)
+	//additioning with grade school additioning
+	//return result array
+
+}
 
 //1-Verification fo only two Arguments
 //2- Transform the numbers with atoi
@@ -129,7 +176,7 @@ int	main(int argc, char **argv)
 	int	*nbr1;
 	int *nbr2;
 	static int max = 0;
-
+	int	*result;
 	if  (argc == 3)
 	{
 		//Transform said numbers to int (atoi)
@@ -154,7 +201,7 @@ int	main(int argc, char **argv)
 		free(nbr1);
 		free(nbr2);
 		//Algorithm Multiplication
-		/*result = RecIntMult(nbr1, nbr2);*/
+		result = RecIntMult(nbr1, nbr2, max);
 		/*printf("\t%d\n", nbr1);*/
 		/*printf("x\t%d\n",nbr2);*/
 		/*printf("____________________\n");*/

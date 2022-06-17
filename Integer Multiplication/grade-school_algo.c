@@ -85,15 +85,28 @@ int	ft_size_nbr(int nbr)
 	}
 	return (size);
 }
+
 //Total numbers of operations k*n^2
 //2n operations per row * n of rows
-//
+//Multiplication is done as following
+//	nbr1 |1 2 3 4 5 6
+//x	nbr2 |0 0 0 2 5 6
+//-------------------
+//line 1 |* * * * * *
+//line 2 |* * * * * 0
+//line 3 |* * * * 0 0
+//etc... 
+//1- Extract unity of nbr 2 with modulo
+//2- Sustract unity of nbr 2 with /10 (round down)
+//3- Same 2 steps for nbr 1
+//4- Multiply unity from nbr 1and nbr 2
+//5- Increase it by  then tenth power and increase the 10th power each passing loop
+//6- We do the same for each line, multiplying each line resulting by 10th power
 int	grade_school_algo(int nbr1, int nbr2)
 {
 	int	multiplier;
 	int rest;
 	int	tmp = 0;
-	int	tmp_res = 0;
 	int	result = 0;
 	int power = 0;
 	int	power2 = 0;
@@ -109,19 +122,19 @@ int	grade_school_algo(int nbr1, int nbr2)
 		{
 			rest = tmp_nbr1 % 10;
 			tmp_nbr1 /= 10;
-			tmp_res = rest * multiplier;
-			//printf("%d x %d = %d\n", multiplier, rest, tmp_res);
-			tmp_res *= pow(10, power++);
-			//printf("line result  with power %d\n",tmp_res);
-			tmp += tmp_res;
+			tmp += (rest * multiplier) * pow(10, power++);
 		}
-		//printf("------------------\n%d\n",tmp);
 		result += (tmp * pow(10, power2++));
 		tmp_nbr1 = nbr1;
 	}
 	return (result);
 }
 
+//1-Verification fo only two Arguments
+//2- Transform the numbers with atoi
+//3-We apply the algortihm Multiplication
+//4-We print both numbers and the result
+//5- We veriffy the result is correct
 int	main(int argc, char **argv)
 {
 	int i = 1;

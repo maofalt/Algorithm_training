@@ -4,6 +4,12 @@
 #include <string.h>
 #include <stdlib.h>
 
+typedef struct s_tab
+{
+	int	*ar;
+	int	size;
+}	t_tab;
+
 int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
@@ -100,136 +106,152 @@ int	ft_size_result(int nb1, int pw1, int nb2, int pw2)
 	return (size);
 }
 
-int	*ft_char_to_int(char *str_nbr, int *size_nbr)
+t_tab	ft_char_to_int(char *str_nbr)
 {
-	int	*nbr;
+	t_tab	nbr;
 	int	i = 0;
 
-	*size_nbr = strlen(str_nbr);
-	nbr = (int *)malloc(sizeof(int) * *size_nbr);
+	nbr.size = strlen(str_nbr);
+	nbr.ar = (int *)malloc(sizeof(int) * nbr.size);
 	while (str_nbr[i])
 	{
-		nbr[i] = str_nbr[i] - '0';
+		nbr.ar[i] = str_nbr[i] - '0';
 		i++;
 	}
 	return (nbr);
 }
 
-int	*ft_int_to_array(int nbr)
+t_tab	ft_int_to_struct(int nbr)
 {
-	int	*array;
+	t_tab	tab;
 	int	digit;
 	int i = 0;
-	int	size = ft_size_nbr(nbr);
+	
+	tab.size = ft_size_nbr(nbr);
 
-	printf("\n --------------------\nft_int_to_array\n");
+	printf("\n --------------------\nft_int_to_struct\n");
 	printf("nbr %d\n", nbr);
-	printf("size of nbr %d \n", size);
-	array =  malloc(sizeof(int) * size);
+	printf("size of nbr %d \n", tab.size);
+	tab.ar =  malloc(sizeof(int) * tab.size);
 	while (nbr)
 	{
 		digit = nbr % 10;
-		array[size - 1 - i] = digit;
+		tab.ar[tab.size - 1 - i] = digit;
 		nbr /= 10;
 		i++;
 	}
-	return (array);
+	return (tab);
 }
 
-int	*ft_array_to_array(int *nbr, int size, int start)
+t_tab	ft_struct_struct(t_tab nb, int start)
 {
-	int	*array;
+	t_tab	tab;
+	t_tab	resize;
 	int	i = 0;
 
-	array = malloc(sizeof(int) * size);
-	while (i < size)
+	if (nb.size % 2)
+		resize = ft_struct_to_n_power(nb, 1);
+	else
+		resize = nb;
+	tab.ar = malloc(sizeof(int) * tab.size);
+	if ((nb.size % 2) && !start)
+		tab.ar[i++] = 0;
+	while (i < tab.size)
 	{
-		array[i] = nbr[start + i];
+		tab.ar[i] = nb.ar[(tab.size * start) + i];
 		i++;
 	}
-	return (array);
+	return (tab);
 }
 
-int	*ft_array_to_n_power(int *array, int arr_siz, int power)
+t_tab	ft_struct_to_n_power(t_tab array, int power)
 {
-	int	*new_array;
-	int	i, j ;
+	t_tab	tab;
+	int	i, j;
 
 	//printf("array size %d, power %d \n", arr_siz, power);
-	new_array = malloc(sizeof(int) * (arr_siz + power));
-	if (!new_array)
-		return (NULL);
+	tab.ar = malloc(sizeof(int) * (array.size + power));
 	i = 0;
 	while (i < power)
-		new_array[i++] = 0;
+		tab.ar[i++] = 0;
 	j = 0;
-	while (j < arr_siz)
+	while (j < array.size)
 	{
 		//printf("i = %d, j = %d\n", i, j);
-		new_array[i + j] = array[j];
+		tab.ar[i + j] = array.ar[j];
 		j++;
 	}
 //	free(array);
-	return (new_array);
+	return (tab);
 }
 
-int	*ft_additioning(int	*arr1, int siz1, int *arr2, int siz2)
+t_tab	ft_additioning(t_tab arr1, t_tab arr2)
 {
-	int	*result;
-	int	size_res;
+	t_tab	result;
 	int ret = 0;
 	int i = 0;
 
-	size_res = ft_size_result(arr1[0], siz1 - 1, arr2[0], siz2 - 1);
-	printf("ft_additioning: \n size res=%d\n",size_res);
-	result = malloc(sizeof(int) * size_res);
-	if(!result)
-		return (NULL);
-	while (i < size_res)
+	result.size = ft_size_result(arr1.ar[0], arr1.size, arr2.ar[0], arr2.size);
+	printf("ft_additioning: \n size res=%d\n", result.size);
+	result.ar = malloc(sizeof(int) * result.size);
+	while (i < result.size)
 	{
-		result[size_res - i] = (arr1[siz1 - 1 - i] + arr2[siz2 - 1 - i] + ret) % 10;
-		ret =  (arr1[siz1 - 1 - i] + arr2[siz2 - 1- i] + ret) / 10;
+		result.ar[result.size - i] = (arr1.ar[arr1.size - 1 - i] + arr2.ar[arr2.size - 1 - i] + ret) % 10;
+		ret =  (arr1.ar[arr1.size - 1 - i] + arr2.ar[arr2.size - 1 - i] + ret) / 10;
 		i++;
 	}
 	return (result);
 }
 
-int	*RecIntMult(int *nbr1, int s_nb1, int *nbr2, int s_nb2)
+void	print_array(char *c,t_tab nb)
 {
-	int	*a, *b, *c, *d;
-	int	*ac, *ad, *bc, *bd;
-	int	*result;
-	int new_size, new_size2;
+	int  i = 0;
 
-	if (s_nb1 == 1 && s_nb2 == 1)
-		return (ft_int_to_array(nbr1[0] * nbr2[0]));
-	a = ft_array_to_array(nbr1, s_nb1/2, 0);
-	printf("a %d \n", a[0]);
-	b = ft_array_to_array(nbr1, s_nb1/2, s_nb1/2);
-	printf("b %d \n", b[0]);
-	c = ft_array_to_array(nbr2, s_nb2/2, 0);
-	printf("c %d \n", c[0]);
-	d = ft_array_to_array(nbr2, s_nb2/2, s_nb2/2);
-	printf("d %d \n", d[0]);
-	ac = RecIntMult(a, s_nb1/2, c,s_nb2/2);
-	printf("ac %d \n", ac[0]);
-	ad = RecIntMult(a, s_nb1/2, d, s_nb2/2);
-	printf("ad %d \n", ad[0]);
-	bc = RecIntMult(b, s_nb1/2, c, s_nb2/2);
-	printf("bc %d \n", bc[0]);
-	bd = RecIntMult(b, s_nb1/2, d, s_nb2/2);
-	printf("bd %d \n", bd[0]);
+	printf("%s ", c);
+	while (i < nb.size)
+	{
+		printf("%d", nb.ar[i]);
+		i++;
+	}
+	printf("\n");
+}
+
+t_tab	RecIntMult(t_tab nb1, t_tab nb2)
+{
+	t_tab	a, b, c, d;
+	t_tab	ac, ad, bc, bd;
+	t_tab	result;
+	int  max_size = nb2.size;
+
+	if (nb1.size == 1 && nb2.size == 1)
+		return (ft_int_to_struct(nb1.ar[0] * nb2.ar[0]));
+	if (nb1.size > nb2.size)
+		max_size = nb1.size;
+	a = ft_struct_struct(nb1, 0);
+	print_array("a", a);
+	b = ft_struct_struct(nb1, 1);
+	print_array("b", b);
+	c = ft_struct_struct(nb2, 0);
+	print_array("c", c);
+	d = ft_struct_struct(nb2, 1);
+	print_array("d", d);
+//	Recursion starts here
+	ac = RecIntMult(a, c);
+	print_array("ac", ac);
+	ad = RecIntMult(a, d);
+	print_array("ad", ad);
+	bc = RecIntMult(b, c);
+	print_array("bc", bc);
+	bd = RecIntMult(b, d);
+	print_array("bd", bd);
 	//ralloc adding ac adding n zeros, same function for (ad+bc)
-	ac = ft_array_to_n_power(ac, s_nb1/2, s_nb1);
-	ad = ft_array_to_n_power(ac, s_nb1/2, s_nb1/2);
-	bc = ft_array_to_n_power(ac, s_nb1/2, s_nb1/2);
+	ac = ft_struct_to_n_power(ac, max_size);
+	ad = ft_struct_to_n_power(ad, max_size/2);
+	bc = ft_struct_to_n_power(bc, max_size/2);
 	//additioning with grade school additioning
-	result = ft_additioning(ad, s_nb1, bc, s_nb1);
-	new_size = ft_size_result(ad[0], s_nb1 - 1, bc[0], s_nb1 - 1);
-	result = ft_additioning(result, new_size, ac, (3 * s_nb1)/2);
-	new_size2 = ft_size_result(result[0], new_size - 1, ac[0],((3 * s_nb1)/2) - 1);
-	result = ft_additioning(result, new_size2, bd, s_nb1/2);
-	new_size = ft_size_result(result[0], new_size2 - 1, bd[0], (s_nb1/2) - 1);
+	result = ft_additioning(ad, bc);
+	result = ft_additioning(result, ac);
+	result = ft_additioning(result, bd);
 	//return result array
 	return (result);
 
@@ -243,39 +265,37 @@ int	*RecIntMult(int *nbr1, int s_nb1, int *nbr2, int s_nb2)
 int	main(int argc, char **argv)
 {
 	int i = 0;
-	int	*nbr1;
-	int *nbr2;
-	int size_nbr1, size_nbr2;
-	int	*result;
-	int size_result;
+	t_tab	nbr1;
+	t_tab	nbr2;
+	t_tab	result;
 
 	if  (argc == 3)
 	{
 		//Transform said numbers to int (atoi)
-		nbr1 = ft_char_to_int(argv[1], &size_nbr1);
-		nbr2 = ft_char_to_int(argv[2], &size_nbr2);
-		printf("size of 1st array is %d\n",  size_nbr1);
+		nbr1 = ft_char_to_int(argv[1]);
+		nbr2 = ft_char_to_int(argv[2]);
+		printf("size of 1st array is %d\n", nbr1.size);
 		printf("First number is ");
-		while (i < size_nbr1)
-			printf("%d", nbr1[i++]);
-		printf("size of array 2nd is %d\n",  size_nbr2);
+		while (i < nbr1.size)
+			printf("%d", nbr1.ar[i++]);
+		printf("\nsize of array 2nd is %d",  nbr2.size);
 		printf("\nSecond number is \n");
 		i = 0;
-		while (i < size_nbr2)
+		while (i < nbr2.size)
 		{
-			printf("%d\n", nbr2[i]);
+			printf("%d", nbr2.ar[i]);
 			i++;
 		}
 		//free(nbr1);
 		//free(nbr2);
 		//Algorithm Multiplication
-		printf("Start of recursion \n ==================================\n");
-		result = RecIntMult(nbr1,size_nbr1, nbr2, size_nbr2);
+		printf("\nStart of recursion \n ==================================\n");
+		result = RecIntMult(nbr1, nbr2);
 		printf("\n=========================================\n Result is ready\n ");
-		size_result = ft_size_result(nbr1[0], size_nbr1,  nbr2[0], size_nbr2);
 		i = 0;
-		while (i < size_result)
-			printf("%d",result[i++]);
+		printf("\nSize of result \n%d\n", result.size);
+		while (i < result.size)
+			printf("%d",result.ar[i++]);
 	}
 	else
 		printf("There are not two numbers\n");

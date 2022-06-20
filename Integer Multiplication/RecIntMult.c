@@ -134,11 +134,11 @@ t_tab	ft_int_to_struct(int nbr)
 	int i = 0;
 	
 	tab.size = ft_size_nbr(nbr);
-
-	/*printf("\n --------------------\nft_int_to_struct\n");*/
-	/*printf("nbr %d\n", nbr);*/
-	/*printf("size of nbr %d \n", tab.size);*/
-	tab.ar =  malloc(sizeof(int) * tab.size);
+	tab.ar =  malloc(sizeof(int) * 2);
+	if (tab.size != 2)
+	{
+		tab.ar[0] = 0;
+	}
 	while (nbr)
 	{
 		digit = nbr % 10;
@@ -152,17 +152,8 @@ t_tab	ft_int_to_struct(int nbr)
 t_tab	ft_struct_struct(t_tab nb, int start)
 {
 	t_tab	tab;
-	//t_tab	resize;
 	int	i = 0;
 
-	//printf("\n-------\nft_struct_struct\n");
-	//printf("size of nb to split %d\n",nb.size);
-	//if (nb.size % 2)
-	//	resize = ft_struct_resize(nb, 1);
-	//else
-	//	resize = nb;
-	//print_array("resize:", resize);
-	//printf("\nsize of resize %d\n",resize.size);
 	tab.size = nb.size / 2;
 	tab.ar = malloc(sizeof(int) * tab.size);
 	while (i < tab.size)
@@ -178,7 +169,6 @@ t_tab	ft_struct_resize(t_tab array, int add)
 	t_tab	tab;
 	int	i, j;
 
-	//printf("array size %d, power %d \n", arr_siz, power);
 	tab.size = array.size + add;
 	tab.ar = malloc(sizeof(int) * (array.size + add));
 	i = 0;
@@ -187,11 +177,9 @@ t_tab	ft_struct_resize(t_tab array, int add)
 	j = 0;
 	while (j < array.size)
 	{
-		//printf("i = %d, j = %d\n", i, j);
 		tab.ar[i + j] = array.ar[j];
 		j++;
 	}
-//	free(array);
 	return (tab);
 }
 
@@ -200,20 +188,17 @@ t_tab	ft_struct_to_n_power(t_tab array, int power)
 	t_tab	tab;
 	int	i, j;
 
-	//printf("array size %d, power %d \n", arr_siz, power);
 	tab.size = array.size + power;
 	tab.ar = malloc(sizeof(int) * (array.size + power));
 	j = 0;
 	while (j < array.size)
 	{
-		//printf("i = %d, j = %d\n", i, j);
 		tab.ar[j] = array.ar[j];
 		j++;
 	}
 	i = 0;
 	while (i < power)
 		tab.ar[j + i++] = 0;
-//	free(array);
 	return (tab);
 }
 
@@ -235,37 +220,33 @@ t_tab	ft_additioning(t_tab arr1, t_tab arr2)
 		b = arr2;
 		a = ft_struct_resize(arr1, max - arr1.size);
 	}
-	/*while (i < max )*/
-	/*{*/
-		/*tmp += (int)((a.ar[a.size - 1 - i] * pow(10, i)) + (b.ar[b.size - 1 - i] * pow(10 , i)));*/
-		/*i++;*/
-	/*}*/
-//	printf("tmp %d\n",tmp);
-	//res.size = 200;
-//	printf("ft_additioning: \n size res=%d\n", res.size);
-	//res.ar = malloc(sizeof(int) * 200);
 	i = 0;
 	while (a.size - i >= 1)
 	{
+		j = a.size + 1 - i;
 		fou[199 - i] = (ret + (int)(a.ar[a.size - 1 - i]  + b.ar[b.size - 1 - i] )) % 10;
-		printf("+%d\n",fou[199 - i]);
-		ret = (int)(a.ar[a.size - 1 - i] + b.ar[b.size - 1 - i] ) / 10;
+		ret = (int)(a.ar[a.size - 1 - i] + b.ar[b.size - 1 - i] + ret ) / 10;
 		i++;
 	}
+	fou[199 - i] += ret;
 	i = 0;
 	while (fou[i] == 0)
 	{
 		i++;
 	}
-	printf("**fou[i]=%d***size fou %d ****\n",fou[i], i);
+	
+	if (i == 200)
+		i--;
 	res.size = 200 - i;
 	res.ar = malloc(sizeof(int) * res.size);
+	j = 0;
 	while (j < res.size)
 	{
 		res.ar[j] = fou[i + j];
 		j++;
 	}
-	print_array("res", res);
+	max = (res.size % 2) ? res.size + 1 : res.size;
+	res = ft_struct_resize(res, max - res.size);
 	return (res);
 }
 
@@ -282,57 +263,49 @@ void	print_array(char *c,t_tab nb)
 	printf("\n");
 }
 
+
+
 t_tab	RecIntMult(t_tab nb1, t_tab nb2)
 {
 	t_tab	a, b, c, d;
 	t_tab	ac, ad, bc, bd;
 	t_tab	result;
-	int  max_size = nb2.size;
+	int  max;
 	static int coucou ;
 
 	coucou++;
-	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n Recursion number %d \n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n", coucou);
-	print_array("Nbr1=", nb1);
-	print_array("Nbr2=", nb2);
 	if (nb1.size == 1 && nb2.size == 1)
 		return (ft_int_to_struct(nb1.ar[0] * nb2.ar[0]));
-	if (nb1.size > nb2.size)
-		max_size = nb1.size;
+	max = (nb1.size > nb2.size) ? nb1.size : nb2.size;
+	max = (max % 2) ? max + 1 : max;
+	nb1 = ft_struct_resize(nb1, max - nb1.size);
+	nb2 = ft_struct_resize(nb2, max - nb2.size);
 	a = ft_struct_struct(nb1, 0);
-	print_array("a", a);
 	b = ft_struct_struct(nb1, 1);
-	print_array("b", b);
 	c = ft_struct_struct(nb2, 0);
-	print_array("c", c);
 	d = ft_struct_struct(nb2, 1);
-	print_array("d", d);
 //	Recursion starts here
-	printf("=========ac=======\n");
 	ac = RecIntMult(a, c);
-	print_array("=", ac);
-	printf("=========ad=====\n");
 	ad = RecIntMult(a, d);
-	print_array("=", ad);
-	printf("=========bc======\n");
 	bc = RecIntMult(b, c);
-	print_array("=", bc);
-	printf("=========bd=======\n");
 	bd = RecIntMult(b, d);
-	print_array("=", bd);
 	//ralloc adding ac adding n zeros, same function for (ad+bc)
-	ac = ft_struct_to_n_power(ac, max_size);
-	print_array("ac", ac);
-	ad = ft_struct_to_n_power(ad, max_size/2);
-	print_array("ad", ad);
-	bc = ft_struct_to_n_power(bc, max_size/2);
-	print_array("bc", bc);
+	ac = ft_struct_to_n_power(ac, max);
+	ad = ft_struct_to_n_power(ad, max/2);
+	bc = ft_struct_to_n_power(bc, max/2);
+	max = (ac.size > ad.size) ? ac.size : ad.size;
+	max = (bc.size > max) ? bc.size : max;
+	max = (bd.size > max) ? bd.size : max;
+	max = (max % 2) ? max + 1 : max;
+	//ralloc size of ac aad bc and bc
+	ac = ft_struct_resize(ac, max - ac.size);
+	ad = ft_struct_resize(ad, max - ad.size);
+	bc = ft_struct_resize(bc, max - bc.size);
+	bd = ft_struct_resize(bd, max - bd.size);
 	//additioning with grade school additioning
 	result = ft_additioning(ad, bc);
-	print_array("(ad+bc*power", result);
 	result = ft_additioning(result, ac);
-	print_array("k +ac", result);
 	result = ft_additioning(result, bd);
-	print_array("total",result);
 	//return result array
 	return (result);
 
@@ -359,26 +332,8 @@ int	main(int argc, char **argv)
 		max = (max % 2) ? max + 1 : max;
 		nbr1 = ft_struct_resize(nbr1, max - nbr1.size);
 		nbr2 = ft_struct_resize(nbr2, max - nbr2.size);
-		printf("size of 1st array is %d\n", nbr1.size);
-		printf("First number is ");
-		while (i < nbr1.size)
-			printf("%d", nbr1.ar[i++]);
-		printf("\nsize of array 2nd is %d",  nbr2.size);
-		printf("\nSecond number is \n");
-		i = 0;
-		while (i < nbr2.size)
-		{
-			printf("%d", nbr2.ar[i]);
-			i++;
-		}
-		//free(nbr1);
-		//free(nbr2);
-		//Algorithm Multiplication
-		printf("\nStart of recursion \n ==================================\n");
 		result = RecIntMult(nbr1, nbr2);
-		printf("\n=========================================\n Result is ready\n ");
 		i = 0;
-		printf("\nSize of result \n%d\n", result.size);
 		while (i < result.size)
 			printf("%d",result.ar[i++]);
 	}

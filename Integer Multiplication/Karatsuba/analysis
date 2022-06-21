@@ -1,0 +1,21 @@
+iteration|0|
+nb1 05
+nb2 03
+iteration|1|
+nb1 0
+nb2 0
+single numbers
+iteration|2|
+nb1 5
+nb2 3
+single numbers
+Trying to sum
+p 5
+q 3
+iteration|3|
+nb1 5
+nb2 3
+single numbers
+pq 15
+result 15
+15

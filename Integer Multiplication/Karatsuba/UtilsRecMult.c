@@ -1,8 +1,8 @@
 #include "Karatsuba.h"
 
-void	ft_compute_prod(t_tab int_res[4], t_tab nbs[4])
+void	ft_compute_prod(t_tab int_res[3], t_tab nbs[4])
 {
-	int	i = 0, k = 0, j=0;
+	int	i = 0;
 
 	while (i < 2)
 	{
@@ -12,22 +12,21 @@ void	ft_compute_prod(t_tab int_res[4], t_tab nbs[4])
 }
 
 
-int	ft_find_max_size_prod(t_tab int_res[4])
+int	ft_find_max_size_prod(t_tab int_res[3])
 {
 	int	max;
 
 	max = (int_res[0].size > int_res[1].size) ? int_res[0].size : int_res[1].size;
 	max = (int_res[2].size > max) ? int_res[2].size : max;
-	max = (int_res[3].size > max) ? int_res[3].size : max;
 	max = (max % 2) ? max + 1 : max;
 	return (max);
 }
 
-void	ft_all_resize(t_tab int_res[4], int max)
+void	ft_all_resize(t_tab int_res[3], int max)
 {
 	int	i = 0;
 
-	while (i < 4)
+	while (i < 2)
 	{
 		int_res[i] = ft_struct_resize(int_res[i], max - int_res[i].size);
 		i++;
@@ -35,18 +34,17 @@ void	ft_all_resize(t_tab int_res[4], int max)
 
 }
 
-t_tab	ft_add_all(t_tab int_res[4])
+t_tab	ft_add_all(t_tab int_res[3])
 {
 	t_tab	result;
 
-	result = ft_additioning(int_res[1], int_res[2]);
-	result = ft_additioning(result, int_res[0]);
-	result = ft_additioning(result, int_res[3]);
+	result = ft_additioning(int_res[0], int_res[1]);
+	result = ft_additioning(result, int_res[2]);
 	return (result);
 }
 
 int	ft_find_max_size(t_tab nb1, t_tab nb2)
-
+{
 	int	max;
 
 	max = (nb1.size > nb2.size) ? nb1.size : nb2.size;
@@ -95,4 +93,17 @@ int	ft_size_nbr(int nbr)
 		nbr /= 10;
 	}
 	return (size);
+}
+
+t_tab	ft_compute_substraction(t_tab res[3])
+{
+	t_tab	adbc, sum;
+	int		max;
+
+	sum = ft_additioning(res[0], res[1]);
+	max = ft_find_max_size(sum, res[2]);
+	sum = ft_struct_resize(sum, max - sum.size);
+	res[2] = ft_struct_resize(res[2], max - res[2].size);
+	adbc = ft_substracting(res[2], sum);
+	return (adbc);
 }

@@ -17,6 +17,7 @@ typedef struct s_tab
 
 t_tab	ft_additioning(t_tab arr1, t_tab arr2);
 t_tab	RecIntMult(t_tab nb1, t_tab nb2);
+t_tab	ft_substracting(t_tab big, t_tab small);
 
 //.Function to manipulate the structure created :: ft_struct_manipulation
 void	ft_struct_nbrs(t_tab nb1, t_tab nb2, t_tab nbs[4]);
@@ -36,12 +37,13 @@ t_tab	ft_char_to_int(char *str_nbr);
 void	print_array(char *c,t_tab nb);
 
 // Utils functions to increase readibility of Main Functions
-void	ft_compute_prod(t_tab int_res[4], t_tab nbs[4]);
-int	ft_find_max_size_prod(t_tab int_res[4]);
-void	ft_all_resize(t_tab int_res[4], int max);
-t_tab	ft_add_all(t_tab int_res[4]);
+void	ft_compute_prod(t_tab int_res[3], t_tab nbs[4]);
+int	ft_find_max_size_prod(t_tab int_res[3]);
+void	ft_all_resize(t_tab int_res[3], int max);
+t_tab	ft_add_all(t_tab int_res[3]);
 int	ft_find_max_size(t_tab nb1, t_tab nb2);
 void	ft_add_fix_array(int big[200], t_tab nb[2], int len1, int len2);int	ft_size_res(int nb[200], int *i);
 int	ft_size_nbr(int nbr);
+t_tab	ft_compute_substraction(t_tab res[3]);
 
 #endif

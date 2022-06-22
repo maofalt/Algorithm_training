@@ -61,11 +61,7 @@ t_tab	RecIntMult(t_tab nb1, t_tab nb2)
 //	Find max size of nb2 and nb1, and we increase its size by 1 (if necessary) to be even
 	max = ft_find_max_size(nb1, nb2);
 	tmp1 = ft_struct_resize(nb1, max - nb1.size);
-	//free(nb1.ar);
-	//nb1 = tmp1;
 	tmp2 = ft_struct_resize(nb2, max - nb2.size);
-	//free(nb2.ar);
-	//nb2 = tmp2;
 	//Split by half each number
 	ft_struct_nbrs(tmp1, tmp2, nbs);
 //	Compute of p =a+b & q =c+d and resize result

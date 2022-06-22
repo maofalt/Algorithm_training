@@ -14,14 +14,17 @@ void	ft_struct_nbrs(t_tab nb1, t_tab nb2, t_tab nbs[4])
 		nbs[i] = ft_struct_struct(tmp, middle);
 		i++;
 	}
+	free(nb1.ar);
+	free(nb2.ar);
 }
 
-t_tab	ft_int_to_struct(int nbr)
+t_tab	ft_int_to_struct(t_tab nb1, t_tab nb2)
 {
 	t_tab	tab;
-	int	digit;
+	int	digit, nbr;
 	int i = 0;
 	
+	nbr = nb1.ar[0] * nb2.ar[0];
 	tab.size = ft_size_nbr(nbr);
 	tab.ar =  malloc(sizeof(int) * 2);
 	if (tab.size != 2)
@@ -88,20 +91,25 @@ t_tab	ft_struct_to_n_power(t_tab array, int power)
 	i = 0;
 	while (i < power)
 		tab.ar[j + i++] = 0;
+	free(array.ar);
 	return (tab);
 }
 
 void	ft_resize_bef_add(t_tab arr1, t_tab arr2, t_tab nb[2], int *max)
 {
+	t_tab tmp1, tmp2;
+	
 	*max =(arr1.size > arr2.size) ? arr1.size : arr2.size;
+	tmp1 = ft_struct_resize(arr1, *max - arr1.size);
+	tmp2  = ft_struct_resize(arr2, *max - arr2.size);
 	if (arr1.size == *max)
 	{
-		nb[0] = arr1;
-		nb[1]  = ft_struct_resize(arr2, *max - arr2.size);
+		nb[0] = tmp1;
+		nb[1] = tmp2;
 	}
 	else
 	{
-		nb[1]  = arr2;
-		nb[0]  = ft_struct_resize(arr1, *max - arr1.size);
+		nb[1]  = tmp2;
+		nb[0]  = tmp1;
 	}
 }

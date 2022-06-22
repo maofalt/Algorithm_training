@@ -21,9 +21,10 @@ t_tab	ft_substracting(t_tab big, t_tab small);
 
 //.Function to manipulate the structure created :: ft_struct_manipulation
 void	ft_struct_nbrs(t_tab nb1, t_tab nb2, t_tab nbs[4]);
-t_tab	ft_int_to_struct(int nbr);
+t_tab	ft_int_to_struct(t_tab nb1, t_tab nb2);
 t_tab	ft_struct_struct(t_tab nb, int start);
 t_tab	ft_struct_resize(t_tab array, int add);
+t_tab	ft_main_struct_resize(t_tab array, int add);
 t_tab	ft_struct_to_n_power(t_tab array, int power);
 void	ft_resize_bef_add(t_tab arr1, t_tab arr2, t_tab nb[2], int *max);
 

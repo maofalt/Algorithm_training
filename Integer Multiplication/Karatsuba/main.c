@@ -24,7 +24,7 @@ t_tab	ft_substracting(t_tab big, t_tab small)
 
 t_tab	ft_additioning(t_tab arr1, t_tab arr2)
 {
-	t_tab	res, nb[2] ;
+	t_tab	res, nb[2], tmp ;
 	int i = 0, j= 0;
 	int	 max;
 	int	fou[200] = {0};
@@ -42,7 +42,9 @@ t_tab	ft_additioning(t_tab arr1, t_tab arr2)
 	if (res.size > 2)
 	{
 		max = (res.size % 2) ? res.size + 1 : res.size;
-		res = ft_struct_resize(res, max - res.size);
+		tmp = ft_struct_resize(res, max - res.size);
+		free(res.ar);
+		res = tmp;
 	}
 	return (res);
 }
@@ -53,26 +55,22 @@ t_tab	RecIntMult(t_tab nb1, t_tab nb2)
 	t_tab	nbs[4], int_res[3], sum[2], result, tmp1, tmp2;
 	int   max;
 	
-//	printf("iteration|%d|\n", counter);
-//	print_array("nb1", nb1);
-	//print_array("nb2", nb2);
-		//This stop our recursion once both numbers are of size = 1
+//	//This stop our recursion once both numbers are of size = 1
 	if (nb1.size == 1 && nb2.size == 1)
 		return (ft_int_to_struct(nb1, nb2));
 //	Find max size of nb2 and nb1, and we increase its size by 1 (if necessary) to be even
 	max = ft_find_max_size(nb1, nb2);
 	tmp1 = ft_struct_resize(nb1, max - nb1.size);
-	free(nb1.ar);
-	nb1 = tmp1;
+	//free(nb1.ar);
+	//nb1 = tmp1;
 	tmp2 = ft_struct_resize(nb2, max - nb2.size);
-	free(nb2.ar);
-	nb2 = tmp2;
+	//free(nb2.ar);
+	//nb2 = tmp2;
 	//Split by half each number
-	ft_struct_nbrs(nb1, nb2, nbs);
+	ft_struct_nbrs(tmp1, tmp2, nbs);
 //	Compute of p =a+b & q =c+d and resize result
 //	Recursion starts here for ac bd and pq|| nbs[0.1] nbs[2.3] sum[0.1]
 	ft_compute_prod(int_res, nbs);
-	//printf("Trying to sum\n");
 	sum[0] = ft_additioning(nbs[0], nbs[1]);
 	sum[1] = ft_additioning(nbs[2], nbs[3]);
 	free(nbs[0].ar);
@@ -80,8 +78,10 @@ t_tab	RecIntMult(t_tab nb1, t_tab nb2)
 	free(nbs[2].ar);
 	free(nbs[3].ar);
 	int_res[2] = RecIntMult(sum[0], sum[1]);
-	free(sum[0].ar);
-	free(sum[1].ar);
+	if (!sum[0].ar)
+		free(sum[0].ar);
+	if (!sum[1].ar)
+		free(sum[1].ar);
 //	Compute adbc = pq -ac-bd : first k = sum(ac +bd), then substract pq - k;
 	tmp1 = ft_compute_substraction(int_res);
 	free(int_res[2].ar);
@@ -94,7 +94,6 @@ t_tab	RecIntMult(t_tab nb1, t_tab nb2)
 	ft_all_resize(int_res, max);
 	//additioning with grade school additioning
 	result = ft_add_all(int_res);
-	//print_array("result", result);
 	return (result);
 }
 

@@ -101,7 +101,11 @@ void	ft_resize_bef_add(t_tab arr1, t_tab arr2, t_tab nb[2], int *max)
 	
 	*max =(arr1.size > arr2.size) ? arr1.size : arr2.size;
 	tmp1 = ft_struct_resize(arr1, *max - arr1.size);
+	//free(arr1.ar);
+	//arr1 = tmp1;
 	tmp2  = ft_struct_resize(arr2, *max - arr2.size);
+	//free(arr2.ar);
+	//arr2 = tmp2;
 	if (arr1.size == *max)
 	{
 		nb[0] = tmp1;

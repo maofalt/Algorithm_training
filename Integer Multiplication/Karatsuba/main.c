@@ -78,9 +78,9 @@ t_tab	RecIntMult(t_tab nb1, t_tab nb2)
 	free(nbs[2].ar);
 	free(nbs[3].ar);
 	int_res[2] = RecIntMult(sum[0], sum[1]);
-	if (!sum[0].ar)
+	if (sum[0].ar)
 		free(sum[0].ar);
-	if (!sum[1].ar)
+	if (sum[1].ar)
 		free(sum[1].ar);
 //	Compute adbc = pq -ac-bd : first k = sum(ac +bd), then substract pq - k;
 	tmp1 = ft_compute_substraction(int_res);
@@ -94,6 +94,7 @@ t_tab	RecIntMult(t_tab nb1, t_tab nb2)
 	ft_all_resize(int_res, max);
 	//additioning with grade school additioning
 	result = ft_add_all(int_res);
+	
 	return (result);
 }
 
@@ -125,36 +126,10 @@ int	main(int argc, char **argv)
 		result = RecIntMult(nbr1, nbr2);
 		print_array("result", result);
 		free(result.ar);
-		//free(nbr1.ar);
-		//free(nbr2.ar);
+		free(nbr1.ar);
+		free(nbr2.ar);
 	}
 	else
 		printf("There are not two numbers\n");
 	return (0);
 }
-
-/*int	main(int argc, char **argv)*/
-/*{*/
-	/*int i = 0, max = 0;*/
-	/*t_tab	nbr1, nbr2, result;*/
-
-	/*if  (argc == 3)*/
-	/*{*/
-		/*//Transform said numbers to int (atoi)*/
-		/*nbr1 = ft_char_to_int(argv[1]);*/
-		/*nbr2 = ft_char_to_int(argv[2]);*/
-		/*//Find bigges size array and roundoup to the next even number*/
-		/*max = ft_find_max_size(nbr1, nbr2);*/
-		/*//Restruct both number to that max size, adding max-nbr*.size 0 to the left*/
-		/*nbr1 = ft_struct_resize(nbr1, max - nbr1.size);*/
-		/*nbr2 = ft_struct_resize(nbr2, max - nbr2.size);*/
-		/*//We calculate ecusrively the number*/
-		/*result = ft_substracting(nbr1, nbr2);*/
-		/*i = 0;*/
-		/*while (i < result.size)*/
-			/*printf("%d",result.ar[i++]);*/
-	/*}*/
-	/*else*/
-		/*printf("There are not two numbers\n");*/
-	/*return (0);*/
-/*}*/

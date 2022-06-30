@@ -26,7 +26,7 @@ typedef struct s_data
 typedef struct s_node
 {
 	t_data			data;
-	struct s_nod	*npx;
+	struct s_node*	npx;
 }					t_node;
 
 /*############################################################################*/
@@ -34,7 +34,7 @@ typedef struct s_node
 /*############################################################################*/
 
 /* retuns XORed value of the node addresses */
-t_node* XOR(t_node *a, t_node *b);
+t_node *XOR(t_node *a, t_node *b);
 
 /*############################################################################*/
 /*                          PARSING FUNCTIONS                                 */

@@ -29,6 +29,13 @@ typedef struct s_node
 	struct s_node*	npx;
 }					t_node;
 
+typedef struct s_list
+{
+	t_node		*head;
+	t_node		*tail;
+	size_t		size;
+}				t_list;
+
 /*############################################################################*/
 /*                            NODE FUNCTIONS                                 */
 /*############################################################################*/

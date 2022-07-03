@@ -15,35 +15,97 @@ t_node	*ft_node_create(t_data data, t_node *npx)
 	return (new);
 }
 
+t_list	ft_list_create(t_list *node)
+{
+	t_list	new_list;
+
+	new_list.head = NULL;
+	new_list.tail = NULL;
+	new_list.size = 0;
+	return (new_list);
+}
+
 //Inserted at the end of the list
-t_node	ft_node_insert(t_node **head, t_node **tail, t_data data)
+void	ft_node_insert(t_list *list, t_data data)
 {
 	t_node	*new;
-	t_node	*h;
-	t_node	*t;
-	t_node	npx;
+	t_node	*before;
+	t_node	*after;
 
-	h = *head;
-	t = *tail;
-	if (!head && !tail) {
-		new = ft_node_create(data, NULL);
-		*head = new;
-		*tail = new;
+	if (list->size == 0) 
+		list->head = ft_node_create(data, NULL);
+	else if (list->size == 1 && data.index == 0)
+	{
+		list->tail = list->head;
+		list->head = ft_node_create(data, NULL);
 	}
-	else if (h == t)
-		*tail = ft_node_create(data, NULL);
+	else if (list->size == 1 && data.index == 1)
+		list->tail = ft_node_create(data, NULL);
 	else
 	{
-		new = ft_node_create(data, XOR(h, t));
-		if (!h->npx || !t->npx)
+		new = ft_node_create(data, XOR(before, after));
+		if (list->size == 2)
 		{
-			t->npx = XOR(new, h);
-			h->npx = XOR(new, t);
+			after->npx = XOR(new, before);
+			before->npx = XOR(new, after);
 		}
-		else{
+		before = ft_list_find_index_add();
+		after = ft_list_get_next_add();
+		else
+		{
 			h->npx = XOR(new, XOR(t->npx, h));
 			t->npx = XOR(new, XOR(h->npx, t));
 		}
+	}
+	list->size++;
+	
+}
+
+// void	ft_node_insert(t_node **head, t_node **tail, t_data data)
+// {
+// 	t_node	*new;
+// 	t_node	*h;
+// 	t_node	*t;
+
+// 	h = *head;
+// 	t = *tail;
+// 	if (!head && !tail) {
+// 		head = ft_node_create(data, NULL);
+// 		*tail = *head;
+// 	}
+// 	else if (h == t)
+// 		*tail = ft_node_create(data, NULL);
+// 	else
+// 	{
+// 		new = ft_node_create(data, XOR(h, t));
+// 		if (!h->npx || !t->npx)
+// 		{
+// 			t->npx = XOR(new, h);
+// 			h->npx = XOR(new, t);
+// 		}
+// 		else{
+// 			h->npx = XOR(new, XOR(t->npx, h));
+// 			t->npx = XOR(new, XOR(h->npx, t));
+// 		}
+// 		*head = h;
+// 		*tail = t;
+// 	}
+// }
+
+void	ft_list_print_data(t_list list)
+{
+	t_node	*current;
+	t_node	*t;
+	t_node	*tmp;
+
+	current = head;
+	t = tail;
+	while (current->data.index != list.size)
+	{
+		printf("Index:%d|Nbr:%d\n",current->data.index, current->data.nb);
+		tmp = XOR(current->npx, t->npx);
+		t = current;
+		current = tmp;
 	}
 }
 

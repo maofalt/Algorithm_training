@@ -59,14 +59,14 @@ void	ft_node_insert_start(t_list *list, t_data data)
 {
 	t_node	*new;
 
+	new = ft_node_create(data, XOR(list->head, list->tail));
 	if ((!list->head && !list->tail) || !list)
-		*list = ft_list_create(ft_node_create(data, NULL), 
-		ft_node_create(data, NULL), 0);
+		*list = ft_list_create(new, new, 0);
 	else if (list->head == list->tail)
 		*list = ft_list_create(ft_node_create(data, NULL), list->head, 1);
 	else
 	{
-		new = ft_node_create(data, XOR(list->head, list->tail));
+	//	new = ft_node_create(data, XOR(list->head, list->tail));
 		if (!list->head->npx || !list->tail->npx)
 		{
 			list->head->npx = XOR(new, list->tail);
@@ -93,6 +93,7 @@ void	ft_list_new_index(t_list *list)
 	t = list->tail;
 	current = list->head;
 	i = 0;
+	
 	if (list->size < 3)
 	{
 		list->head->data.index = 0;
@@ -103,7 +104,7 @@ void	ft_list_new_index(t_list *list)
 		while (i < list->size)
 		{
 			current->data.index = i++;
-			tmp = XOR(current->npx, t->npx);
+			tmp = XOR(current->npx, t);
 			t = current;
 			current = tmp;
 		}
@@ -150,15 +151,26 @@ void	ft_list_print_data(t_list list)
 	t_node	*current;
 	t_node	*tmp;
 	t_node	*t;
+	size_t	i;
 
 	t = list.tail;
 	current = list.head;
-	while (current->data.index < list.size)
+	i = 0;
+	if (list.size < 3)
 	{
-		printf("Index:[%zu]= %d\n", current->data.index, current->data.nb);
-		tmp = XOR(current->npx, t->npx);
-		t = current;
-		current = tmp;
+		printf("Index:[%zu]= %d\n", current->data.index, list.head->data.nb);
+		printf("Index:[%zu]= %d\n", list.tail->data.index, list.tail->data.nb);
+	}
+	else
+	{
+		while (i < list.size)
+		{
+			printf("Index:[%zu]= %d\n", current->data.index, current->data.nb);
+			tmp = XOR(current->npx, t);
+			t = current;
+			current = tmp;
+			i++;
+		}
 	}
 }
 
@@ -180,10 +192,13 @@ int	main()
 	s.index = 0;
 	ft_node_insert_start(&list, d);
 	ft_list_print_data(list);
+	printf("---------------\n");
 	ft_node_insert_start(&list, a);
 	ft_list_print_data(list);
+	printf("---------------\n");
 	ft_node_insert_start(&list, t);
 	ft_list_print_data(list);
+	printf("---------------\n");
 	ft_node_insert_start(&list, s);
 	ft_list_print_data(list);
 	//i // Insert 7 at the beginning. So linked list becomes

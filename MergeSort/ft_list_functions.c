@@ -63,7 +63,7 @@ void	ft_node_insert_start(t_list *list, t_data data)
 	if ((!list->head && !list->tail) || !list)
 		*list = ft_list_create(new, new, 0);
 	else if (list->head == list->tail)
-		*list = ft_list_create(ft_node_create(data, NULL), list->head, 1);
+		*list = ft_list_create(new, list->head, 1);
 	else
 	{
 	//	new = ft_node_create(data, XOR(list->head, list->tail));
@@ -111,39 +111,6 @@ void	ft_list_new_index(t_list *list)
 	}
 }
 
-/*void	ft_node_insert_end(t_list *list, t_data data)*/
-/*{*/
-	/*t_node	*new;*/
-	/*t_node	*h;*/
-	/*t_node	*t;*/
-
-	/*h = *head;*/
-	/*t = *tail;*/
-	/*if (!head && !tail) {*/
-		/**head = ft_node_create(data, NULL);*/
-		/**tail = *head;*/
-	/*}*/
-	/*else if (h == t)*/
-		/**tail = ft_node_create(data, NULL);*/
-	/*else*/
-	/*{*/
-		/*new = ft_node_create(data, XOR(h, t));*/
-		/*if (!h->npx || !t->npx)*/
-		/*{*/
-			/*t->npx = XOR(new, h);*/
-			/*h->npx = XOR(new, t);*/
-		/*}*/
-		/*else{*/
-			/*h->npx = XOR(new, XOR(t->npx, h));*/
-			/*t->npx = XOR(new, XOR(h->npx, t));*/
-		/*}*/
-		/**head = h;*/
-		/**tail = t;*/
-	/*}*/
-	/*list->size++;*/
-/*}*/
-
-
 //Print all the list, We compare the index inside each node and compare it
 //to the size of the list
 void	ft_list_print_data(t_list list)
@@ -166,6 +133,36 @@ void	ft_list_print_data(t_list list)
 		while (i < list.size)
 		{
 			printf("Index:[%zu]= %d\n", current->data.index, current->data.nb);
+			tmp = XOR(current->npx, t);
+			t = current;
+			current = tmp;
+			i++;
+		}
+	}
+}
+
+void	ft_list_free(t_list *list)
+{
+	t_node	*current;
+	t_node	*tmp;
+	t_node	*t;
+	t_node	*npx;
+	size_t	i;
+
+	t = list->tail;
+	current = list->head;
+	npx = current->npx;
+	i = 1;
+	if (list->size < 3)
+	{
+		free(list->head);
+		free(list->tail);
+	}
+	else
+	{
+		while (i <  (list->size - 1))
+		{
+			free(current);
 			tmp = XOR(current->npx, t);
 			t = current;
 			current = tmp;
@@ -201,6 +198,7 @@ int	main()
 	printf("---------------\n");
 	ft_node_insert_start(&list, s);
 	ft_list_print_data(list);
+	//ft_list_free(&list);
 	//i // Insert 7 at the beginning. So linked list becomes
     // 7->6->NULL
 	

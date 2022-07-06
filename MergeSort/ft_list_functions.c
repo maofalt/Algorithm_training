@@ -51,7 +51,6 @@ void	ft_node_insert_end(t_list *list, t_data data)
 	}
 	list->size++;
 	ft_list_new_index(list);
-
 }
 
 
@@ -152,15 +151,23 @@ void	ft_list_free(t_list *list)
 	t = list->tail;
 	current = list->head;
 	npx = current->npx;
+	(void)npx;
 	i = 1;
-	if (list->size < 3)
+	if (list->size == 1)
 	{
+		free(list->head->npx);
 		free(list->head);
+	}
+	else if (list->size == 2)
+	{
+		free(list->head->npx);
+		free(list->head);
+		free(list->tail->npx);
 		free(list->tail);
 	}
 	else
 	{
-		while (i <  (list->size - 1))
+		while (current->data.index <  (list->size))
 		{
 			free(current);
 			tmp = XOR(current->npx, t);
@@ -173,32 +180,36 @@ void	ft_list_free(t_list *list)
 
 int	main()
 {
-	t_data d,a,t,s;
+	t_data d,a/*,t,s*/;
 	t_node	*head = NULL, *tail = NULL;
 	t_list	list;
 	
 	list = ft_list_create(head, tail, 0);
 	//Insert 6 . So linked list becomes  6 -> NULL
-	d.nb = 0;
+	d.nb = 1;
 	d.index = 0;
 	a.nb = 1;
 	a.index = 0;
-	t.nb = 589;
-	t.index = 0;
-	s.nb = 9875;
-	s.index = 0;
+	// t.nb = 589;
+	// t.index = 0;
+	// s.nb = 9875;
+	// s.index = 0;
 	ft_node_insert_start(&list, d);
-	ft_list_print_data(list);
-	printf("---------------\n");
+	//free(list.head->npx);
+	//free(list.head);
+	//free(list.head);
+	//free(list.tail);
+	//ft_list_print_data(list);
+	//printf("---------------\n");
 	ft_node_insert_start(&list, a);
 	ft_list_print_data(list);
-	printf("---------------\n");
-	ft_node_insert_start(&list, t);
-	ft_list_print_data(list);
-	printf("---------------\n");
-	ft_node_insert_start(&list, s);
-	ft_list_print_data(list);
-	//ft_list_free(&list);
+	// printf("---------------\n");
+	// ft_node_insert_start(&list, t);
+	// ft_list_print_data(list);
+	// printf("---------------\n");
+	// ft_node_insert_start(&list, s);
+	// ft_list_print_data(list);
+	ft_list_free(&list);
 	//i // Insert 7 at the beginning. So linked list becomes
     // 7->6->NULL
 	

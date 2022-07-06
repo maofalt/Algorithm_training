@@ -42,6 +42,13 @@ typedef struct s_list
 
 /* retuns XORed value of the node addresses */
 t_node *XOR(t_node *a, t_node *b);
+t_node	*ft_node_create(t_data data, t_node *npx);
+t_list	ft_list_create(t_node *head, t_node *tail, size_t size);
+void	ft_node_insert_end(t_list *list, t_data data);
+void	ft_node_insert_start(t_list *list, t_data data);
+void	ft_list_new_index(t_list *list);
+void	ft_list_print_data(t_list list);
+void	ft_list_free(t_list *list);
 
 /*############################################################################*/
 /*                          PARSING FUNCTIONS                                 */

@@ -128,7 +128,7 @@ void	ft_list_print_data(t_list list)
 	}
 	else
 	{
-		while (i < list.size + 2)
+		while (i < list.size)
 		{
 			printf("Index:[%zu]= %d\n", current->data.index, current->data.nb);
 			tmp = XOR(current->npx, t);
@@ -173,6 +173,7 @@ void	ft_list_free(t_list *list)
 		}
 	}
 }
+
 t_list	ft_list_rotate(t_list list)
 {
 	t_node	*new_head;
@@ -186,21 +187,34 @@ t_list	ft_list_rotate(t_list list)
 	return (new_list);
 }
 
+t_list	ft_list_reverse_rotate(t_list list)
+{
+	t_node	*new_head;
+	t_node	*new_tail;
+	t_list	new_list;
+
+	new_tail = XOR(list.tail->npx, list.head);
+	new_head = list.tail;
+	new_list = ft_list_create(new_head, new_tail, list.size);
+	ft_list_new_index(&new_list);
+	return (new_list);
+}
+
 int	main()
 {
 	t_data d,a,t,s;
 	t_node	*head = NULL, *tail = NULL;
 	t_list	list;
-	//int		test = 0;
+	int		i = 0;
 
 	list = ft_list_create(head, tail, 0);
 	d.nb = 1;
 	d.index = 0;
-	a.nb = -96;
+	a.nb = -2;
 	a.index = 0;
-	t.nb = 589;
+	t.nb = 3;
 	t.index = 0;
-	s.nb = 9875;
+	s.nb = 4;
 	s.index = 0;
 	ft_node_insert_start(&list, d);
 	ft_node_insert_start(&list, a);
@@ -208,7 +222,12 @@ int	main()
 	ft_node_insert_start(&list, s);
 	ft_list_print_data(list);
 	//list2 = ft_list_create(head, tail, 0);
-	//list = ft_list_rotate(list);
-	//ft_list_print_data(list);
+	printf("After rotation \n");
+	while (i++ < 4)
+	{
+		printf("Rotation [%d]\n", i);
+		list = ft_list_rotate(list);
+		ft_list_print_data(list);
+	}
 	ft_list_free(&list);
 }

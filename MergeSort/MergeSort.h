@@ -96,6 +96,9 @@ t_list	ft_list_rotate(t_list list);
 t_list	ft_list_reverse_rotate(t_list list);
 //We swap the 1st and 2nd nodes of the list
 void	ft_list_swap_first_nodes(t_list *list);
+//
+void	ft_list_cut_past(t_list	*a, t_list *b)
+
 
 /*############################################################################*/
 /*                            STACK OPERATIONS                                */

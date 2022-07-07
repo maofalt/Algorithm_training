@@ -42,6 +42,33 @@ void	ft_node_insert_start(t_list *list, t_data data)
 	ft_list_new_index(list);
 }
 
+void	ft_node_insert_end(t_list *list, t_data data)
+{
+	t_node	*new;
+
+	new = ft_node_create(data, XOR(list->head, list->tail));
+	if ((!list->head && !list->tail) || !list)
+		*list = ft_list_create(new, new, 0);
+	else if ((list->head == list->tail) || list->size == 1)
+		*list = ft_list_create(list->head, new, 1);
+	else
+	{
+		if (list->size == 2)
+		{
+			list->head->npx = XOR(new, list->tail);
+			list->tail->npx = XOR(new, list->head);
+		}
+		else
+		{
+			list->head->npx = XOR(new, XOR(list->head->npx, list->tail));
+			list->tail->npx = XOR(new, XOR(list->tail->npx, list->head));
+		}
+		list->tail = new;
+	}
+	list->size++;
+	ft_list_new_index(list);
+}
+
 //We remove a node from the top
 t_node	*ft_node_remove(t_list *list)
 {

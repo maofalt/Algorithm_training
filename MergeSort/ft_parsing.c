@@ -1,3 +1,5 @@
+#include "MergeSort.h"
+
 int	ft_parsing(char **raw_nb)
 {
 	int	i = 0;

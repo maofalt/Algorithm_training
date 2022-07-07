@@ -23,6 +23,7 @@ typedef struct s_data
 	size_t	index;
 }	t_data;
 
+//Our node structure, possessing npx (prev and next address XORed), as well as data structur
 typedef struct s_node
 {
 	t_data			data;
@@ -35,6 +36,28 @@ typedef struct s_list
 	t_node		*tail;
 	size_t		size;
 }				t_list;
+
+typedef struct s_mov
+{
+	size_t		sa;
+	size_t		sb;
+	size_t		ss;
+	size_t		pa;
+	size_t		pb;
+	size_t		ra;
+	size_t		rb;
+	size_t		rr;
+	size_t		rra;
+	size_t		rrb;
+	size_t		rrr;
+}				t_mov;
+
+typedef struct s_stacks
+{
+	t_list		a;
+	t_list		b;
+	t_mov		mov;
+}				t_stacks;
 
 /*############################################################################*/
 /*                            NODE FUNCTIONS                                  */

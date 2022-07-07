@@ -240,6 +240,28 @@ t_data	ft_data_create(int nb, size_t index)
 	return(new_data);	
 }
 
+void	ft_list_swap_first_nodes(t_list *list)
+{
+	t_data	tmp;
+	t_node	*second;
+
+	if (!list || list->size < 1)
+		return ;
+	else
+	{
+		if (list->size == 2)
+			*list = ft_list_create(list->tail, list->head, list->size);
+		else
+		{
+			tmp = list->head->data;
+			second = XOR(list->head->npx, list->tail);
+			list->head->data = second->data;
+			second->data = tmp;
+		}
+	}
+	ft_list_new_index(list);
+}
+
 int	main()
 {
 	t_data data;
@@ -256,7 +278,9 @@ int	main()
 		i++;
 	}
 	ft_list_print_data(list);
-	
+	printf("Swapped \n");
+	ft_list_swap_first_nodes(&list);
+	ft_list_print_data(list);
 	// int		i = 0;
 	// printf("After rotation \n");
 	// while (i++ < 4)
@@ -265,17 +289,16 @@ int	main()
 	// 	list = ft_list_rotate(list);
 	// 	ft_list_print_data(list);
 	// }
-	t_node	*rem_node;
-		while (list.size)
-	{
-		printf("Removed node\n");
-		rem_node = ft_node_remove(&list);
-		printf("List size |%zu|\n", list.size);
-		ft_list_print_data(list);
-		printf("removed data\n index[%zu]=%d\n", rem_node->data.index, rem_node->data.nb);
-		free(rem_node);
-	}
-	ft_list_print_data(list);
+	// t_node	*rem_node;
+	// 	while (list.size)
+	// {
+	// 	printf("Removed node\n");
+	// 	rem_node = ft_node_remove(&list);
+	// 	printf("List size |%zu|\n", list.size);
+	// 	ft_list_print_data(list);
+	// 	printf("removed data\n index[%zu]=%d\n", rem_node->data.index, rem_node->data.nb);
+	// 	free(rem_node);
+	// }
+	// ft_list_print_data(list);
 	ft_list_free(&list);
-	//free(rem_node);
 }

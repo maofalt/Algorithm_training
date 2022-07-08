@@ -2,14 +2,15 @@
 
 int	main(int argc, char **argv)
 {
-	t_list	list;
-
+	t_stacks	stack;
 	if (argc > 2) 
 	{
-		list = ft_parsing(argv, argc);
-		if (list.head){
-			ft_list_print_data(list);
-			ft_list_free(&list);
+		//Doubles are still not handle
+		*stack.a = ft_parsing(argv, argc);
+		if (stack.a->head){
+			ft_list_print_data(*stack.a);
+			ft_sorting(*stack.a);
+			ft_list_free(stack.a );
 		}
 		else
 		{

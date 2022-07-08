@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/07/08 18:46:41 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/08 19:25:38 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ typedef struct s_stacks
 	t_list		*a;
 	t_list		*b;
 	t_mov		mov;
+	char		*operations;
 }				t_stacks;
 
 /*############################################################################*/
@@ -77,11 +78,13 @@ typedef struct s_stacks
 
 /* retuns XORed value of the node addresses */
 t_node *XOR(t_node *a, t_node *b);
-//Creates new node from a dats structure and from the XOR address of previous and next nodes
+//Creates new node from a dats structure and from the XOR address of previous &&
+// next nodes
 t_node	*ft_node_create(t_data data, t_node *npx);
 //Remove the head node of the list structure, and returns it,. reliinking the nodes.
 t_node	*ft_node_remove(t_list *list);
-//Insert node as a head and a tail respectiveloy, as well as incresing decreasing the list size and reassessing the index 
+//Insert node as a head and a tail respectiveloy, as well as incresing decreasing the list 
+//size and reassessing the index 
 void	ft_node_insert_end(t_list *list, t_data data);
 void	ft_node_insert_start(t_list *list, t_data data);
 
@@ -136,4 +139,10 @@ int		ft_verify_number(char *nbr);
 int		ft_parsing_allowed_chars(char *str);
 char	*ft_parsing_extract_nbr(char *nbr);
 
+/*############################################################################*/
+/*                          SORTING FUNCTIONS                                 */
+/*############################################################################*/
+
+
+void    ft_sorting_main(t_stacks  stack);
 #endif

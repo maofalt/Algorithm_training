@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/07/08 11:48:15 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/08 14:53:40 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,5 +126,12 @@ t_stacks    ft_stack_create(t_list *list_a, t_list *list_b);
 /*############################################################################*/
 /*                          PARSING FUNCTIONS                                 */
 /*############################################################################*/
+
+int	ft_parsing(char **raw_nb);
+int	ft_isdigit(int c);
+int	ft_isspace(int c);
+int	ft_max_min(int sign);
+int	ft_atoi(const char *nptr);
+int	ft_verify_number(char *nbr);
 
 #endif

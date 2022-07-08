@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:28:54 by motero            #+#    #+#             */
-/*   Updated: 2022/07/08 17:12:11 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/08 17:54:13 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,10 @@ int	ft_atoi(const char *nptr)
 	if (c == '-')
 		sign = 1 - (2 * (*nptr++ == '-'));
 	while (ft_isdigit(*nptr))
+	{
+		num *= 10;
 		num += *nptr++ - '0';
+	}
 	return (num * sign);
 }
 
@@ -98,35 +101,47 @@ int	ft_parsing_allowed_chars(char *str)
 	return(0);
 }
 
+char	*ft_parsing_extract_nbr(char *nbr)
+{
+	const int	nbr_size = strlen(nbr);
+	char		*nbr_small;
+	int			i;
+
+	nbr_small = malloc(sizeof(char) * nbr_size);
+	i = 0;
+	while (i < (nbr_size - 1))
+	{
+		nbr_small[i] = nbr[i];
+		i++;
+	}
+	nbr_small[i] = 0;
+	return (nbr_small);
+}
 //Return 1 if both are number and no larger than Int max
 //else return 0
 //forbidden strlen here correct!!
 int	ft_verify_number(char *nbr)
 {
 	const int	nbr_size = strlen(nbr);
-	
 	char		*nbr_small;
-	int			i;
 	int 		tmp_nbr;
+	int			res;
 
-	if (nbr_size > 10)
-		return (0);
+	if (nbr_size > 11)
+		return (1);
 	if (ft_parsing_allowed_chars(nbr))
-		return (0);
-	nbr_small = malloc(sizeof(char) * nbr_size);
-	i = 0;
-	while (i < nbr_size)
-	{
-		nbr_small[i] = nbr[i];
-		i++;
-	}
-	nbr_small[i] = 0;
+		return (1);
+	nbr_small = ft_parsing_extract_nbr(nbr);
+	res = 0;
 	tmp_nbr = ft_atoi(nbr_small);
-	if (tmp_nbr >  (INT_MAX/10))
-		return (0);
+	if (tmp_nbr >  (INT_MAX/10) || tmp_nbr < (INT_MIN/10))
+		res = 1;
 	if (tmp_nbr == (INT_MAX/10) && (nbr[nbr_size - 1] - '0') > 7)
-		return (0);
-	return (1);
+		res = 1;
+	if (tmp_nbr == (INT_MIN/10) && (nbr[nbr_size - 1] - '0') > 8)
+		res = 1;
+	free(nbr_small);
+	return (res);
 }
 
 // t_tab	ft_char_to_int(char *str_nbr)
@@ -147,10 +162,10 @@ int	ft_verify_number(char *nbr)
 int	main()
 {
 
-	char 	string[]="-01234567899874-9a81";
+	char 	string[]="-2147483647";
 
-	if(ft_parsing_allowed_chars(string)) 
-		printf("Forbidden character ahead! ABORT!\n");
+	if(ft_verify_number(string)) 
+		printf("Error");
 	else 
-		printf("Everything is fine\n");
+		printf("Can continue");
 }

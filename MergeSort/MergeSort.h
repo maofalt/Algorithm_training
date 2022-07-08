@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/07/08 16:47:26 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/08 17:53:12 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,5 +133,7 @@ int	ft_isspace(int c);
 int	ft_max_min(int sign);
 int	ft_atoi(const char *nptr);
 int	ft_verify_number(char *nbr);
+int	ft_parsing_allowed_chars(char *str);
+char	*ft_parsing_extract_nbr(char *nbr);
 
 #endif

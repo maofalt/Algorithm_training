@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:37:05 by motero            #+#    #+#             */
-/*   Updated: 2022/07/08 13:09:27 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/08 13:31:02 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,19 +117,20 @@ int	main()
     i = 0;
     printf("size A: %zu\n", stack.a->size);
 	ft_list_print_data(*(stack.a));
-    printf("\nreverse Rotation\n");
-    stack.mov.rra = 1;
-    stack.mov.rrb = 1;
-    stack.mov.ra = 1;
-    stack.mov.rb = 1;
+    printf("\nswap Rotation\n");
+    stack.mov.pa = 0;
+    stack.mov.pb = 1;
     while(i++ < n)
     {
         printf("Iteration %zu\n", i);
-        ft_stack_rotate(stack);
+        ft_stack_push(stack);
+        printf("Stack A\n");
         ft_list_print_data(*(stack.a));
+        printf("Stack B\n");
         ft_list_print_data(*(stack.b));
     }
-
+    ft_stack_push(stack);
+    ft_list_print_data(*(stack.b));
 	// printf("After rotation \n");
     // i = 0;
 	// while (i < n)
@@ -151,5 +152,5 @@ int	main()
 	// }
 	// ft_list_print_data(list);
 	ft_list_free(&list_a);
-   // ft_list_free(&list_b);
+    ft_list_free(&list_b);
 }

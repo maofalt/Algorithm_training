@@ -110,7 +110,7 @@ t_list	ft_list_rotate(t_list list)
 	t_list	new_list;
 
 	new_tail = list.head;
-	new_head = XOR(list.head->npx, list.tail);
+	new_head = XOR(new_tail->npx, list.tail);
 	new_list = ft_list_create(new_head, new_tail, list.size);
 	ft_list_new_index(&new_list);
 	return (new_list);
@@ -147,8 +147,8 @@ void	ft_list_swap_first_nodes(t_list *list)
 			list->head->data = second->data;
 			second->data = tmp;
 		}
+		ft_list_new_index(list);
 	}
-	ft_list_new_index(list);
 }
 
 //move first node froma to b

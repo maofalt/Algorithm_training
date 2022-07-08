@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:28:54 by motero            #+#    #+#             */
-/*   Updated: 2022/07/08 14:55:33 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/08 17:12:11 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int	ft_atoi(const char *nptr)
 {
 	int		num;
 	int		sign;
-	int		bdr;
 	char	c;
 
 	num = 0;
@@ -65,19 +64,39 @@ int	ft_atoi(const char *nptr)
 	while (ft_isspace(*nptr))
 		c = *nptr++;
 	c = *nptr;
-	if (c == '-' || c == '+')
+	if (c == '-')
 		sign = 1 - (2 * (*nptr++ == '-'));
 	while (ft_isdigit(*nptr))
-	{
-		bdr = INT_MAX / 10;
-		if ((num > bdr || num == bdr) && ((*nptr - '0') > 7))
-			return (ft_max_min(sign));
-		num = 10 * num + (*nptr++ - '0');
-	}
+		num += *nptr++ - '0';
 	return (num * sign);
 }
 
+int	ft_parsing_allowed_chars(char *str)
+{
+	const char	allow_char[] = "0123456789-";
+	int			size;
+	int 		i;
+	int			j;
+	int			exist;
 
+	i = 0;
+	size  = strlen(str);
+	while (i < size)
+	{
+		j = 0;
+		exist = 0;
+		while (j < 11)
+		{
+			if (str[i] == allow_char[j])
+				exist++;	
+			j ++;
+		}
+		if (!exist)
+			return (1);
+		i++;
+	}
+	return(0);
+}
 
 //Return 1 if both are number and no larger than Int max
 //else return 0
@@ -85,11 +104,14 @@ int	ft_atoi(const char *nptr)
 int	ft_verify_number(char *nbr)
 {
 	const int	nbr_size = strlen(nbr);
+	
 	char		*nbr_small;
 	int			i;
 	int 		tmp_nbr;
 
 	if (nbr_size > 10)
+		return (0);
+	if (ft_parsing_allowed_chars(nbr))
 		return (0);
 	nbr_small = malloc(sizeof(char) * nbr_size);
 	i = 0;
@@ -124,9 +146,11 @@ int	ft_verify_number(char *nbr)
 
 int	main()
 {
-	char 	string[]="-2147483650";
-	int nbr;
 
-	nbr = ft_atoi(string);
-	printf("nbr=%d\n",nbr);
+	char 	string[]="-01234567899874-9a81";
+
+	if(ft_parsing_allowed_chars(string)) 
+		printf("Forbidden character ahead! ABORT!\n");
+	else 
+		printf("Everything is fine\n");
 }

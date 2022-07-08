@@ -10,6 +10,8 @@ t_node	*ft_node_create(t_data data, t_node *npx)
 	t_node	*new;
 
 	new = (t_node *)malloc(sizeof(t_node));
+	if (!new)
+		return (NULL);
 	new->data = data;
 	new->npx = npx;
 	return (new);

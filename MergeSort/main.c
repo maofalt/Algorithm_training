@@ -17,18 +17,6 @@ int	main(int argc, char **argv)
 			return (0);
 		}
 	}
-	else if (argc == 2)
-	{
-		if (ft_parsing(argv, argc).head){
-			ft_list_print_data(list);
-			ft_list_free(&list);
-		}
-		else
-		{
-			printf("Error while Parsing\n");
-			return (-1);
-		}
-	}
 	else
 	{
 		printf("There are not numbers\n");

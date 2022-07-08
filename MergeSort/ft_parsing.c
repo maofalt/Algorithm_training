@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:28:54 by motero            #+#    #+#             */
-/*   Updated: 2022/07/08 18:41:02 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/08 18:49:05 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,8 @@ char	*ft_parsing_extract_nbr(char *nbr)
 	int			i;
 
 	nbr_small = malloc(sizeof(char) * nbr_size);
+	if (!nbr_small)
+		return (NULL);
 	i = 0;
 	while (i < (nbr_size - 1))
 	{

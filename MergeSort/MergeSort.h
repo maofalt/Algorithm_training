@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MergeSort.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
+/*   Updated: 2022/07/08 11:48:15 by motero           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MERGESORT_H
 # define MERGESORT_H
 
@@ -54,8 +66,8 @@ typedef struct s_mov
 
 typedef struct s_stacks
 {
-	t_list		a;
-	t_list		b;
+	t_list		*a;
+	t_list		*b;
 	t_mov		mov;
 }				t_stacks;
 
@@ -97,12 +109,19 @@ t_list	ft_list_reverse_rotate(t_list list);
 //We swap the 1st and 2nd nodes of the list
 void	ft_list_swap_first_nodes(t_list *list);
 //
-void	ft_list_cut_past(t_list	*a, t_list *b)
+void	ft_list_cut_past(t_list	*a, t_list *b);
 
 
 /*############################################################################*/
 /*                            STACK OPERATIONS                                */
 /*############################################################################*/
+
+void    ft_stack_reverse_rotate(t_stacks stack);
+void    ft_stack_rotate(t_stacks stack);
+void    ft_stack_push(t_stacks stack);
+void    ft_stack_swap(t_stacks stack);
+t_mov   ft_mov_initiliaze(void);
+t_stacks    ft_stack_create(t_list *list_a, t_list *list_b);
 
 /*############################################################################*/
 /*                          PARSING FUNCTIONS                                 */

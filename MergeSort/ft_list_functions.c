@@ -166,43 +166,43 @@ void	ft_list_cut_past(t_list	*a, t_list *b)
 }
 
 
-int	main()
-{
-	t_data data;
-	t_node	*head = NULL, *tail = NULL;
-	t_list	list;
-	int	nbrs[]={1,-96,589,584,2,0};
-	int i = 0;
+// int	main()
+// {
+// 	t_data data;
+// 	t_node	*head = NULL, *tail = NULL;
+// 	t_list	list;
+// 	int	nbrs[]={1,-96,589,584,2,0};
+// 	int i = 0;
 
-	list = ft_list_create(head, tail, 0);
-	while (i < 6)
-	{
-		data = ft_data_create(nbrs[i], i);
-		ft_node_insert_end(&list,data);
-		i++;
-	}
-	ft_list_print_data(list);
-	printf("Swapped \n");
-	ft_list_swap_first_nodes(&list);
-	ft_list_print_data(list);
-	// int		i = 0;
-	// printf("After rotation \n");
-	// while (i++ < 4)
-	// {
-	// 	printf("Rotation [%d]\n", i);
-	// 	list = ft_list_rotate(list);
-	// 	ft_list_print_data(list);
-	// }
-	// t_node	*rem_node;
-	// 	while (list.size)
-	// {
-	// 	printf("Removed node\n");
-	// 	rem_node = ft_node_remove(&list);
-	// 	printf("List size |%zu|\n", list.size);
-	// 	ft_list_print_data(list);
-	// 	printf("removed data\n index[%zu]=%d\n", rem_node->data.index, rem_node->data.nb);
-	// 	free(rem_node);
-	// }
-	// ft_list_print_data(list);
-	ft_list_free(&list);
-}
+// 	list = ft_list_create(head, tail, 0);
+// 	while (i < 6)
+// 	{
+// 		data = ft_data_create(nbrs[i], i);
+// 		ft_node_insert_end(&list,data);
+// 		i++;
+// 	}
+// 	ft_list_print_data(list);
+// 	printf("Swapped \n");
+// 	ft_list_swap_first_nodes(&list);
+// 	ft_list_print_data(list);
+// 	// int		i = 0;
+// 	// printf("After rotation \n");
+// 	// while (i++ < 4)
+// 	// {
+// 	// 	printf("Rotation [%d]\n", i);
+// 	// 	list = ft_list_rotate(list);
+// 	// 	ft_list_print_data(list);
+// 	// }
+// 	// t_node	*rem_node;
+// 	// 	while (list.size)
+// 	// {
+// 	// 	printf("Removed node\n");
+// 	// 	rem_node = ft_node_remove(&list);
+// 	// 	printf("List size |%zu|\n", list.size);
+// 	// 	ft_list_print_data(list);
+// 	// 	printf("removed data\n index[%zu]=%d\n", rem_node->data.index, rem_node->data.nb);
+// 	// 	free(rem_node);
+// 	// }
+// 	// ft_list_print_data(list);
+// 	ft_list_free(&list);
+// }

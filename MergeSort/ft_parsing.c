@@ -6,32 +6,36 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:28:54 by motero            #+#    #+#             */
-/*   Updated: 2022/07/08 17:54:13 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/08 18:41:02 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MergeSort.h"
 
-int	ft_parsing(char **raw_nb)
+t_list	ft_parsing(char **raw_nb, int nb_arg)
 {
-	int	i = 0;
-	// verify each arg to see if is number
-	while (ft_verify_number(raw_nb[i]))
+	int	i;
+	t_list	list_a;
+	t_data	data;
+
+	i = 1;
+	list_a = ft_list_create(NULL, NULL, 0);
+	while (!ft_verify_number(raw_nb[i]))
 	{
+		data = ft_data_create(ft_atoi(raw_nb[i]), i);
+		ft_node_insert_end(&list_a, data);
+		if (i == nb_arg - 1)
+			break;
 		i++;
 	}
-	if (!(ft_verify_number(raw_nb[i])))
+	if ((ft_verify_number(raw_nb[i])))
 	{
-		//ft_free_parsed_nodes(node, i);
-		return (-1);
+		ft_list_free(&list_a);
+		return (list_a);
 	}
 	else
-		return (1);
-	
-	// parse at same time  modify the node
-	// if  error ret -1 && free the nodes that were parsed
-	
-}
+		return (list_a);
+	}
 
 int	ft_isdigit(int c)
 {
@@ -117,6 +121,7 @@ char	*ft_parsing_extract_nbr(char *nbr)
 	nbr_small[i] = 0;
 	return (nbr_small);
 }
+
 //Return 1 if both are number and no larger than Int max
 //else return 0
 //forbidden strlen here correct!!
@@ -142,30 +147,4 @@ int	ft_verify_number(char *nbr)
 		res = 1;
 	free(nbr_small);
 	return (res);
-}
-
-// t_tab	ft_char_to_int(char *str_nbr)
-// {
-// 	t_tab	nbr;
-// 	int	i = 0;
-
-// 	nbr.size = strlen(str_nbr);
-// 	nbr.ar = (int *)malloc(sizeof(int) * nbr.size);
-// 	while (str_nbr[i])
-// 	{
-// 		nbr.ar[i] = str_nbr[i] - '0';
-// 		i++;
-// 	}
-// 	return (nbr);
-// }
-
-int	main()
-{
-
-	char 	string[]="-2147483647";
-
-	if(ft_verify_number(string)) 
-		printf("Error");
-	else 
-		printf("Can continue");
 }

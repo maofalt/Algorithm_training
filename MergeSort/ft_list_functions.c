@@ -101,6 +101,7 @@ void	ft_list_free(t_list *list)
 			current = tmp;
 		}
 	}
+	*list = ft_list_create(NULL, NULL, 0);
 }
 
 t_list	ft_list_rotate(t_list list)

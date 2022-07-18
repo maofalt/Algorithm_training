@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/07/18 18:54:56 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/18 22:28:16 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,8 +124,8 @@ void	ft_list_print_data(t_list list);
 //Free the entire list passed
 void	ft_list_free(t_list *list);
 //Rotates the list "upwards", the head becomes the last , and the second become the first
-t_list	ft_list_rotate(t_list list);
-t_list	ft_list_reverse_rotate(t_list list);
+void	ft_list_rotate(t_list *list);
+void	ft_list_reverse_rotate(t_list *list);
 //We swap the 1st and 2nd nodes of the list
 void	ft_list_swap_first_nodes(t_list *list);
 //
@@ -138,10 +138,10 @@ void	ft_list_reset_mov(t_list *list);
 /*                            STACK OPERATIONS                                */
 /*############################################################################*/
 
-void		ft_stack_reverse_rotate(t_stacks stack);
-void		ft_stack_rotate(t_stacks stack);
-void		ft_stack_push(t_stacks stack);
-void		ft_stack_swap(t_stacks stack);
+void		ft_stack_reverse_rotate(t_stacks *stack);
+void		ft_stack_rotate(t_stacks *stack);
+void		ft_stack_push(t_stacks *stack);
+void		ft_stack_swap(t_stacks *stack);
 
 t_stacks	ft_stack_create(t_list *list_a, t_list *list_b);
 
@@ -162,27 +162,29 @@ char		*ft_parsing_extract_nbr(char *nbr);
 /*                          SORTING FUNCTIONS                                 */
 /*############################################################################*/
 
-t_stacks    ft_sorting_main(t_stacks  stack);
-t_list    	ft_sorting_apply_operations(t_stacks stack);
+void		ft_sorting_main(t_stacks *stack);
+t_list    	ft_sorting_apply_operations(t_stacks *stack);
 int			ft_list_is_sorted(t_list list);
 char    	*ft_instructions_empty(void);
-void    	ft_sorting_apply_rotation(t_stacks stack);
-void		ft_sorting_apply_rev_rotation(t_stacks stack);
-void    	ft_sorting_apply_swap(t_stacks stack);
-void    	ft_sorting_apply_push(t_stacks stack);
+void    	ft_sorting_apply_rotation(t_stacks *stack);
+void		ft_sorting_apply_rev_rotation(t_stacks *stack);
+void    	ft_sorting_apply_swap(t_stacks *stack);
+void    	ft_sorting_apply_push(t_stacks *stack);
 
 
 /*############################################################################*/
 /*                          MOVEMENTS FUNCTIONS                               */
 /*############################################################################*/
 
-t_mov   	ft_mov_initiliaze(void);
-void  		ft_move_compound_rotation(t_stacks stack);
-void		ft_move_compound_swap(t_stacks stack);
+t_mov	ft_mov_initiliaze(void);
+void	ft_move_compound_rotation(t_stacks stack);
+void	ft_move_compound_swap(t_stacks stack);
 
 /*############################################################################*/
 /*                       PRE-CALCULATE MOV FUNCTIONS                          */
 /*############################################################################*/
+
+void	ft_calculate_size_three(t_stacks *stack);
 
 /*############################################################################*/
 /*                            MATH FUNCTIONS                                  */

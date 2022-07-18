@@ -6,24 +6,44 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:44:10 by motero            #+#    #+#             */
-/*   Updated: 2022/07/18 18:40:30 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/18 22:28:11 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MergeSort.h"
 
-// void	ft_calculate_size_three(t_list list)
-// {
-// 	t_node	*mid;
-// 	int		min_mid_max[3];
+void	ft_calculate_size_three(t_stacks *stack)
+{
+	t_node	*mid;
+	int		index[3];
+	t_list	list;
 
-// 	mid = XOR(list.head->npx, list.tail);
-// 	ft_find_min_max_mid(list.head->data.nb, mid->data.nb, list.tail->data.nb);
-// }
+	list = *stack->a;
+	index[0] = ft_find_index_min(list);
+	index[1] = ft_find_index_mid(list);
+	index[2] = ft_find_index_max(list);
+	if (index[0] == 1 && index[1] == 0)
+		stack->mov.swap.sa = 1;
+	else if (index[2] == 0 && index[1] == 1)
+	{
+		stack->mov.swap.sa = 1;
+		stack->mov.a.rra = 1;
+	}
+	else if (index[2] == 0 && index[0] == 1)
+		stack->mov.a.ra = 1;
+	else if (index[0] == 0 && index[2] == 1)
+	{
+		stack->mov.swap.sa = 1;
+		stack->mov.a.ra = 1;
+	}
+	else
+		stack->mov.a.rra = 1;
+}
 
 // int	main(int argc, char **argv)
 // {
 // 	t_list	list;
+
 // 	int		index_max, index_min;
 
 // 	list = ft_parsing(argv, argc);

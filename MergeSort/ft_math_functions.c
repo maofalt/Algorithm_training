@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 18:39:46 by motero            #+#    #+#             */
-/*   Updated: 2022/07/18 18:55:52 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/18 18:57:42 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,16 +84,16 @@ int	ft_find_index_mid(t_list list)
 	return (min_mid_max[1]);
 }
 
-int	main(int argc, char **argv)
-{
-	t_list	list;
-	int		index[3];
+// int	main(int argc, char **argv)
+// {
+// 	t_list	list;
+// 	int		index[3];
 
-	list = ft_parsing(argv, argc);
-	index[0] = ft_find_index_min(list);
-	index[1] = ft_find_index_mid(list);
-	index[2] = ft_find_index_max(list);
-	printf("CEci est l'index du min |%i|\n", index[0]);
-	printf("CEci est l'index du mid |%i|\n", index[1]);
-	printf("CEci est l'index du max |%i|\n", index[2]);
-}
+// 	list = ft_parsing(argv, argc);
+// 	index[0] = ft_find_index_min(list);
+// 	index[1] = ft_find_index_mid(list);
+// 	index[2] = ft_find_index_max(list);
+// 	printf("CEci est l'index du min |%i|\n", index[0]);
+// 	printf("CEci est l'index du mid |%i|\n", index[1]);
+// 	printf("CEci est l'index du max |%i|\n", index[2]);
+// }

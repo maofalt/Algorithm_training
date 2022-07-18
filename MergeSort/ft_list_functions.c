@@ -104,30 +104,24 @@ void	ft_list_free(t_list *list)
 	*list = ft_list_create(NULL, NULL, 0);
 }
 
-t_list	ft_list_rotate(t_list list)
+void	ft_list_rotate(t_list *list)
 {
-	t_node	*new_head;
-	t_node	*new_tail;
-	t_list	new_list;
+	t_node	*tmp;
 
-	new_tail = list.head;
-	new_head = XOR(new_tail->npx, list.tail);
-	new_list = ft_list_create(new_head, new_tail, list.size);
-	ft_list_new_index(&new_list);
-	return (new_list);
+	tmp = list->tail;
+	list->tail = list->head;
+	list->head = XOR(list->tail->npx, tmp);
+	ft_list_new_index(list);
 }
 
-t_list	ft_list_reverse_rotate(t_list list)
+void	ft_list_reverse_rotate(t_list *list)
 {
-	t_node	*new_head;
-	t_node	*new_tail;
-	t_list	new_list;
+	t_node	*tmp;
 
-	new_tail = XOR(list.tail->npx, list.head);
-	new_head = list.tail;
-	new_list = ft_list_create(new_head, new_tail, list.size);
-	ft_list_new_index(&new_list);
-	return (new_list);
+	tmp = list->tail;
+	list->tail = XOR(list->tail->npx, list->head);
+	list->head = tmp;
+	ft_list_new_index(list);
 }
 
 void	ft_list_swap_first_nodes(t_list *list)

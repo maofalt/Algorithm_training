@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "concepts": "c"
+        "concepts": "c",
+        "mergesort.h": "c"
     },
     "editor.insertSpaces": false,
     "editor.renderWhitespace": "all",

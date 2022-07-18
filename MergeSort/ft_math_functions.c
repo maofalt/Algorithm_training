@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 18:39:46 by motero            #+#    #+#             */
-/*   Updated: 2022/07/18 18:41:08 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/18 18:55:52 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,29 @@ int	ft_find_index_min(t_list list)
 		current = next;
 	}
 	return (i[1] % list.size);
+}
+
+int	ft_find_index_mid(t_list list)
+{
+	int				min_mid_max[3];
+	const int		sum_index = 3;
+
+	min_mid_max[2] = ft_find_index_max(list);
+	min_mid_max[0] = ft_find_index_min(list);
+	min_mid_max[1] = sum_index - min_mid_max[2] - min_mid_max[0];
+	return (min_mid_max[1]);
+}
+
+int	main(int argc, char **argv)
+{
+	t_list	list;
+	int		index[3];
+
+	list = ft_parsing(argv, argc);
+	index[0] = ft_find_index_min(list);
+	index[1] = ft_find_index_mid(list);
+	index[2] = ft_find_index_max(list);
+	printf("CEci est l'index du min |%i|\n", index[0]);
+	printf("CEci est l'index du mid |%i|\n", index[1]);
+	printf("CEci est l'index du max |%i|\n", index[2]);
 }

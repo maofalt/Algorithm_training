@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:37:05 by motero            #+#    #+#             */
-/*   Updated: 2022/07/18 11:24:48 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/18 11:58:39 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ t_stacks    ft_stack_create(t_list *list_a, t_list *list_b)
     new_stack.a = list_a;
     new_stack.b = list_b;
     new_stack.mov = ft_mov_initiliaze();
+    new_stack.total_moves = 0;
     return (new_stack);
 }
 

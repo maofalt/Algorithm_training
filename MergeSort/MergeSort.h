@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/07/18 11:55:20 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/18 11:57:38 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ typedef struct s_stacks
 	t_list		*b;
 	t_mov		mov;
 	char		*operations;
+	size_t		total_moves;
 }				t_stacks;
 
 /*############################################################################*/
@@ -163,4 +164,5 @@ char	*ft_parsing_extract_nbr(char *nbr);
 
 
 void    ft_sorting_main(t_stacks  stack);
+
 #endif

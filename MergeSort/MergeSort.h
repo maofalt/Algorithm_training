@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/07/18 11:48:58 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/18 11:55:20 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,8 @@ t_list	ft_list_reverse_rotate(t_list list);
 void	ft_list_swap_first_nodes(t_list *list);
 //
 void	ft_list_cut_past(t_list	*a, t_list *b);
+// Reset mov quantas after each pre-calculation of opperations
+void	ft_list_reset_mov(t_list *list);
 
 
 /*############################################################################*/

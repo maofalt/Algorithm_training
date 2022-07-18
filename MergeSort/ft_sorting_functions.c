@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:51:03 by motero            #+#    #+#             */
-/*   Updated: 2022/07/18 15:16:53 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/18 18:23:16 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,19 @@ t_stacks    ft_sorting_main(t_stacks  stack)
     // if there are no moves we move first two to the stack b
     if (stack.total_moves == 0)
     {
-        stack.mov.swap.pb = 2;
-        ft_sorting_apply_operations(stack);
+        if (stack.a->size >= 5)
+        {
+            stack.mov.swap.pb = 2;
+            ft_sorting_apply_operations(stack);
+        }
     }
-    else 
+    else
     {
         //*****Protype***//
         //---------Cases-------
         //Size 1
         if (stack.a->size == 1)
-        {
-        stack.operations = ft_instructions_empty();
-        }
+            stack.operations = ft_instructions_empty();
         //Size 2
         else if (stack.a->size == 2)
         {
@@ -51,7 +52,7 @@ t_stacks    ft_sorting_main(t_stacks  stack)
                 stack.operations = ft_instructions_empty();
             else
             {
-                stack.mov.a.ra = 1;
+                //ft_calculate_size_three(stack.a);
                 ft_sorting_apply_operations(stack);
             }
         }
@@ -83,7 +84,7 @@ t_stacks    ft_sorting_main(t_stacks  stack)
 char    *ft_instructions_empty(void)
 {
     char    *str;
-    
+
     str = (char *)malloc(sizeof(char) * 2);
     if (!str)
         return (NULL);
@@ -107,7 +108,7 @@ int ft_list_is_sorted(t_list list)
 	else if (list.size == 2)
 		return(list.head->data.nb < list.tail->data.nb);
 	else
-	{	
+	{
 		i = 0;
         max = list.head->data.nb;
 		while (i++ < list.size)
@@ -136,8 +137,8 @@ t_list    ft_sorting_apply_operations(t_stacks stack)
         ft_sorting_apply_rev_rotation(stack);
     if (mov.swap.sa || mov.swap.sb || mov.swap.ss)
         ft_sorting_apply_swap(stack);
-    if (mov.swap.pa || mov.swap.pb)
-        ft_sorting_apply_swap(stack);
+    if (mov.swap.pa || mov.push.pb)
+        ft_sorting_apply_push(stack);
     stack.mov = ft_mov_initiliaze();
 }
 
@@ -146,7 +147,7 @@ void    ft_sorting_apply_rotation(t_stacks stack)
     int     movs[3];
     t_mov   mov;
     int     i;
-    
+
     mov = stack.mov;
     movs[0] = mov.a.ra;
     movs[1] = mov.a.rr;
@@ -168,7 +169,7 @@ void    ft_sorting_apply_rev_rotation(t_stacks stack)
     int     movs[3];
     t_mov   mov;
     int     i;
-    
+
     mov = stack.mov;
     movs[0] = mov.a.rra;
     movs[1] = mov.a.rrr;
@@ -190,7 +191,7 @@ void    ft_sorting_apply_swap(t_stacks stack)
     int     movs[3];
     t_mov   mov;
     int     i;
-    
+
     mov = stack.mov;
     movs[0] = mov.swap.sa;
     movs[1] = mov.swap.sb;
@@ -212,7 +213,7 @@ void    ft_sorting_apply_push(t_stacks stack)
     int     movs[2];
     t_mov   mov;
     int     i;
-    
+
     mov = stack.mov;
     movs[0] = mov.swap.pa;
     movs[1] = mov.swap.pb;
@@ -226,46 +227,4 @@ void    ft_sorting_apply_push(t_stacks stack)
         }
         i++;
     }
-}
-
-void   ft_move_compound_rotation(t_stacks stack)
-{
-    size_t  min;
-
-    if (stack.mov.a.ra && stack.mov.b.rb)
-    {
-        if(stack.mov.a.ra > stack.mov.b.rb)
-            min = stack.mov.b.rb;
-        else
-            min = stack.mov.a.ra;
-        stack.mov.a.rr = min;
-        stack.mov.a.ra -= min;
-        stack.mov.b.rb -= min;
-    }   
-    if (stack.mov.a.rra && stack.mov.b.rrb)
-    {
-        if(stack.mov.a.rra > stack.mov.b.rrb)
-            min = stack.mov.b.rrb;
-        else
-            min = stack.mov.a.rra;
-        stack.mov.a.rrr = min;
-        stack.mov.a.rra -= min;
-        stack.mov.b.rrb -= min;
-    }
-}
-
-void   ft_move_compound_swap(t_stacks stack)
-{
-    size_t  min;
-
-    if (stack.mov.swap.sa && stack.mov.swap.sb)
-    {
-        if(stack.mov.swap.sa > stack.mov.swap.sb)
-            min = stack.mov.swap.sb;
-        else
-            min = stack.mov.swap.sa;
-        stack.mov.swap.ss = min;
-        stack.mov.swap.sa -= min;
-        stack.mov.swap.sb -= min;
-    }   
 }

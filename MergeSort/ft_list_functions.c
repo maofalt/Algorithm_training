@@ -27,7 +27,7 @@ void	ft_list_new_index(t_list *list)
 		list->head->data.index = 0;
 		list->tail->data.index = 1;
 	}
-	else 
+	else
 	{
 		while (i < list->size)
 		{
@@ -90,11 +90,11 @@ void	ft_list_free(t_list *list)
 		free(list->tail);
 	}
 	else
-	{	
+	{
 		i = 0;
 		while (i++ < list->size)
 		{
-			
+
 			tmp = XOR(current->npx, t);
 			free(current);
 			t = current;
@@ -157,7 +157,7 @@ void	ft_list_cut_past(t_list	*a, t_list *b)
 {
 	t_node *node;
 	t_data	tmp;
-	
+
 	if (a->size == 0)
 		return ;
 	node = ft_node_remove(a);
@@ -185,11 +185,11 @@ void	ft_list_reset_mov(t_list *list)
 		list->tail->mov = ft_mov_initiliaze();
 	}
 	else
-	{	
+	{
 		i = 0;
 		while (i++ < list->size)
 		{
-			
+
 			tmp = XOR(current->npx, t);
 			current->mov = ft_mov_initiliaze();
 			t = current;

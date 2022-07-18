@@ -14,7 +14,7 @@ t_node	*ft_node_create(t_data data, t_node *npx)
 		return (NULL);
 	new->data = data;
 	new->npx = npx;
-	new->
+	new->mov = ft_mov_initiliaze();
 	return (new);
 }
 

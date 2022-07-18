@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:51:03 by motero            #+#    #+#             */
-/*   Updated: 2022/07/18 14:35:37 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/18 15:16:53 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,52 +128,144 @@ t_list    ft_sorting_apply_operations(t_stacks stack)
     t_mov   mov;
 
     mov = stack.mov;
-    ft_move_compound_rotation(mov);
-    ft_stack_rotate(stack);
-    ft_stack_reverse_rotate(stack);
-    ft_stack_swap(stack);
-    ft_stack_push(stack);
-    mov = ft_mov_initiliaze();
+    ft_move_compound_rotation(stack);
+    ft_move_compound_swap(stack);
+    if (mov.a.ra || mov.a.rr || mov.b.rb)
+        ft_sorting_apply_rotation(stack);
+    if (mov.a.rra || mov.a.rrr || mov.b.rrb)
+        ft_sorting_apply_rev_rotation(stack);
+    if (mov.swap.sa || mov.swap.sb || mov.swap.ss)
+        ft_sorting_apply_swap(stack);
+    if (mov.swap.pa || mov.swap.pb)
+        ft_sorting_apply_swap(stack);
+    stack.mov = ft_mov_initiliaze();
 }
 
-void   ft_move_compound_rotation(t_mov mov)
+void    ft_sorting_apply_rotation(t_stacks stack)
 {
-    size_t  min;
-
-    if (mov.a.ra && mov.b.rb)
+    int     movs[3];
+    t_mov   mov;
+    int     i;
+    
+    mov = stack.mov;
+    movs[0] = mov.a.ra;
+    movs[1] = mov.a.rr;
+    movs[2] = mov.b.rb;
+    i = 0;
+    while (i < 3)
     {
-        if(mov.a.ra > mov.b.rb)
-            min = mov.b.rb;
-        else
-            min = mov.a.ra;
-        mov.a.rr = min;
-        mov.a.ra -= min;
-        mov.b.rb -= min;
-    }   
-    if (mov.a.rra && mov.b.rrb)
-    {
-        if(mov.a.rra > mov.b.rrb)
-            min = mov.b.rrb;
-        else
-            min = mov.a.rra;
-        mov.a.rrr = min;
-        mov.a.rra -= min;
-        mov.b.rrb -= min;
+        while (movs[i])
+        {
+            ft_stack_rotate(stack);
+            movs[i]--;
+        }
+        i++;
     }
 }
 
-void   ft_move_compound_swap(t_mov mov)
+void    ft_sorting_apply_rev_rotation(t_stacks stack)
+{
+    int     movs[3];
+    t_mov   mov;
+    int     i;
+    
+    mov = stack.mov;
+    movs[0] = mov.a.rra;
+    movs[1] = mov.a.rrr;
+    movs[2] = mov.b.rrb;
+    i = 0;
+    while (i < 3)
+    {
+        while (movs[i])
+        {
+            ft_stack_reverse_rotate(stack);
+            movs[i]--;
+        }
+        i++;
+    }
+}
+
+void    ft_sorting_apply_swap(t_stacks stack)
+{
+    int     movs[3];
+    t_mov   mov;
+    int     i;
+    
+    mov = stack.mov;
+    movs[0] = mov.swap.sa;
+    movs[1] = mov.swap.sb;
+    movs[2] = mov.swap.ss;
+    i = 0;
+    while (i < 3)
+    {
+        while (movs[i])
+        {
+            ft_stack_swap(stack);
+            movs[i]--;
+        }
+        i++;
+    }
+}
+
+void    ft_sorting_apply_push(t_stacks stack)
+{
+    int     movs[2];
+    t_mov   mov;
+    int     i;
+    
+    mov = stack.mov;
+    movs[0] = mov.swap.pa;
+    movs[1] = mov.swap.pb;
+    i = 0;
+    while (i < 2)
+    {
+        while (movs[i])
+        {
+            ft_stack_push(stack);
+            movs[i]--;
+        }
+        i++;
+    }
+}
+
+void   ft_move_compound_rotation(t_stacks stack)
 {
     size_t  min;
 
-    if (mov.swap.sa && mov.swap.sb)
+    if (stack.mov.a.ra && stack.mov.b.rb)
     {
-        if(mov.swap.sa > mov.swap.sb)
-            min = mov.swap.sb;
+        if(stack.mov.a.ra > stack.mov.b.rb)
+            min = stack.mov.b.rb;
         else
-            min = mov.swap.sa;
-        mov.swap.ss = min;
-        mov.swap.sa -= min;
-        mov.swap.sb -= min;
+            min = stack.mov.a.ra;
+        stack.mov.a.rr = min;
+        stack.mov.a.ra -= min;
+        stack.mov.b.rb -= min;
+    }   
+    if (stack.mov.a.rra && stack.mov.b.rrb)
+    {
+        if(stack.mov.a.rra > stack.mov.b.rrb)
+            min = stack.mov.b.rrb;
+        else
+            min = stack.mov.a.rra;
+        stack.mov.a.rrr = min;
+        stack.mov.a.rra -= min;
+        stack.mov.b.rrb -= min;
+    }
+}
+
+void   ft_move_compound_swap(t_stacks stack)
+{
+    size_t  min;
+
+    if (stack.mov.swap.sa && stack.mov.swap.sb)
+    {
+        if(stack.mov.swap.sa > stack.mov.swap.sb)
+            min = stack.mov.swap.sb;
+        else
+            min = stack.mov.swap.sa;
+        stack.mov.swap.ss = min;
+        stack.mov.swap.sa -= min;
+        stack.mov.swap.sb -= min;
     }   
 }

@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:51:03 by motero            #+#    #+#             */
-/*   Updated: 2022/07/08 20:10:58 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/18 12:01:35 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ t_stacks    ft_sorting_main(t_stacks  stack)
             ft_sorting_apply_operations(stack);
         }
     }
-    return (stacks);
+    stack.total_moves++;
+    return (stack);
 }
 
 char    *ft_instructions_empty(void)

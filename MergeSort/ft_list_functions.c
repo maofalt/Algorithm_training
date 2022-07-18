@@ -152,7 +152,7 @@ void	ft_list_swap_first_nodes(t_list *list)
 	}
 }
 
-//move first node froma to b
+//move first node from a to b
 void	ft_list_cut_past(t_list	*a, t_list *b)
 {
 	t_node *node;
@@ -164,6 +164,38 @@ void	ft_list_cut_past(t_list	*a, t_list *b)
 	tmp = node->data;
 	free(node);
 	ft_node_insert_start(b, tmp);
+}
+
+void	ft_list_reset_mov(t_list *list)
+{
+	t_node			*current;
+	t_node			*tmp;
+	t_node			*t;
+	size_t			i;
+
+	if (!list->head || !list->tail)
+		return ;
+	t = list->tail;
+	current = list->head;
+	if (list->size == 1)
+		list->head->mov = ft_mov_initiliaze();
+	else if (list->size == 2)
+	{
+		list->head->mov = ft_mov_initiliaze();
+		list->tail->mov = ft_mov_initiliaze();
+	}
+	else
+	{	
+		i = 0;
+		while (i++ < list->size)
+		{
+			
+			tmp = XOR(current->npx, t);
+			current->mov = ft_mov_initiliaze();
+			t = current;
+			current = tmp;
+		}
+	}
 }
 
 

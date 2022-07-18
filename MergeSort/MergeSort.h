@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/07/08 19:25:38 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/18 11:48:58 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_data
 typedef struct s_node
 {
 	t_data			data;
+	t_mov			mov;
 	struct s_node*	npx;
 }					t_node;
 
@@ -51,18 +52,33 @@ typedef struct s_list
 
 typedef struct s_mov
 {
+	t_a			a;
+	t_swap		swap;
+	t_b			b;
+}				t_mov;
+
+typedef struct s_a
+{
+	size_t		ra;
+	size_t		rra;
+}				t_a;
+
+typedef struct s_swap
+{
 	size_t		sa;
 	size_t		sb;
 	size_t		ss;
 	size_t		pa;
 	size_t		pb;
-	size_t		ra;
-	size_t		rb;
 	size_t		rr;
-	size_t		rra;
-	size_t		rrb;
 	size_t		rrr;
-}				t_mov;
+}				t_swap;
+
+typedef struct s_b
+{
+	size_t		rb;
+	size_t		rrb;
+}				t_b;
 
 typedef struct s_stacks
 {

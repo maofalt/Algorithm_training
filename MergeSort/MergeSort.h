@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/07/18 12:03:25 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/18 14:31:14 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ typedef struct s_a
 {
 	size_t		ra;
 	size_t		rra;
+	size_t		rr;
+	size_t		rrr;
 }				t_a;
 
 typedef struct s_swap
@@ -70,8 +72,6 @@ typedef struct s_swap
 	size_t		ss;
 	size_t		pa;
 	size_t		pb;
-	size_t		rr;
-	size_t		rrr;
 }				t_swap;
 
 typedef struct s_b
@@ -164,5 +164,9 @@ char	*ft_parsing_extract_nbr(char *nbr);
 
 
 t_stacks    ft_sorting_main(t_stacks  stack);
+t_list    	ft_sorting_apply_operations(t_stacks stack);
+int			ft_list_is_sorted(t_list list);
+char    	*ft_instructions_empty(void);
+void  		ft_move_compound_rotation(t_mov mov);
 
 #endif

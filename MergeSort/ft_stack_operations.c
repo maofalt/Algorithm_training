@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:37:05 by motero            #+#    #+#             */
-/*   Updated: 2022/07/18 11:58:39 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/18 14:19:58 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ void    ft_stack_rotate(t_stacks stack)
     {
         stack.mov.a.ra = 0;
         stack.mov.b.rb = 0;
-        stack.mov.swap.rr = 1;
+        stack.mov.a.rr = 1;
     }
-    if ((stack.mov.a.ra || stack.mov.swap.rr) && stack.a->size > 1)
+    if ((stack.mov.a.ra || stack.mov.a.rr) && stack.a->size > 1)
         *(stack.a) = ft_list_rotate(*(stack.a));
-    if ((stack.mov.b.rb || stack.mov.swap.rr) && stack.b->size > 1)
+    if ((stack.mov.b.rb || stack.mov.a.rr) && stack.b->size > 1)
         *(stack.b) = ft_list_rotate(*(stack.b));
 }
 
@@ -55,11 +55,11 @@ void    ft_stack_reverse_rotate(t_stacks stack)
     {
         stack.mov.a.rra = 0;
         stack.mov.b.rrb = 0;
-        stack.mov.swap.rrr = 1;
+        stack.mov.a.rrr = 1;
     }
-    if ((stack.mov.a.rra || stack.mov.swap.rrr) && stack.a->size > 1)
+    if ((stack.mov.a.rra || stack.mov.a.rrr) && stack.a->size > 1)
         *(stack.a) = ft_list_reverse_rotate(*stack.a);
-    if ((stack.mov.b.rrb || stack.mov.swap.rrr) && stack.b->size > 1)
+    if ((stack.mov.b.rrb || stack.mov.a.rrr) && stack.b->size > 1)
         *(stack.b) = ft_list_reverse_rotate(*stack.b);
 }
 
@@ -76,8 +76,8 @@ t_mov   ft_mov_initiliaze(void)
 	new_mov.b.rb = 0;
 	new_mov.a.rra = 0;
 	new_mov.b.rrb = 0;
-	new_mov.swap.rr = 0;
-	new_mov.swap.rrr = 0;
+	new_mov.a.rr = 0;
+	new_mov.a.rrr = 0;
 
     return (new_mov);
 }

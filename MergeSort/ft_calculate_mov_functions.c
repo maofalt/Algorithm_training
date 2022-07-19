@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:44:10 by motero            #+#    #+#             */
-/*   Updated: 2022/07/18 22:28:11 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/19 11:06:23 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,12 @@ void	ft_calculate_size_three(t_stacks *stack)
 		stack->mov.a.rra = 1;
 }
 
+
+void	ft_calculate_sorting(t_stacks *stack)
+{
+
+
+}
 // int	main(int argc, char **argv)
 // {
 // 	t_list	list;

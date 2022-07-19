@@ -1,24 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_list_functions.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/19 12:09:20 by motero            #+#    #+#             */
+/*   Updated: 2022/07/19 12:59:19 by motero           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "MergeSort.h"
 
-t_list	ft_list_create(t_node *head, t_node *tail, size_t size)
+t_list	*ft_list_create(t_node *head, t_node *tail, size_t size)
 {
-	t_list	new_list;
+	t_list	*new_list;
 
-	new_list.head = head;
-	new_list.tail = tail;
-	new_list.size = size;
+	new_list = (t_list *)malloc(sizeof(t_list));
+	if (!new_list)
+		return (NULL);
+	new_list->head = head;
+	new_list->tail = tail;
+	new_list->size = size;
 	return (new_list);
 }
 
 void	ft_list_new_index(t_list *list)
 {
-	t_node	*current;
-	t_node	*tmp;
-	t_node	*t;
+	t_node		*current;
+	t_node		*tmp;
+	t_node		*t;
 	size_t		i;
 
-	if(!list->size)
-		return;
+	if (!list->size)
+		return ;
 	t = list->tail;
 	current = list->head;
 	i = 0;
@@ -48,7 +63,7 @@ void	ft_list_print_data(t_list list)
 	t_node	*t;
 	size_t	i;
 
-	if(!list.size)
+	if (!list.size)
 		return ;
 	t = list.tail;
 	current = list.head;
@@ -76,7 +91,6 @@ void	ft_list_free(t_list *list)
 	t_node			*current;
 	t_node			*tmp;
 	t_node			*t;
-	size_t			i;
 
 	if (!list->head || !list->tail)
 		return ;
@@ -91,17 +105,15 @@ void	ft_list_free(t_list *list)
 	}
 	else
 	{
-		i = 0;
-		while (i++ < list->size)
+		while (list->size--)
 		{
-
 			tmp = XOR(current->npx, t);
 			free(current);
 			t = current;
 			current = tmp;
 		}
 	}
-	*list = ft_list_create(NULL, NULL, 0);
+	ft_list_chge_nodes(list, NULL, NULL);
 }
 
 void	ft_list_rotate(t_list *list)
@@ -134,7 +146,7 @@ void	ft_list_swap_first_nodes(t_list *list)
 	else
 	{
 		if (list->size == 2)
-			*list = ft_list_create(list->tail, list->head, list->size);
+			list = ft_list_create(list->tail, list->head, list->size);
 		else
 		{
 			tmp = list->head->data;
@@ -192,7 +204,11 @@ void	ft_list_reset_mov(t_list *list)
 	}
 }
 
-
+void	ft_list_chge_nodes(t_list *list, t_node *new_h, t_node *new_t)
+{
+	list->head = new_h;
+	list->tail = new_t;
+}
 // int	main()
 // {
 // 	t_data data;

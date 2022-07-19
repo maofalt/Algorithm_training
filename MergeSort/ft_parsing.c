@@ -6,16 +6,16 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:28:54 by motero            #+#    #+#             */
-/*   Updated: 2022/07/08 18:49:05 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/19 12:55:56 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MergeSort.h"
 
-t_list	ft_parsing(char **raw_nb, int nb_arg)
+t_list	*ft_parsing(char **raw_nb, int nb_arg)
 {
-	int	i;
-	t_list	list_a;
+	int		i;
+	t_list	*list_a;
 	t_data	data;
 
 	i = 1;
@@ -23,19 +23,19 @@ t_list	ft_parsing(char **raw_nb, int nb_arg)
 	while (!ft_verify_number(raw_nb[i]))
 	{
 		data = ft_data_create(ft_atoi(raw_nb[i]), i);
-		ft_node_insert_end(&list_a, data);
+		ft_node_insert_end(list_a, data);
 		if (i == nb_arg - 1)
-			break;
+			break ;
 		i++;
 	}
 	if ((ft_verify_number(raw_nb[i])))
 	{
-		ft_list_free(&list_a);
+		ft_list_free(list_a);
 		return (list_a);
 	}
 	else
 		return (list_a);
-	}
+}
 
 int	ft_isdigit(int c)
 {
@@ -82,12 +82,12 @@ int	ft_parsing_allowed_chars(char *str)
 {
 	const char	allow_char[] = "0123456789-";
 	int			size;
-	int 		i;
+	int			i;
 	int			j;
 	int			exist;
 
 	i = 0;
-	size  = strlen(str);
+	size = strlen(str);
 	while (i < size)
 	{
 		j = 0;
@@ -95,14 +95,14 @@ int	ft_parsing_allowed_chars(char *str)
 		while (j < 11)
 		{
 			if (str[i] == allow_char[j])
-				exist++;	
+				exist++;
 			j ++;
 		}
 		if (!exist)
 			return (1);
 		i++;
 	}
-	return(0);
+	return (0);
 }
 
 char	*ft_parsing_extract_nbr(char *nbr)
@@ -131,7 +131,7 @@ int	ft_verify_number(char *nbr)
 {
 	const int	nbr_size = strlen(nbr);
 	char		*nbr_small;
-	int 		tmp_nbr;
+	int			tmp_nbr;
 	int			res;
 
 	if (nbr_size > 11)
@@ -141,11 +141,11 @@ int	ft_verify_number(char *nbr)
 	nbr_small = ft_parsing_extract_nbr(nbr);
 	res = 0;
 	tmp_nbr = ft_atoi(nbr_small);
-	if (tmp_nbr >  (INT_MAX/10) || tmp_nbr < (INT_MIN/10))
+	if (tmp_nbr > (INT_MAX / 10) || tmp_nbr < (INT_MIN / 10))
 		res = 1;
-	if (tmp_nbr == (INT_MAX/10) && (nbr[nbr_size - 1] - '0') > 7)
+	if (tmp_nbr == (INT_MAX / 10) && (nbr[nbr_size - 1] - '0') > 7)
 		res = 1;
-	if (tmp_nbr == (INT_MIN/10) && (nbr[nbr_size - 1] - '0') > 8)
+	if (tmp_nbr == (INT_MIN / 10) && (nbr[nbr_size - 1] - '0') > 8)
 		res = 1;
 	free(nbr_small);
 	return (res);

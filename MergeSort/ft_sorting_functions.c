@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:51:03 by motero            #+#    #+#             */
-/*   Updated: 2022/07/18 22:50:02 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/19 11:49:14 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_sorting_main(t_stacks *stack)
 				stack->operations = ft_instructions_empty();
 			else
 			{
-				ft_calculate_sorting(*stack);
+				ft_calculate_sorting(stack);
 				ft_sorting_apply_operations(stack);
 			}
 		}
@@ -127,11 +127,11 @@ t_list	ft_sorting_apply_operations(t_stacks *stack)
 	stack->mov = ft_mov_initiliaze();
 }
 
-void    ft_sorting_apply_rotation(t_stacks *stack)
+void	ft_sorting_apply_rotation(t_stacks *stack)
 {
-	int    movs[3];
-	t_mov   mov;
-	int    i;
+	int		movs[3];
+	t_mov	mov;
+	int		i;
 
 	mov = stack->mov;
 	movs[0] = mov.a.ra;

@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:44:10 by motero            #+#    #+#             */
-/*   Updated: 2022/07/19 14:57:59 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/19 19:32:59 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	ft_calculate_size_three(t_stacks *stack)
 void	ft_calculate_sorting(t_stacks *stack)
 {
 	stack = NULL;
+	(void)stack;
 }
 // int	main(int argc, char **argv)
 // {

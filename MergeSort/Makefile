@@ -6,7 +6,7 @@
 #    By: motero <motero@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/10 18:38:23 by motero            #+#    #+#              #
-#    Updated: 2022/07/19 21:31:59 by motero           ###   ########.fr        #
+#    Updated: 2022/07/20 15:50:10 by motero           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
 #                          COMPILATOR & FLAGS                                 #
 #=============================================================================#
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 LIBA = ar rc
@@ -79,7 +79,7 @@ OBJS_PATH_PROFILER = objs_prof/
 OBJS_NAME_PROFILER = $(SRCS_NAME_PS:.c=.o)
 OBJS_PROFILER = $(addprefix $(OBJS_PATH_PROFILER), $(OBJS_NAME_PROFILER))
 
-PROFILER_FLAG = -g3 -pg
+PROFILER_FLAG = -pg
 
 #=============================================================================#
 #                                 Fsanitize                                    #
@@ -91,7 +91,7 @@ OBJS_PATH_SANITIZE = objs_sanitize/
 OBJS_NAME_SANITIZE = $(SRCS_NAME_PS:.c=.o)
 OBJS_SANITIZE = $(addprefix $(OBJS_PATH_SANITIZE), $(OBJS_NAME_SANITIZE))
 
-SANITIZE_FLAG = -g3 -fsanitise=address
+SANITIZE_FLAG = -g3 -fsanitize=address
 
 #=============================================================================#
 #                                 Valgrind                                    #
@@ -99,11 +99,23 @@ SANITIZE_FLAG = -g3 -fsanitise=address
 
 VALGND = push_swap_valgrind
 
-OBJS_PATH_SVALGND = objs_valgrind/
+OBJS_PATH_VALGND = objs_valgrind/
 OBJS_NAME_VALGND = $(SRCS_NAME_PS:.c=.o)
 OBJS_VALGND = $(addprefix $(OBJS_PATH_VALGND), $(OBJS_NAME_VALGND))
 
 VALGND_FLAG = -g3
+
+#=============================================================================#
+#                                 Callgrind                                    #
+#=============================================================================#
+
+CALLGND = push_swap_callgrind
+
+OBJS_PATH_CALLGND = objs_callgrind/
+OBJS_NAME_CALLGND = $(SRCS_NAME_PS:.c=.o)
+OBJS_CALLGND = $(addprefix $(OBJS_PATH_CALLGND), $(OBJS_NAME_CALLGND))
+
+CALLGND_FLAG = -g
 
 #=============================================================================#
 #                                COLOURS                                      #
@@ -111,21 +123,30 @@ VALGND_FLAG = -g3
 
 RED = \033[0;31m
 GREEN = \033[0;32m
+BLUE = \033[0;34m
+YELLOW = \033[0;33m
 NONE = \033[0m
+
+bold := $(shell tput bold)
+normal := $(shell tput sgr0)
 
 #=============================================================================#
 #                                RULES                                        #
 #=============================================================================#
 
 all: check_libft project ${NAME} ${HDRS}
-		@echo "Project is ready"
+		@echo "\n $(GREEN) $(bold) \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/"
+		@echo "\t \t[ $(GREEN)✔$(NONE)] $(bold)Project is ready [ $(GREEN)✔$(NONE)]"
+		@echo "$(GREEN) $(bold) /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ \n"
 
 check_libft:
-		@echo "Checking libft ..."
+		@echo "\n[ $(BLUE)$(bold)CHECKING LIBFT$(NONE)]"
+		@echo "============================================="
 		@make -C libft
 
 project:
-		@echo "Checking project ..."
+		@echo "\n == $(bold)$(YELLOW)CHECKING PROJECT$(normal)=="
+		@echo "==============================================="
 
 $(OBJS_PATH):
 		@mkdir $@
@@ -136,11 +157,6 @@ $(OBJS_PATH)%.o: $(SRCS_DIR_PS)%.c $(HDRS) $(LIBFT)
 		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap"
 
 $(NAME): $(OBJS_PATH) $(OBJS) $(LIBFT) $(HDRS)
-		@echo "\t Wait for it ..."
-		@echo "\t─────▄▀▄─────▄▀▄"
-		@echo "\t────▄█░░▀▀▀▀▀░░█▄"
-		@echo "\t▄▄──█░░░░░░░░░░░█──▄▄"
-		@echo "\t▄▄█─█░░▀░░┬░░▀░░█─█▄▄█"
 		@$(CC) $(CFLAGS) $(LIB_BINARY) $(OBJS) -o $@
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap"
 
@@ -150,13 +166,17 @@ $(NAME): $(OBJS_PATH) $(OBJS) $(LIBFT) $(HDRS)
 
 #To xecute as follows :make sanitizer var="1 2 3"
 
-prof: fclean check_libft project ${PROFILE} ${HDRS} run execute_profiler
+prof: fclean check_libft project ${PROFILE} ${HDRS} run_prof execute_profiler
 
 execute_profiler :
 		@gprof -b ${PROFILE} gmon.out > analysis.txt
 		@echo "\t[ $(GREEN) Profling done!$(NONE) ]"
 		@echo "========================================"
 		@cat analysis.txt
+
+run_prof: push_swap_prof
+	@echo "\n[ $(BLUE)$(bold)Executing binary$(NONE) ]"
+	./push_swap_prof $(var)
 
 $(OBJS_PATH_PROFILER):
 		@mkdir $@
@@ -167,8 +187,7 @@ $(OBJS_PATH_PROFILER)%.o: $(SRCS_DIR_PS)%.c $(HDRS) $(LIBFT)
 		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap_prof"
 
 $(PROFILE) : $(OBJS_PATH_PROFILER) $(OBJS_PROFILER) $(LIBFT) $(HDRS)
-		@echo "\t PROFILER COMPILATION"
-		@echo "\t─────▄▀▄─────▄▀▄"
+		@echo " \n[$(bold)$(YELLOW) PROFILER COMPILATION $(NONE)]"
 		$(CC) $(CFLAGS) $(PROFILER_FLAG) $(LIB_BINARY) $(OBJS_PROFILER) -o $@
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_prof"
 
@@ -177,7 +196,11 @@ $(PROFILE) : $(OBJS_PATH_PROFILER) $(OBJS_PROFILER) $(LIBFT) $(HDRS)
 #=============================================================================#
 
 #to launch as folows  : make sanitizer var="1 2 3"
-sanitizer: fclean check_libft project ${SANITIZE} ${HDRS} run
+sanitizer: fclean check_libft project ${SANITIZE} ${HDRS} run_san
+
+run_san: push_swap_sanitize
+	@echo "\n\[ $(BLUE)$(bold)===EXECUTING BINARY====$(NONE)]\n"
+	./push_swap_sanitize $(var)
 
 $(OBJS_PATH_SANITIZE):
 		@mkdir $@
@@ -188,9 +211,8 @@ $(OBJS_PATH_SANITIZE)%.o: $(SRCS_DIR_PS)%.c $(HDRS) $(LIBFT)
 		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap_sanitize"
 
 $(SANITIZE) : $(OBJS_PATH_SANITIZE) $(OBJS_SANITIZE) $(LIBFT) $(HDRS)
-		@echo "\t FSANITIZE COMPILATION"
-		@echo "\t─────▄▀▄─────▄▀▄"
-		$(CC) $(CFLAGS) $(SANITIZE_FLAG) $(LIB_BINARY) $(OBJS_SANITIZE) -o $@
+		@echo "\n [$(GREEN)$(bold)FSANITIZE COMPILATION$(NONE) ]"
+		@$(CC) $(CFLAGS) $(SANITIZE_FLAG) $(LIB_BINARY) $(OBJS_SANITIZE) -o $@
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_sanitize"
 
 #make run_sanitize with good run
@@ -202,6 +224,10 @@ $(SANITIZE) : $(OBJS_PATH_SANITIZE) $(OBJS_SANITIZE) $(LIBFT) $(HDRS)
 #to launch as folows  : make valgnd var="1 2 3"
 valgnd: fclean check_libft project ${VALGND} ${HDRS} run_valgnd
 
+run_valgnd: push_swap_valgrind
+	@echo "\n [ $(BLUE)$(bold) Executing binary with valgrind$(NONE)]\n"
+	@valgrind ./push_swap_valgrind $(var)
+
 $(OBJS_PATH_VALGND):
 		@mkdir $@
 		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
@@ -211,30 +237,50 @@ $(OBJS_PATH_VALGND)%.o: $(SRCS_DIR_PS)%.c $(HDRS) $(LIBFT)
 		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap_valgrind"
 
 $(VALGND) : $(OBJS_PATH_VALGND) $(OBJS_VALGND) $(LIBFT) $(HDRS)
-		@echo "\t VALGND COMPILATION"
-		@echo "\t─────▄▀▄─────▄▀▄"
-		$(CC) $(CFLAGS) $(VALGND_FLAG) $(LIB_BINARY) $(OBJS_VALGND) -o $@
-		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_valgn"
+		@echo "\n[$(GREEN)$(bold)VALGND COMPILATION"
+		@$(CC) $(CFLAGS) $(VALGND_FLAG) $(LIB_BINARY) $(OBJS_VALGND) -o $@
+		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_valgrind"
 
-run_valgnd: push_swap_valgrind
-	@echo "Executing binary with valgrind"
-	@valgrind ./push_swap_valgrind $(var)
+
+#=============================================================================#
+#                                RULES  CALLLGRIND                              #
+#=============================================================================#
+
+#to launch as folows  : make valgnd var="1 2 3"
+callgnd: fclean check_libft project ${VALGND} ${HDRS} run_callgnd
+
+run_callgnd: push_swap_callgrind
+	@echo "\n [ $(BLUE)$(bold) Executing binary with callgrind$(NONE)]\n"
+	@valgrind --tool=callgrind --dump-instr=yes --collect-jumps=yes  ./push_swap_callgrind $(var)
+	@kcachegrind callgrind.out.*
+
+$(OBJS_PATH_CALLGND):
+		@mkdir $@
+		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
+
+$(OBJS_PATH_CALLGND)%.o: $(SRCS_DIR_PS)%.c $(HDRS) $(LIBFT)
+		@$(CC) $(CFLAGS) $(CALLGND_FLAG) $(HDR_INC) $(LIBFT_HDIR_INC) -o $@ -c $<
+		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap_callgrind"
+
+$(CALLGND) : $(OBJS_PATH_CALLGND) $(OBJS_CALLGND) $(LIBFT) $(HDRS)
+		@echo "\n[$(GREEN)$(bold)CALLGND COMPILATION]"
+		@$(CC) $(CFLAGS) $(CALLGND_FLAG) $(LIB_BINARY) $(OBJS_CALLGND) -o $@
+		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_callgrind"
 
 #=============================================================================#
 #                                COMMANDS                                     #
 #=============================================================================#
 
-run: push_swap_prof
-	@echo "Executing binary"
-	./push_swap_prof $(var)
-
 clean:
-		@${RM} $(OBJS_PATH)
+		@echo "[ $(RED)$(bold)STARTING CLEAN$(NONE) ]"
+		@echo "==================================="
+		@${RM} $(OBJS_PATH) $(OBJS_PATH_PROFILER) $(OBJS_PATH_SANITIZE) $(OBJS_PATH_VALGND) $(OBJS_CALLGND)
+		@rm -rf analysis.txt gmon.out callgrind.out.* ${PROFILE}
 		@echo "\t[ $(RED)✗$(NONE) ] $(OBJ_DIR) directory"
 		@make -C ./libft/ clean
 
 fclean: clean
-		@rm -f ${NAME}
+		@rm -f ${NAME} ${PROFILE} ${SANITIZE} ${VALGND} ${CALLGND}
 		@echo "\t[ $(RED)✗$(NONE) ] $(NAME) executable"
 		@make -C ./libft/ fclean
 

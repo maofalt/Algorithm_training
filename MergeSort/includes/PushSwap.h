@@ -205,6 +205,6 @@ int			ft_find_index_mid(t_list list);
 /*############################################################################*/
 /*                    INSTRUCTIONS FUNCTIONS                                  */
 /*############################################################################*/
-void		ft_instructions_parsing(t_stacks *stack);
+size_t		ft_instructions_parsing(t_stacks *stack);
 
 #endif

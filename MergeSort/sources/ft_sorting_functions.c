@@ -100,7 +100,7 @@ void	ft_sorting_apply_operations(t_stacks *stack)
 	mov = stack->mov;
 	ft_move_compound_rotation(*stack);
 	ft_move_compound_swap(*stack);
-	ft_instructions_parsing(stack);
+	stack->total_moves += ft_instructions_parsing(stack);
 	if (mov.swap.sa || mov.swap.sb || mov.swap.ss)
 		ft_sorting_apply_swap(stack);
 	if (mov.a.ra || mov.a.rr || mov.b.rb)
@@ -128,6 +128,12 @@ void	ft_sorting_apply_rotation(t_stacks *stack)
 		while (movs[i])
 		{
 			ft_stack_rotate(stack);
+			if (i == 0)
+				stack->operations = ft_strjoin(stack->operations, "ra\n");
+			if (i == 1)
+				stack->operations = ft_strjoin(stack->operations, "rr\n");
+			if (i == 2)
+				stack->operations = ft_strjoin(stack->operations, "rb\n");
 			movs[i]--;
 		}
 		i++;
@@ -150,6 +156,12 @@ void	ft_sorting_apply_rev_rotation(t_stacks *stack)
 		while (movs[i])
 		{
 			ft_stack_reverse_rotate(stack);
+			if (i == 0)
+				stack->operations = ft_strjoin(stack->operations, "rra\n");
+			if (i == 1)
+				stack->operations = ft_strjoin(stack->operations, "rrr\n");
+			if (i == 2)
+				stack->operations = ft_strjoin(stack->operations, "rrb\n");
 			movs[i]--;
 		}
 		i++;
@@ -172,6 +184,12 @@ void	ft_sorting_apply_swap(t_stacks *stack)
 		while (movs[i])
 		{
 			ft_stack_swap(stack);
+			if (i == 0)
+				stack->operations = ft_strjoin(stack->operations, "sa\n");
+			if (i == 1)
+				stack->operations = ft_strjoin(stack->operations, "sb\n");
+			if (i == 2)
+				stack->operations = ft_strjoin(stack->operations, "ss\n");
 			movs[i]--;
 		}
 		i++;
@@ -193,6 +211,10 @@ void	ft_sorting_apply_push(t_stacks *stack)
 		while (movs[i])
 		{
 			ft_stack_push(stack);
+			if (i == 0)
+				stack->operations = ft_strjoin(stack->operations, "pa\n");
+			if (i == 1)
+				stack->operations = ft_strjoin(stack->operations, "pb\n");
 			movs[i]--;
 		}
 		i++;

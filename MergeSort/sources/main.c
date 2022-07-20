@@ -30,6 +30,7 @@ int	main(int argc, char **argv)
 			{
 				printf("=====Values after sorting=====\n");
 				ft_list_print_data(*stack->a);
+				printf("%s",stack->operations);
 			}
 			else
 				printf("**NOT SORTED CORRECTLY\n");

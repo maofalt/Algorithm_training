@@ -62,7 +62,7 @@ OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
 #=============================================================================#
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 LIBA = ar rc
 LIBS = ranlib
@@ -157,7 +157,7 @@ $(OBJS_PATH)%.o: $(SRCS_DIR_PS)%.c $(HDRS)
 		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap"
 
 $(NAME): $(OBJS_PATH) $(OBJS) $(HDRS)
-		@$(CC) $(CFLAGS)  $(OBJS)  $(HDR_INC) $(LIB_BINARY) -o $@
+		@$(CC) $(CFLAGS)  $(OBJS) $(LIB_BINARY) $(HDR_INC)  -o $@
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap"
 
 #=============================================================================#
@@ -212,7 +212,7 @@ $(OBJS_PATH_SANITIZE)%.o: $(SRCS_DIR_PS)%.c $(HDRS) $(LIBFT)
 
 $(SANITIZE) : $(OBJS_PATH_SANITIZE) $(OBJS_SANITIZE) $(LIBFT) $(HDRS)
 		@echo "\n [$(GREEN)$(bold)FSANITIZE COMPILATION$(NONE) ]"
-		@$(CC) $(CFLAGS) $(SANITIZE_FLAG) $(LIB_BINARY) $(OBJS_SANITIZE) -o $@
+		@$(CC) $(CFLAGS) $(SANITIZE_FLAG) $(OBJS_SANITIZE) $(LIB_BINARY)  -o $@
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_sanitize"
 
 #make run_sanitize with good run

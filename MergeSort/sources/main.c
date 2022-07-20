@@ -39,14 +39,14 @@ int	main(int argc, char **argv)
 		}
 		else
 		{
-			printf("Error while Parsing\n");
+			ft_printf("Error while Parsing\n");
 			ft_stack_free(stack);
 			return (1);
 		}
 	}
 	else
 	{
-		printf("There are not numbers\n");
+		fr_printf("There are not numbers\n");
 	}
 	return (0);
 }

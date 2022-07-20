@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: motero <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 16:01:07 by motero            #+#    #+#             */
-/*   Updated: 2022/05/16 11:42:15 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/20 16:42:28 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,39 +56,40 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
-typedef struct s_list
+typedef struct s_lst
 {
 	void				*content;
-	size_t			zu;
-	struct s_list		*next;
-}						t_list;
+	size_t				zu;
+	struct s_lst		*next;
+}						t_lst;
 
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_lst	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_lst **lst, t_lst *new);
+int		ft_lstsize(t_lst *lst);
+t_lst	*ft_lstlast(t_lst *lst);
+void	ft_lstadd_back(t_lst **lst, t_lst *new);
+void	ft_lstdelone(t_lst *lst, void (*del)(void *));
+void	ft_lstclear(t_lst **lst, void (*del)(void *));
+void	ft_lstiter(t_lst *lst, void (*f)(void *));
+t_lst	*ft_lstmap(t_lst *lst, void *(*f)(void *), void (*del)(void *));
 
 //Main fonction
-int				ft_printf(const char *s, ...);
-int				ft_flags(va_list args, char c);
+
+int		ft_printf(const char *s, ...);
+int		ft_flags(va_list args, char c);
 // Switch case fonction and length counting
-int				ft_single_char(int c);
-int				ft_string(char	*s);
-int				ft_address(unsigned long ptr);
-int				ft_nbr_signed(signed int nbr);
-int				ft_nbr_unsigned(char c, long int nbr);
-int				ft_percent(void);
-char			ft_print_char(char c, const char *str);
+int		ft_single_char(int c);
+int		ft_string(char	*s);
+int		ft_address(unsigned long ptr);
+int		ft_nbr_signed(signed int nbr);
+int		ft_nbr_unsigned(char c, long int nbr);
+int		ft_percent(void);
+char	ft_print_char(char c, const char *str);
 
 //Utils fonctions
-void			ft_putchar(char c);
-int				ft_print_addr(unsigned long addr);
-int				ft_atoi_base(char *str, char *base);
-void			ft_putstr(char *str);
-void			ft_putnbr_base(long int nbr, char *base);
+void	ft_putchar(char c);
+int		ft_print_addr(unsigned long addr);
+int		ft_atoi_base(char *str, char *base);
+void	ft_putstr(char *str);
+void	ft_putnbr_base(long int nbr, char *base);
 #endif

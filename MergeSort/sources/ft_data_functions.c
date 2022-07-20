@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:58:05 by motero            #+#    #+#             */
-/*   Updated: 2022/07/19 14:46:41 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/20 16:23:17 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ t_data	ft_data_create(int nb, size_t index)
 
 	new_data.nb = nb;
 	new_data.index = index;
-	return(new_data);
+	return (new_data);
 }

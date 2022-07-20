@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:06:37 by motero            #+#    #+#             */
-/*   Updated: 2022/07/19 14:47:45 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/20 17:06:14 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 		stack = ft_stack_initilize(list_a);
 		if (stack->a->head)
 		{
-			printf("=====Values before sorting=====\n");
+			ft_printf("=====Values before sorting=====\n");
 			ft_list_print_data(*stack->a);
 			ft_sorting_main(stack);
 			if (ft_list_is_sorted(*stack->a))
@@ -46,6 +46,5 @@ int	main(int argc, char **argv)
 	{
 		printf("There are not numbers\n");
 	}
-	//ft_stack_free(stack);
 	return (0);
 }

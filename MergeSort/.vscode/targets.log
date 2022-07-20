@@ -1,0 +1,983 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Wed Jul 20 18:10:39 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+DESKTOP_SESSION = ubuntu
+# makefile (from 'Makefile', line 19)
+HDR_NAME = PushSwap.h 
+# default
+.SHELLFLAGS := -c
+# environment
+XDG_SESSION_CLASS = user
+# environment
+XDG_SESSION_TYPE = x11
+# environment
+VSCODE_LOG_NATIVE = false
+# makefile (from 'Makefile', line 102)
+OBJS_PATH_VALGND = objs_valgrind/
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# makefile (from 'Makefile', line 37)
+SRCS_DIR_PS = sources/
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+XAUTHORITY = /mnt/nfs/homes/motero/.Xauthority
+# environment
+GDMSESSION = ubuntu
+# environment
+XMODIFIERS = @im=ibus
+# makefile
+CURDIR := /mnt/nfs/homes/motero/42/Algo_Training/MergeSort
+# makefile
+SHELL = /bin/sh
+# makefile (from 'Makefile', line 70)
+RM = rm -Rf
+# makefile (from 'Makefile', line 90)
+OBJS_PATH_SANITIZE = objs_sanitize/
+# environment
+GDM_LANG = en
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+_ = /usr/share/code/code
+# makefile (from 'Makefile', line 65)
+CFLAGS = -Wall -Wextra -Werror
+# makefile (from 'Makefile', line 126)
+BLUE = \033[0;34m
+# makefile (from 'Makefile', line 115)
+OBJS_NAME_CALLGND = $(SRCS_NAME_PS:.c=.o)
+# environment
+JOURNAL_STREAM = 9:4868712
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# makefile (from 'Makefile', line 21)
+HDRS = $(addprefix $(HDR_DIR), $(HDR_NAME))
+# makefile (from 'Makefile', line 118)
+CALLGND_FLAG = -g
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
+# makefile (from 'Makefile', line 30)
+LIB_BINARY = -Llibft -lft
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+MANDATORY_PATH = /usr/share/gconf/ubuntu.mandatory.path
+# environment
+XDG_DATA_DIRS = /usr/share/gnome:/usr/share/ubuntu:/mnt/nfs/homes/motero/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+# makefile (from 'Makefile', line 106)
+VALGND_FLAG = -g3
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/101772/bus
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# makefile (from 'Makefile', line 88)
+ 
+SANITIZE = push_swap_sanitize
+# makefile (from 'Makefile', line 58)
+OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
+# environment
+MANAGERPID = 1124547
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /run/user/101772/vscode-ipc-bcf66c77-49b1-4108-8f87-d78d9941dedc.sock
+# makefile (from 'Makefile', line 78)
+OBJS_PATH_PROFILER = objs_prof/
+# makefile (from 'Makefile', line 82)
+PROFILER_FLAG = -pg
+# makefile (from 'Makefile', line 56)
+OBJS_PATH = objs/
+# environment
+VSCODE_CWD = /mnt/nfs/homes/motero
+# environment
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session23
+# environment
+KRB5CCNAME = FILE:/tmp/krb5cc_101772_SFYTpm
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /mnt/nfs/homes/motero/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+# environment
+GPG_AGENT_INFO = /run/user/101772/gnupg/S.gpg-agent:0:1
+# environment
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# environment
+SESSION_MANAGER = local/e1r3p3.clusters.42paris.fr:@/tmp/.ICE-unix/1125048,unix/e1r3p3.clusters.42paris.fr:/tmp/.ICE-unix/1125048
+# environment
+XDG_RUNTIME_DIR = /run/user/101772
+# makefile (from 'Makefile', line 50)
+SRCS_PS = $(addprefix $(SRCS_DIR_PS), $(SRCS_NAME_PS))
+# environment
+XDG_MENU_PREFIX = gnome-
+# makefile (from 'Makefile', line 103)
+OBJS_NAME_VALGND = $(SRCS_NAME_PS:.c=.o)
+# environment
+VSCODE_LOG_STACK = false
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+INVOCATION_ID = bbeddba531614b79ba6549a9b9fc68b2
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/motero
+# environment
+LS_COLORS = 
+# makefile (from 'Makefile', line 91)
+OBJS_NAME_SANITIZE = $(SRCS_NAME_PS:.c=.o)
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# environment
+SSH_AUTH_SOCK = /run/user/101772/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 1176738
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# makefile (from 'Makefile', line 94)
+SANITIZE_FLAG = -g3 -fsanitize=address
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+PWD = /mnt/nfs/homes/motero/42/Algo_Training/MergeSort
+# default
+.LOADED := 
+# environment
+SSH_AGENT_PID = 1125010
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# makefile (from 'Makefile', line 125)
+GREEN = \033[0;32m
+# environment
+GTK_MODULES = gail:atk-bridge
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /mnt/nfs/homes/motero
+# makefile (from 'Makefile', line 67)
+LIBA = ar rc
+# environment
+VSCODE_CODE_CACHE_PATH = /mnt/nfs/homes/motero/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
+# environment
+LOGNAME = motero
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# makefile (from 'Makefile', line 57)
+OBJS_NAME = $(SRCS_NAME_PS:.c=.o)
+# environment
+ZSH = /mnt/nfs/homes/motero/.oh-my-zsh
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# makefile (from 'Makefile', line 116)
+OBJS_CALLGND = $(addprefix $(OBJS_PATH_CALLGND), $(OBJS_NAME_CALLGND))
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+QT_IM_MODULE = ibus
+# environment
+SHLVL = 0
+# makefile (from 'Makefile', line 31)
+LIBFT = libft/libft.a
+# makefile (from 'Makefile', line 64)
+CC = cc
+# environment
+IM_CONFIG_PHASE = 1
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = motero
+# makefile
+.DEFAULT_GOAL := all
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# environment
+LIBVIRT_DEFAULT_URI = qemu:///system
+# makefile (from 'Makefile', line 22)
+HDR_INC = -I includes -I libft/includes
+# environment
+LESS = -R
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := make
+# environment
+OLDPWD = /mnt/nfs/homes/motero
+# default
+.VARIABLES := 
+# makefile (from 'Makefile', line 76)
+PROFILE = push_swap_prof
+# automatic
+*F = $(notdir $*)
+# environment
+LANGUAGE = en
+# environment
+XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
+# makefile (from 'Makefile', line 128)
+NONE = \033[0m
+# environment
+VSCODE_IPC_HOOK = /run/user/101772/vscode-909febb7-1.68.1-main.sock
+# makefile (from 'Makefile', line 124)
+RED = \033[0;31m
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# makefile (from 'Makefile', line 127)
+YELLOW = \033[0;33m
+# makefile (from 'Makefile', line 28)
+LIBFT_HDIR = libft/includes
+# environment
+GDK_BACKEND = x11
+# makefile (from 'Makefile', line 131)
+normal := 
+# automatic
++F = $(notdir $+)
+# environment
+QT_ACCESSIBILITY = 1
+# makefile (from 'Makefile', line 104)
+OBJS_VALGND = $(addprefix $(OBJS_PATH_VALGND), $(OBJS_NAME_VALGND))
+# makefile (from 'Makefile', line 79)
+OBJS_NAME_PROFILER = $(SRCS_NAME_PS:.c=.o)
+# environment
+DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
+# makefile (from 'Makefile', line 130)
+bold := 
+# 'override' directive
+.SHELLSTATUS := 2
+# default
+MAKEFILES := 
+# makefile (from 'Makefile', line 114)
+OBJS_PATH_CALLGND = objs_callgrind/
+# makefile (from 'Makefile', line 92)
+OBJS_SANITIZE = $(addprefix $(OBJS_PATH_SANITIZE), $(OBJS_NAME_SANITIZE))
+# automatic
+<F = $(notdir $<)
+# makefile (from 'Makefile', line 29)
+LIBFT_HDIR_INC = -I./libft/includes/
+# makefile (from 'Makefile', line 38)
+SRCS_NAME_PS = main.c ft_calculate_mov_functions.c ft_data_functions.c ft_instructions_functions.c ft_list_functions.c ft_math_functions.c ft_move_functions.c ft_node_functions.c ft_parsing.c ft_sorting_functions.c ft_stack_operations.c
+# environment
+PAGER = less
+# environment
+LC_ALL = C
+# makefile (from 'Makefile', line 20)
+HDR_DIR = includes/
+# environment
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# makefile (from 'Makefile', line 68)
+LIBS = ranlib
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# makefile (from 'Makefile', line 112)
+CALLGND = push_swap_callgrind
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+GJS_DEBUG_OUTPUT = stderr
+# makefile (from 'Makefile', line 13)
+NAME = push_swap
+# default
+.RECIPEPREFIX := 
+# makefile (from 'Makefile', line 100)
+VALGND = push_swap_valgrind
+# makefile (from 'Makefile', line 80)
+OBJS_PROFILER = $(addprefix $(OBJS_PATH_PROFILER), $(OBJS_NAME_PROFILER))
+# environment
+LANG = C
+# environment
+DOCKER_HOST = unix:///run/user/101772/docker.sock
+# environment
+VSCODE_PID = 1176738
+# variable set hash-table stats:
+# Load=155/1024=15%, Rehash=0, Collisions=38/296=13%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 59, inode 316571971): 7 files, no impossibilities.
+# sources (device 59, inode 28350568): No files, no impossibilities so far.
+
+# 7 files, no impossibilities in 2 directories.
+
+# Implicit Rules
+
+objs/%.o: sources/%.c includes/PushSwap.h
+#  recipe to execute (from 'Makefile', line 156):
+		@$(CC) $(CFLAGS) $(HDR_INC) $(LIBFT_HDIR_INC) -o $@ -c $<
+		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap"
+
+objs_prof/%.o: sources/%.c includes/PushSwap.h libft/libft.a
+#  recipe to execute (from 'Makefile', line 186):
+		@$(CC) $(CFLAGS) $(PROFILER_FLAG) $(HDR_INC) $(LIBFT_HDIR_INC) -o $@ -c $<
+		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap_prof"
+
+objs_sanitize/%.o: sources/%.c includes/PushSwap.h libft/libft.a
+#  recipe to execute (from 'Makefile', line 210):
+		@$(CC) $(CFLAGS) $(SANITIZE_FLAG) $(HDR_INC) $(LIBFT_HDIR_INC) -o $@ -c $<
+		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap_sanitize"
+
+objs_valgrind/%.o: sources/%.c includes/PushSwap.h libft/libft.a
+#  recipe to execute (from 'Makefile', line 236):
+		@$(CC) $(CFLAGS) $(VALGND_FLAG) $(HDR_INC) $(LIBFT_HDIR_INC) -o $@ -c $<
+		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap_valgrind"
+
+objs_callgrind/%.o: sources/%.c includes/PushSwap.h libft/libft.a
+#  recipe to execute (from 'Makefile', line 262):
+		@$(CC) $(CFLAGS) $(CALLGND_FLAG) $(HDR_INC) $(LIBFT_HDIR_INC) -o $@ -c $<
+		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap_callgrind"
+
+# 5 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+# Not a target:
+objs_callgrind/ft_calculate_mov_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/ft_math_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/ft_stack_operations.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+check_libft:
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := check_libft
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := 
+# automatic
+# | := 
+# automatic
+# < := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=5/14=36%
+#  recipe to execute (from 'Makefile', line 143):
+		@echo "\n[ $(BLUE)$(bold)CHECKING LIBFT$(NONE)]"
+		@echo "============================================="
+		@make -C libft
+
+run_valgnd: push_swap_valgrind
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 228):
+	@echo "\n [ $(BLUE)$(bold) Executing binary with valgrind$(NONE)]\n"
+	@valgrind ./push_swap_valgrind $(var)
+
+# Not a target:
+objs/main.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ 
+objs_valgrind/:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 232):
+		@mkdir $@
+		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
+
+all: check_libft project push_swap includes/PushSwap.h
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
+#  recipe to execute (from 'Makefile', line 138):
+		@echo "\n $(GREEN) $(bold) \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/"
+		@echo "\t \t[ $(GREEN)✔$(NONE)] $(bold)Project is ready [ $(GREEN)✔$(NONE)]"
+		@echo "$(GREEN) $(bold) /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ \n"
+
+push_swap_sanitize: objs_sanitize/ objs_sanitize/main.o objs_sanitize/ft_calculate_mov_functions.o objs_sanitize/ft_data_functions.o objs_sanitize/ft_instructions_functions.o objs_sanitize/ft_list_functions.o objs_sanitize/ft_math_functions.o objs_sanitize/ft_move_functions.o objs_sanitize/ft_node_functions.o objs_sanitize/ft_parsing.o objs_sanitize/ft_sorting_functions.o objs_sanitize/ft_stack_operations.o libft/libft.a includes/PushSwap.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 214):
+		@echo "\n [$(GREEN)$(bold)FSANITIZE COMPILATION$(NONE) ]"
+		@$(CC) $(CFLAGS) $(SANITIZE_FLAG) $(LIB_BINARY) $(OBJS_SANITIZE) -o $@
+		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_sanitize"
+
+run_prof: push_swap_prof
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 178):
+	@echo "\n[ $(BLUE)$(bold)Executing binary$(NONE) ]"
+	./push_swap_prof $(var)
+
+.PHONY: all clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_sanitize/ft_data_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/ft_node_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_sanitize/ft_parsing.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+push_swap_prof: objs_prof/ objs_prof/main.o objs_prof/ft_calculate_mov_functions.o objs_prof/ft_data_functions.o objs_prof/ft_instructions_functions.o objs_prof/ft_list_functions.o objs_prof/ft_math_functions.o objs_prof/ft_move_functions.o objs_prof/ft_node_functions.o objs_prof/ft_parsing.o objs_prof/ft_sorting_functions.o objs_prof/ft_stack_operations.o libft/libft.a includes/PushSwap.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 190):
+		@echo " \n[$(bold)$(YELLOW) PROFILER COMPILATION $(NONE)]"
+		$(CC) $(CFLAGS) $(PROFILER_FLAG) $(LIB_BINARY) $(OBJS_PROFILER) -o $@
+		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_prof"
+
+# Not a target:
+objs_prof/ft_data_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+sanitizer: fclean check_libft project push_swap_sanitize includes/PushSwap.h run_san
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+project:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 148):
+		@echo "\n == $(bold)$(YELLOW)CHECKING PROJECT$(normal)=="
+		@echo "==============================================="
+
+# Not a target:
+objs_prof/ft_parsing.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_sanitize/ft_instructions_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_valgrind/ft_calculate_mov_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_prof/ft_instructions_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+push_swap_callgrind: objs_callgrind/ objs_callgrind/main.o objs_callgrind/ft_calculate_mov_functions.o objs_callgrind/ft_data_functions.o objs_callgrind/ft_instructions_functions.o objs_callgrind/ft_list_functions.o objs_callgrind/ft_math_functions.o objs_callgrind/ft_move_functions.o objs_callgrind/ft_node_functions.o objs_callgrind/ft_parsing.o objs_callgrind/ft_sorting_functions.o objs_callgrind/ft_stack_operations.o libft/libft.a includes/PushSwap.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 266):
+		@echo "\n[$(GREEN)$(bold)CALLGND COMPILATION]"
+		@$(CC) $(CFLAGS) $(CALLGND_FLAG) $(LIB_BINARY) $(OBJS_CALLGND) -o $@
+		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_callgrind"
+
+# Not a target:
+objs_callgrind/ft_data_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-20 17:11:16.735320049
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+objs_callgrind/ft_parsing.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+includes/PushSwap.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+objs/:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 152):
+		@mkdir $@
+		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
+
+# Not a target:
+objs_sanitize/ft_list_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+run_callgnd: push_swap_callgrind
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 253):
+	@echo "\n [ $(BLUE)$(bold) Executing binary with callgrind$(NONE)]\n"
+	@valgrind --tool=callgrind --dump-instr=yes --collect-jumps=yes  ./push_swap_callgrind $(var)
+	@kcachegrind callgrind.out.*
+
+# Not a target:
+objs_sanitize/ft_move_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_callgrind/ft_instructions_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_prof/ft_list_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_prof/ft_move_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_sanitize/ft_sorting_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_sanitize/ft_math_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+libft/libft.a:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_sanitize/ft_stack_operations.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/ft_calculate_mov_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_callgrind/ft_list_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_prof/ft_sorting_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_callgrind/ft_move_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+prof: fclean check_libft project push_swap_prof includes/PushSwap.h run_prof execute_profiler
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 283):
+		@rm -f ${NAME} ${PROFILE} ${SANITIZE} ${VALGND} ${CALLGND}
+		@echo "\t[ $(RED)✗$(NONE) ] $(NAME) executable"
+		@make -C ./libft/ fclean
+
+# Not a target:
+objs_prof/ft_math_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_prof/ft_stack_operations.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+push_swap_valgrind: objs_valgrind/ objs_valgrind/main.o objs_valgrind/ft_calculate_mov_functions.o objs_valgrind/ft_data_functions.o objs_valgrind/ft_instructions_functions.o objs_valgrind/ft_list_functions.o objs_valgrind/ft_math_functions.o objs_valgrind/ft_move_functions.o objs_valgrind/ft_node_functions.o objs_valgrind/ft_parsing.o objs_valgrind/ft_sorting_functions.o objs_valgrind/ft_stack_operations.o libft/libft.a includes/PushSwap.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+ 
+#  recipe to execute (from 'Makefile', line 240):
+		@echo "\n[$(GREEN)$(bold)VALGND COMPILATION"
+		@$(CC) $(CFLAGS) $(VALGND_FLAG) $(LIB_BINARY) $(OBJS_VALGND) -o $@
+		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_valgrind"
+
+# Not a target:
+objs_sanitize/main.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+callgnd: fclean check_libft project push_swap_valgrind includes/PushSwap.h run_callgnd
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_valgrind/ft_parsing.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+valgnd: fclean check_libft project push_swap_valgrind includes/PushSwap.h run_valgnd
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_prof/main.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_callgrind/ft_sorting_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_sanitize/ft_node_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_valgrind/ft_instructions_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_callgrind/ft_math_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_callgrind/ft_stack_operations.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_prof/ft_node_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+run_san: push_swap_sanitize
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 202):
+	@echo "\n\[ $(BLUE)$(bold)===EXECUTING BINARY====$(NONE)]\n"
+	./push_swap_sanitize $(var)
+
+# Not a target:
+objs_callgrind/main.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 275):
+		@echo "[ $(RED)$(bold)STARTING CLEAN$(NONE) ]"
+		@echo "==================================="
+		@${RM} $(OBJS_PATH) $(OBJS_PATH_PROFILER) $(OBJS_PATH_SANITIZE) $(OBJS_PATH_VALGND) $(OBJS_CALLGND)
+		@rm -rf analysis.txt gmon.out callgrind.out.* ${PROFILE}
+		@echo "\t[ $(RED)✗$(NONE) ] $(OBJ_DIR) directory"
+		@make -C ./libft/ clean
+
+execute_profiler:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 172):
+		@gprof -b ${PROFILE} gmon.out > analysis.txt
+		@echo "\t[ $(GREEN) Profling done!$(NONE) ]"
+		@echo "========================================"
+		@cat analysis.txt
+
+# Not a target:
+objs_valgrind/ft_list_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_valgrind/ft_move_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_callgrind/ft_node_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/ft_data_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+push_swap: objs/ objs/main.o objs/ft_calculate_mov_functions.o objs/ft_data_functions.o objs/ft_instructions_functions.o objs/ft_list_functions.o objs/ft_math_functions.o objs/ft_move_functions.o objs/ft_node_functions.o objs/ft_parsing.o objs/ft_sorting_functions.o objs/ft_stack_operations.o includes/PushSwap.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 160):
+		@$(CC) $(CFLAGS)  $(OBJS)  $(HDR_INC) $(LIB_BINARY) -o $@
+		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap"
+
+objs_sanitize/:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 206):
+		@mkdir $@
+		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
+
+# Not a target:
+objs_valgrind/ft_data_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/ft_parsing.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+objs_prof/:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 182):
+		@mkdir $@
+		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
+
+# Not a target:
+objs/ft_instructions_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_valgrind/ft_sorting_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_valgrind/ft_math_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_valgrind/ft_stack_operations.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+objs_callgrind/:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 258):
+		@mkdir $@
+		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
+
+# Not a target:
+objs_valgrind/main.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_sanitize/ft_calculate_mov_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/ft_list_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/ft_move_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_prof/ft_calculate_mov_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_valgrind/ft_node_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs/ft_sorting_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=86/1024=8%, Rehash=0, Collisions=5/220=2%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 100 / storage = 2248 B / avg = 22 B
+# current buf: size = 8162 B / used = 2248 B / count = 100 / avg = 22 B
+
+# strcache performance: lookups = 198 / hit rate = 49%
+# hash-table stats:
+# Load=100/8192=1%, Rehash=0, Collisions=2/198=1%
+# Finished Make data base on Wed Jul 20 18:10:39 2022
+
+ 

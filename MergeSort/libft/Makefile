@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: motero <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: motero <motero@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/10 18:38:23 by motero            #+#    #+#              #
-#    Updated: 2022/06/14 17:53:06 by motero           ###   ########.fr        #
+#    Updated: 2022/07/20 16:39:14 by motero           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,7 +93,7 @@ ft_putnbr_base.c \
 ft_putstr.c \
 ft_strlen.c \
 ft_switch_cases.c\
-ft_switch_case_two.c 
+ft_switch_case_two.c
 SRCS_PRINT = $(addprefix $(SRCS_PATH_PRINT), $(SRCS_PRINT_NAME))
 
 #=============================================================================#
@@ -141,7 +141,7 @@ $(NAME): $(OBJS_PATH) $(OBJS) $(HDRS)
 		@$(LIBS) $@
 		@echo "\t[ $(GREEN)✔$(NONE) ] libft.a library"
 
-$(OBJS_PATH): 
+$(OBJS_PATH):
 			@mkdir $@
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c $(HDRS)

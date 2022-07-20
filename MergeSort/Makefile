@@ -6,7 +6,7 @@
 #    By: motero <motero@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/10 18:38:23 by motero            #+#    #+#              #
-#    Updated: 2022/07/20 15:50:10 by motero           ###   ########.fr        #
+#    Updated: 2022/07/20 17:11:16 by motero           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME = push_swap
 HDR_NAME = PushSwap.h #here other headers too
 HDR_DIR = includes/
 HDRS = $(addprefix $(HDR_DIR), $(HDR_NAME))
-HDR_INC = -I./includes
+HDR_INC = -I includes -I libft/includes
 
 #=============================================================================#
 #                                 LIBRARIES                                     #
@@ -27,7 +27,7 @@ HDR_INC = -I./includes
 
 LIBFT_HDIR = libft/includes
 LIBFT_HDIR_INC = -I./libft/includes/
-LIB_BINARY = -L./libft -lft
+LIB_BINARY = -Llibft -lft
 LIBFT = libft/libft.a
 
 #=============================================================================#
@@ -152,12 +152,12 @@ $(OBJS_PATH):
 		@mkdir $@
 		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
 
-$(OBJS_PATH)%.o: $(SRCS_DIR_PS)%.c $(HDRS) $(LIBFT)
+$(OBJS_PATH)%.o: $(SRCS_DIR_PS)%.c $(HDRS)
 		@$(CC) $(CFLAGS) $(HDR_INC) $(LIBFT_HDIR_INC) -o $@ -c $<
 		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap"
 
-$(NAME): $(OBJS_PATH) $(OBJS) $(LIBFT) $(HDRS)
-		@$(CC) $(CFLAGS) $(LIB_BINARY) $(OBJS) -o $@
+$(NAME): $(OBJS_PATH) $(OBJS) $(HDRS)
+		@$(CC) $(CFLAGS)  $(OBJS)  $(HDR_INC) $(LIB_BINARY) -o $@
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap"
 
 #=============================================================================#

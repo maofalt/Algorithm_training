@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 12:09:20 by motero            #+#    #+#             */
-/*   Updated: 2022/07/19 14:46:53 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/20 16:24:55 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,8 @@ void	ft_list_free(t_list *list)
 		while (list->size--)
 		{
 			tmp = XOR(current->npx, t);
-			free(current);
 			t = current;
+			free(current);
 			current = tmp;
 		}
 	}

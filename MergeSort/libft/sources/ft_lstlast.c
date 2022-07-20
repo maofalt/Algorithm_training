@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: motero <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 00:28:05 by motero            #+#    #+#             */
-/*   Updated: 2022/05/16 19:23:03 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/20 16:43:23 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list	*lst)
+t_lst	*ft_lstlast(t_lst	*lst)
 {
 	while (lst && lst->next)
 		lst = lst->next;

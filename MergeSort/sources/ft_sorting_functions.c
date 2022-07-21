@@ -38,7 +38,7 @@ void	ft_sorting_main(t_stacks *stack)
 			ft_sorting_apply_operations(stack);
 		}
 	}
-	else if (stack->a->size > 3)
+	else if (stack->a->size =<5)
 	{
 		if (ft_list_is_sorted(*stack->a))
 			stack->operations = NULL;

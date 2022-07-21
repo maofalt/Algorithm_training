@@ -39,6 +39,28 @@ void	ft_calculate_size_three(t_stacks *stack)
 		stack->mov.a.rra = 1;
 }
 
+void	ft_calculate_sorting_size_five(t_stacks *stack)
+{
+	t_list	list;
+	size_t	times_to_rotate;
+	t_node	*current;
+
+	stack->mov.swap.pa = 5 - stack->a->size;
+	ft_calculate_size_three(stack);
+	while (stack->b->size)
+	{
+		times_to_rotate = 0
+		while (times_to_rotate < stack->a->size)
+		{
+			if (stack->b->head > current->data->nb)
+				times_to_rotate
+			else
+				break ; 
+		}
+		while (times_to_rotate--)
+	}
+}
+
 void	ft_calculate_sorting(t_stacks *stack)
 {
 	stack = NULL;

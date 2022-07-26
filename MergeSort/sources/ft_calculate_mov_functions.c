@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:44:10 by motero            #+#    #+#             */
-/*   Updated: 2022/07/19 19:32:59 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/26 14:59:02 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,24 @@ void	ft_calculate_sorting_size_five(t_stacks *stack)
 	t_node	*current;
 
 	stack->mov.swap.pa = 5 - stack->a->size;
+	ft_sorting_apply_operations(stack);
 	ft_calculate_size_three(stack);
+	ft_sorting_apply_operations(stack);
+	current = stack->a->head;
 	while (stack->b->size)
 	{
-		times_to_rotate = 0
-		while (times_to_rotate < stack->a->size)
+		times_to_rotate = 0;
+		while (stack->b->head->data.nb > current->data.nb
+			&& times_to_rotate < 3)
 		{
-			if (stack->b->head > current->data->nb)
-				times_to_rotate
-			else
-				break ; 
+			times_to_rotate++;
+			current = XOR(current->npx, stack->a->tail);
+			//create tail and tmp t_node so we can cycle through it
 		}
-		while (times_to_rotate--)
+		//if timees_to_rotate_ == 3 --> reverse rotate ()
+		( stack->mov.rotate = 0 && stack->mov.rrotate = 1)
+		else (stack->mov.rotate == times_rotate);
+			ft_sorting_apply_operations(stack);
 	}
 }
 

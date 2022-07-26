@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:51:03 by motero            #+#    #+#             */
-/*   Updated: 2022/07/20 17:55:00 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/26 14:36:15 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_sorting_main(t_stacks *stack)
 			ft_sorting_apply_operations(stack);
 		}
 	}
-	else if (stack->a->size =<5)
+	else if (stack->a->size <= 5)
 	{
 		if (ft_list_is_sorted(*stack->a))
 			stack->operations = NULL;

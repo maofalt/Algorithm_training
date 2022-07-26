@@ -1,41 +1,45 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/mnt/nfs/homes/motero/42/Algo_Training/MergeSort'
+ 
+tput: No value for $TERM and no -T specified
+
+tput: No value for $TERM and no -T specified
+
 echo "\n[ \033[0;34mCHECKING LIBFT\033[0m]"
 echo "============================================="
 make -C libft
+ 
 echo "\n == \033[0;33mCHECKING PROJECT=="
 echo "==============================================="
 mkdir objs/
 echo "\t [ \033[0;32m✔\033[0m] objs/directory"
-cc -Wall -Wextra -Werror -I includes -I libft/includes -I./libft/includes/ -o objs/main.o -c sources/main.c
+cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/main.o -c sources/main.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/main.o objet push_swap"
-cc -Wall -Wextra -Werror -I includes -I libft/includes -I./libft/includes/ -o objs/ft_calculate_mov_functions.o -c sources/ft_calculate_mov_functions.c
+cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_calculate_mov_functions.o -c sources/ft_calculate_mov_functions.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/ft_calculate_mov_functions.o objet push_swap"
-cc -Wall -Wextra -Werror -I includes -I libft/includes -I./libft/includes/ -o objs/ft_data_functions.o -c sources/ft_data_functions.c
+ 
+cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_data_functions.o -c sources/ft_data_functions.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/ft_data_functions.o objet push_swap"
-cc -Wall -Wextra -Werror -I includes -I libft/includes -I./libft/includes/ -o objs/ft_instructions_functions.o -c sources/ft_instructions_functions.c
+cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_instructions_functions.o -c sources/ft_instructions_functions.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/ft_instructions_functions.o objet push_swap"
-cc -Wall -Wextra -Werror -I includes -I libft/includes -I./libft/includes/ -o objs/ft_list_functions.o -c sources/ft_list_functions.c
+cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_list_functions.o -c sources/ft_list_functions.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/ft_list_functions.o objet push_swap"
-cc -Wall -Wextra -Werror -I includes -I libft/includes -I./libft/includes/ -o objs/ft_math_functions.o -c sources/ft_math_functions.c
+cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_math_functions.o -c sources/ft_math_functions.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/ft_math_functions.o objet push_swap"
-cc -Wall -Wextra -Werror -I includes -I libft/includes -I./libft/includes/ -o objs/ft_move_functions.o -c sources/ft_move_functions.c
+cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_move_functions.o -c sources/ft_move_functions.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/ft_move_functions.o objet push_swap"
-cc -Wall -Wextra -Werror -I includes -I libft/includes -I./libft/includes/ -o objs/ft_node_functions.o -c sources/ft_node_functions.c
+cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_node_functions.o -c sources/ft_node_functions.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/ft_node_functions.o objet push_swap"
-cc -Wall -Wextra -Werror -I includes -I libft/includes -I./libft/includes/ -o objs/ft_parsing.o -c sources/ft_parsing.c
+cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_parsing.o -c sources/ft_parsing.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/ft_parsing.o objet push_swap"
-cc -Wall -Wextra -Werror -I includes -I libft/includes -I./libft/includes/ -o objs/ft_sorting_functions.o -c sources/ft_sorting_functions.c
+cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_sorting_functions.o -c sources/ft_sorting_functions.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/ft_sorting_functions.o objet push_swap"
-cc -Wall -Wextra -Werror -I includes -I libft/includes -I./libft/includes/ -o objs/ft_stack_operations.o -c sources/ft_stack_operations.c
+cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_stack_operations.o -c sources/ft_stack_operations.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/ft_stack_operations.o objet push_swap"
-cc -Wall -Wextra -Werror  objs/main.o objs/ft_calculate_mov_functions.o objs/ft_data_functions.o objs/ft_instructions_functions.o objs/ft_list_functions.o objs/ft_math_functions.o objs/ft_move_functions.o objs/ft_node_functions.o objs/ft_parsing.o objs/ft_sorting_functions.o objs/ft_stack_operations.o  -I includes -I libft/includes -Llibft -lft -o push_swap
+cc -Wall -Wextra -Werror -g  objs/main.o objs/ft_calculate_mov_functions.o objs/ft_data_functions.o objs/ft_instructions_functions.o objs/ft_list_functions.o objs/ft_math_functions.o objs/ft_move_functions.o objs/ft_node_functions.o objs/ft_parsing.o objs/ft_sorting_functions.o objs/ft_stack_operations.o -Llibft -lft -I includes -I libft/includes  -o push_swap
 echo "\t[ \033[0;32m✔\033[0m ] push_swap"
 echo "\n \033[0;32m  \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/"
 echo "\t \t[ \033[0;32m✔\033[0m] Project is ready [ \033[0;32m✔\033[0m]"
 echo "\033[0;32m  /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ \n"
 make: Leaving directory '/mnt/nfs/homes/motero/42/Algo_Training/MergeSort'
  
-tput: No value for $TERM and no -T specified
-tput: No value for $TERM and no -T specified
-

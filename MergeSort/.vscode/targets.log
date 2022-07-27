@@ -10,7 +10,7 @@ tput: No value for $TERM and no -T specified
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jul 26 12:16:38 2022
+# Make data base, printed on Wed Jul 27 14:35:48 2022
 
 # Variables
 
@@ -53,6 +53,8 @@ RM = rm -Rf
 # makefile (from 'Makefile', line 90)
 OBJS_PATH_SANITIZE = objs_sanitize/
 # environment
+GDM_LANG = en
+# environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/share/code/code
@@ -63,7 +65,7 @@ BLUE = \033[0;34m
 # makefile (from 'Makefile', line 115)
 OBJS_NAME_CALLGND = $(SRCS_NAME_PS:.c=.o)
 # environment
-JOURNAL_STREAM = 9:1175867
+JOURNAL_STREAM = 9:327904
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 21)
@@ -95,9 +97,9 @@ SANITIZE = push_swap_sanitize
 # makefile (from 'Makefile', line 58)
 OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
 # environment
-MANAGERPID = 205128
+MANAGERPID = 75683
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/101772/vscode-ipc-41cdcacf-478d-4e27-aa13-3052cb92fd1b.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/101772/vscode-ipc-d85722b8-d9f1-4d8b-97be-64064b4bc9f2.sock
 # makefile (from 'Makefile', line 78)
 OBJS_PATH_PROFILER = objs_prof/
 # makefile (from 'Makefile', line 82)
@@ -107,9 +109,9 @@ OBJS_PATH = objs/
 # environment
 VSCODE_CWD = /mnt/nfs/homes/motero
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session2
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session3
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_101772_iLSjb5
+KRB5CCNAME = FILE:/tmp/krb5cc_101772_z09mRv
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -119,7 +121,7 @@ GPG_AGENT_INFO = /run/user/101772/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/e2r13p3.clusters.42paris.fr:@/tmp/.ICE-unix/205548,unix/e2r13p3.clusters.42paris.fr:/tmp/.ICE-unix/205548
+SESSION_MANAGER = local/e2r2p3.clusters.42paris.fr:@/tmp/.ICE-unix/76065,unix/e2r2p3.clusters.42paris.fr:/tmp/.ICE-unix/76065
 # environment
 XDG_RUNTIME_DIR = /run/user/101772
 # makefile (from 'Makefile', line 50)
@@ -133,7 +135,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 382cf471b98f43a9a77dddeaf2e2b286
+INVOCATION_ID = 8aaed1cf9ce44b34bf36b3e6c466b5b8
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -147,7 +149,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/101772/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 206349
+GIO_LAUNCHED_DESKTOP_FILE_PID = 76771
 # automatic
 %F = $(notdir $%)
 # environment
@@ -161,7 +163,7 @@ PWD = /mnt/nfs/homes/motero/42/Algo_Training/MergeSort
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 205484
+SSH_AGENT_PID = 76019
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # makefile (from 'Makefile', line 125)
@@ -235,6 +237,8 @@ PROFILE = push_swap_prof
 # automatic
 *F = $(notdir $*)
 # environment
+LANGUAGE = en
+# environment
 XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
 # makefile (from 'Makefile', line 128)
 NONE = \033[0m
@@ -278,12 +282,12 @@ MAKEFILES :=
 OBJS_PATH_CALLGND = objs_callgrind/
 # makefile (from 'Makefile', line 92)
 OBJS_SANITIZE = $(addprefix $(OBJS_PATH_SANITIZE), $(OBJS_NAME_SANITIZE))
+ 
 # automatic
 <F = $(notdir $<)
 # makefile (from 'Makefile', line 29)
 LIBFT_HDIR_INC = -I./libft/includes/
 # makefile (from 'Makefile', line 38)
- 
 SRCS_NAME_PS = main.c ft_calculate_mov_functions.c ft_data_functions.c ft_instructions_functions.c ft_list_functions.c ft_math_functions.c ft_move_functions.c ft_node_functions.c ft_parsing.c ft_sorting_functions.c ft_stack_operations.c
 # environment
 PAGER = less
@@ -320,9 +324,9 @@ LANG = C
 # environment
 DOCKER_HOST = unix:///run/user/101772/docker.sock
 # environment
-VSCODE_PID = 206349
+VSCODE_PID = 76771
 # variable set hash-table stats:
-# Load=153/1024=15%, Rehash=0, Collisions=38/294=13%
+# Load=155/1024=15%, Rehash=0, Collisions=38/296=13%
 
 # Pattern-specific Variable Values
 
@@ -330,8 +334,8 @@ VSCODE_PID = 206349
 
 # Directories
 
-# . (device 58, inode 316571971): 7 files, no impossibilities.
-# sources (device 58, inode 28350568): No files, no impossibilities so far.
+# . (device 54, inode 316571971): 7 files, no impossibilities.
+# sources (device 54, inode 28350568): No files, no impossibilities so far.
 
 # 7 files, no impossibilities in 2 directories.
 
@@ -554,6 +558,7 @@ push_swap_callgrind: objs_callgrind/ objs_callgrind/main.o objs_callgrind/ft_cal
 #  recipe to execute (from 'Makefile', line 266):
 		@echo "\n[$(GREEN)$(bold)CALLGND COMPILATION]"
 		@$(CC) $(CFLAGS) $(CALLGND_FLAG) $(LIB_BINARY) $(OBJS_CALLGND) -o $@
+ 
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_callgrind"
 
 # Not a target:
@@ -565,7 +570,6 @@ objs_callgrind/ft_data_functions.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
- 
 #  Last modified 2022-07-25 18:07:21.996181006
 #  File has been updated.
 #  Successfully updated.
@@ -833,6 +837,7 @@ objs_valgrind/ft_list_functions.o:
 #  File has not been updated.
 
 # Not a target:
+ 
 objs_valgrind/ft_move_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -855,7 +860,6 @@ push_swap: objs/ objs/main.o objs/ft_calculate_mov_functions.o objs/ft_data_func
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 160):
- 
 		@$(CC) $(CFLAGS)  $(OBJS) $(LIB_BINARY) $(HDR_INC)  -o $@
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap"
 
@@ -975,6 +979,6 @@ objs/ft_sorting_functions.o:
 # strcache performance: lookups = 198 / hit rate = 49%
 # hash-table stats:
 # Load=100/8192=1%, Rehash=0, Collisions=2/198=1%
-# Finished Make data base on Tue Jul 26 12:16:38 2022
+# Finished Make data base on Wed Jul 27 14:35:48 2022
 
  

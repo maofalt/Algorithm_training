@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:37:05 by motero            #+#    #+#             */
-/*   Updated: 2022/07/20 17:52:58 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/28 21:13:11 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,22 @@ t_stacks	*ft_stack_initilize(t_list *list_a)
 
 void	ft_stack_free(t_stacks *stack)
 {
+	free(stack->operations);
 	ft_list_free(stack->a);
 	if (stack->b->head)
 		ft_list_free(stack->b);
 	free(stack->a);
 	free(stack->b);
-	free(stack->operations);
 	free(stack);
+}
+
+char	*ft_strjoin_w_free(char *s1, char const *s2)
+{
+	char	*str;
+
+	str = ft_strjoin(s1, s2);
+	free(s1);
+	return (str);
 }
 
 // int	main()

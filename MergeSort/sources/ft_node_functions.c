@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:47:09 by motero            #+#    #+#             */
-/*   Updated: 2022/07/19 14:47:15 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/28 20:44:00 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ t_node	*ft_node_create(t_data data, t_node *npx)
 		return (NULL);
 	new->data = data;
 	new->npx = npx;
-	new->mov = ft_mov_initiliaze();
+	new->operations = ft_strjoin("", "");
+	new->nb_optn = 0;
 	return (new);
 }
 
@@ -67,7 +68,7 @@ void	ft_node_insert_end(t_list *list, t_data data)
 	if ((list->head == list->tail) || list->size == 1)
 		ft_list_chge_nodes(list, list->head, new);
 	else
-		{
+	{
 		if (list->size == 2)
 		{
 			list->head->npx = XOR(new, list->tail);
@@ -87,7 +88,7 @@ void	ft_node_insert_end(t_list *list, t_data data)
 //We remove a node from the top
 t_node	*ft_node_remove(t_list *list)
 {
-	t_node *rem_node;
+	t_node	*rem_node;
 
 	if (list->size == 0)
 		return (NULL);

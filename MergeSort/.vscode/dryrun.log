@@ -1,6 +1,9 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/mnt/nfs/homes/motero/42/Algo_Training/MergeSort'
  
+tput: No value for $TERM and no -T specified
+tput: No value for $TERM and no -T specified
+
 echo "\n[ \033[0;34mCHECKING LIBFT\033[0m]"
 echo "============================================="
 make -C libft
@@ -37,6 +40,3 @@ echo "\t \t[ \033[0;32m✔\033[0m] Project is ready [ \033[0;32m✔\033[0m]"
 echo "\033[0;32m  /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ \n"
 make: Leaving directory '/mnt/nfs/homes/motero/42/Algo_Training/MergeSort'
  
-tput: No value for $TERM and no -T specified
-tput: No value for $TERM and no -T specified
-

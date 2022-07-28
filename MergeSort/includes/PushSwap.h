@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/07/20 17:40:17 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/28 21:13:01 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ typedef struct s_mov
 typedef struct s_node
 {
 	t_data			data;
-	t_mov			mov;
+	char			*operations;
+	size_t			nb_optn;
 	struct s_node	*npx;
 }					t_node;
 
@@ -152,6 +153,8 @@ void		ft_stack_swap(t_stacks *stack);
 t_stacks	ft_stack_create(t_list *list_a, t_list *list_b);
 t_stacks	*ft_stack_initilize(t_list *list);
 void		ft_stack_free(t_stacks *stack);
+//Mov to utils ot libft
+char		*ft_strjoin_w_free(char *s1, char const *s2);
 
 /*############################################################################*/
 /*                          PARSING FUNCTIONS                                 */
@@ -191,7 +194,9 @@ void		ft_move_compound_swap(t_stacks stack);
 /*############################################################################*/
 
 void		ft_calculate_size_three(t_stacks *stack);
-void		ft_calculate_sorting(t_stacks *stack);
+void		ft_calculate_sorting_size_five(t_stacks *stack);
+void		ft_calculate_sorting_b_to_a(t_stacks *stack);
+t_node		*ft_node_next(t_list list, size_t i, size_t init);
 
 /*############################################################################*/
 /*                            MATH FUNCTIONS                                  */

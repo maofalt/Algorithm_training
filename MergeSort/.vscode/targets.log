@@ -10,7 +10,7 @@ tput: No value for $TERM and no -T specified
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Jul 27 14:35:48 2022
+# Make data base, printed on Thu Jul 28 21:36:59 2022
 
 # Variables
 
@@ -65,7 +65,7 @@ BLUE = \033[0;34m
 # makefile (from 'Makefile', line 115)
 OBJS_NAME_CALLGND = $(SRCS_NAME_PS:.c=.o)
 # environment
-JOURNAL_STREAM = 9:327904
+JOURNAL_STREAM = 9:593110
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 21)
@@ -97,9 +97,9 @@ SANITIZE = push_swap_sanitize
 # makefile (from 'Makefile', line 58)
 OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
 # environment
-MANAGERPID = 75683
+MANAGERPID = 132974
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/101772/vscode-ipc-d85722b8-d9f1-4d8b-97be-64064b4bc9f2.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/101772/vscode-ipc-f6c25555-5a43-4262-bd51-759a160e0286.sock
 # makefile (from 'Makefile', line 78)
 OBJS_PATH_PROFILER = objs_prof/
 # makefile (from 'Makefile', line 82)
@@ -109,9 +109,9 @@ OBJS_PATH = objs/
 # environment
 VSCODE_CWD = /mnt/nfs/homes/motero
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session3
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session4
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_101772_z09mRv
+KRB5CCNAME = FILE:/tmp/krb5cc_101772_CgcGWd
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -121,7 +121,7 @@ GPG_AGENT_INFO = /run/user/101772/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/e2r2p3.clusters.42paris.fr:@/tmp/.ICE-unix/76065,unix/e2r2p3.clusters.42paris.fr:/tmp/.ICE-unix/76065
+SESSION_MANAGER = local/e2r5p1.clusters.42paris.fr:@/tmp/.ICE-unix/133507,unix/e2r5p1.clusters.42paris.fr:/tmp/.ICE-unix/133507
 # environment
 XDG_RUNTIME_DIR = /run/user/101772
 # makefile (from 'Makefile', line 50)
@@ -135,7 +135,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 8aaed1cf9ce44b34bf36b3e6c466b5b8
+INVOCATION_ID = dce416396b314822a62150af3354ae57
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -149,7 +149,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/101772/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 76771
+GIO_LAUNCHED_DESKTOP_FILE_PID = 171223
 # automatic
 %F = $(notdir $%)
 # environment
@@ -163,7 +163,7 @@ PWD = /mnt/nfs/homes/motero/42/Algo_Training/MergeSort
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 76019
+SSH_AGENT_PID = 133471
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # makefile (from 'Makefile', line 125)
@@ -282,8 +282,8 @@ MAKEFILES :=
 OBJS_PATH_CALLGND = objs_callgrind/
 # makefile (from 'Makefile', line 92)
 OBJS_SANITIZE = $(addprefix $(OBJS_PATH_SANITIZE), $(OBJS_NAME_SANITIZE))
- 
 # automatic
+ 
 <F = $(notdir $<)
 # makefile (from 'Makefile', line 29)
 LIBFT_HDIR_INC = -I./libft/includes/
@@ -324,7 +324,7 @@ LANG = C
 # environment
 DOCKER_HOST = unix:///run/user/101772/docker.sock
 # environment
-VSCODE_PID = 76771
+VSCODE_PID = 171223
 # variable set hash-table stats:
 # Load=155/1024=15%, Rehash=0, Collisions=38/296=13%
 
@@ -334,10 +334,10 @@ VSCODE_PID = 76771
 
 # Directories
 
-# . (device 54, inode 316571971): 7 files, no impossibilities.
+# . (device 54, inode 316571971): 9 files, no impossibilities.
 # sources (device 54, inode 28350568): No files, no impossibilities so far.
 
-# 7 files, no impossibilities in 2 directories.
+# 9 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -558,7 +558,6 @@ push_swap_callgrind: objs_callgrind/ objs_callgrind/main.o objs_callgrind/ft_cal
 #  recipe to execute (from 'Makefile', line 266):
 		@echo "\n[$(GREEN)$(bold)CALLGND COMPILATION]"
 		@$(CC) $(CFLAGS) $(CALLGND_FLAG) $(LIB_BINARY) $(OBJS_CALLGND) -o $@
- 
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_callgrind"
 
 # Not a target:
@@ -570,6 +569,7 @@ objs_callgrind/ft_data_functions.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2022-07-25 18:07:21.996181006
 #  File has been updated.
 #  Successfully updated.
@@ -837,7 +837,6 @@ objs_valgrind/ft_list_functions.o:
 #  File has not been updated.
 
 # Not a target:
- 
 objs_valgrind/ft_move_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -848,6 +847,7 @@ objs_callgrind/ft_node_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+ 
 
 # Not a target:
 objs/ft_data_functions.o:
@@ -973,12 +973,12 @@ objs/ft_sorting_functions.o:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 100 / storage = 2248 B / avg = 22 B
-# current buf: size = 8162 B / used = 2248 B / count = 100 / avg = 22 B
+# strcache buffers: 1 (0) / strings = 101 / storage = 2262 B / avg = 22 B
+# current buf: size = 8162 B / used = 2262 B / count = 101 / avg = 22 B
 
-# strcache performance: lookups = 198 / hit rate = 49%
+# strcache performance: lookups = 200 / hit rate = 49%
 # hash-table stats:
-# Load=100/8192=1%, Rehash=0, Collisions=2/198=1%
-# Finished Make data base on Wed Jul 27 14:35:48 2022
+# Load=101/8192=1%, Rehash=0, Collisions=2/200=1%
+# Finished Make data base on Thu Jul 28 21:36:59 2022
 
  

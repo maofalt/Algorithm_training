@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 12:09:20 by motero            #+#    #+#             */
-/*   Updated: 2022/07/28 21:49:44 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/29 16:21:25 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,14 +168,11 @@ void	ft_list_swap_first_nodes(t_list *list)
 void	ft_list_cut_past(t_list	*a, t_list *b)
 {
 	t_node	*node;
-	t_data	tmp;
 
 	if (a->size == 0)
 		return ;
 	node = ft_node_remove(a);
-	tmp = node->data;
-	ft_node_insert_start(b, tmp);
-	//free(node);
+	ft_node_insert_start_node(b, node);
 }
 
 void	ft_list_reset_mov(t_list *list)
@@ -252,7 +249,6 @@ void	ft_list_chge_nodes(t_list *list, t_node *new_h, t_node *new_t)
 // 	// 	while (list.size)
 // 	// {
 // 	// 	printf("Removed node\n");
-// 	// 	rem_node = ft_node_remove(&list);
 // 	// 	printf("List size |%zu|\n", list.size);
 // 	// 	ft_list_print_data(list);
 // 	// 	printf("removed data\n index[%zu]=%d\n", rem_node->data.index, rem_node->data.nb);

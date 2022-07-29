@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/07/28 21:13:01 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/29 16:23:04 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,10 @@ t_node		*ft_node_remove(t_list *list);
 //size and reassessing the index
 void		ft_node_insert_end(t_list *list, t_data data);
 void		ft_node_insert_start(t_list *list, t_data data);
+
+void		ft_node_insert_start_node(t_list *list, t_node *node);
+void		ft_node_insert_end_node(t_list *list, t_node *node);
+
 
 /*############################################################################*/
 /*                            DATA FUNCTIONS                                  */

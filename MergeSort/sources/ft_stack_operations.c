@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:37:05 by motero            #+#    #+#             */
-/*   Updated: 2022/07/28 21:13:11 by motero           ###   ########.fr       */
+/*   Updated: 2022/07/29 16:08:18 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,6 @@ char	*ft_strjoin_w_free(char *s1, char const *s2)
 // 	// 	while (list.size)
 // 	// {
 // 	// 	printf("Removed node\n");
-// 	// 	rem_node = ft_node_remove(&list);
 // 	// 	printf("List size |%zu|\n", list.size);
 // 	// 	ft_list_print_data(list);
 // 	// 	printf("removed data\n index[%zu]=%d\n",

@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:44:10 by motero            #+#    #+#             */
-/*   Updated: 2022/08/01 19:10:46 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/01 20:05:44 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ void	ft_calculate_sorting_size_five(t_stacks *stack)
 void	ft_calculate_sorting_b_to_a(t_stacks *stack)
 {
 	t_node	*current[2];
-	t_node	*past;
+	t_node	*min;
 	int		times_to_rotate_a;
 	int		times_to_rotate_b;
 
 	times_to_rotate_b = 0;
 	current[1] = ft_node_next(*stack->b, 1, 0);
-	past = current[1];
+	min = current[1];
 	while (times_to_rotate_b < (int)stack->b->size)
 	{
 		current[0] = ft_node_next(*stack->a, 0, 0);
@@ -77,7 +77,7 @@ void	ft_calculate_sorting_b_to_a(t_stacks *stack)
 		{
 			while (times_to_rotate_a--)
 			{
-				current[1]->operations = ft_strjoin(current[1]->operations, "ra\n");
+				current[1]->operations = ft_strjoin_w_free(current[1]->operations, "ra\n");
 				current[1]->nb_optn++;
 			}
 		}
@@ -85,23 +85,23 @@ void	ft_calculate_sorting_b_to_a(t_stacks *stack)
 		{
 			while (times_to_rotate_a++)
 			{
-				current[1]->operations = ft_strjoin(current[1]->operations, "rra\n");
+				current[1]->operations = ft_strjoin_w_free(current[1]->operations, "rra\n");
 				current[1]->nb_optn++;
 			}
 		}
 		if (stack->b->size > 1)
 		{
-			current[1]->operations = ft_strjoin(current[1]->operations, "rb\n");
+			current[1]->operations = ft_strjoin_w_free(current[1]->operations, "rb\n");
 			current[1]->nb_optn++;
-			times_to_rotate_b++;
 		}
-		past = current[1];
-		if (stack->b->size == 1)
-			stack->operations = past->operations;
+		if (min->nb_optn > current[1]->nb_optn)
+			min = current[1];
+		times_to_rotate_b++;
 		current[1] = ft_node_next(*stack->b, 1, -1);
-		else if (current[1]->nb_optn > past->nb_optn)
-			stack->operations = past->operations;
+		ft_printf("instrucions to apply for min %s\n", min->operations);
 	}
+	stack->operations = ft_strjoin_w_free(stack->operations, min->operations);
+	stack->operations = ft_strjoin_w_free(stack->operations, "pa\n");
 }
 
 t_node	*ft_node_next(t_list list, size_t i, size_t init)

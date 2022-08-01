@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 12:09:20 by motero            #+#    #+#             */
-/*   Updated: 2022/07/29 16:21:25 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/01 19:07:09 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_list	*ft_list_create(t_node *head, t_node *tail, size_t size)
 	new_list->head = head;
 	new_list->tail = tail;
 	new_list->size = size;
+	new_list->index_node = 0;
 	return (new_list);
 }
 

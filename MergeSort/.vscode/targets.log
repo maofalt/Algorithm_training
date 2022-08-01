@@ -5,8 +5,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Fri Jul 29 16:08:20 2022
+# Make data base, printed on Mon Aug  1 18:35:59 2022
 
 # Variables
 
@@ -56,12 +57,12 @@ VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupp
 _ = /usr/bin/code
 # makefile (from 'Makefile', line 65)
 CFLAGS = -Wall -Wextra -Werror -g
-# makefile (from 'Makefile', line 126)
+# makefile (from 'Makefile', line 138)
 BLUE = \033[0;34m
 # makefile (from 'Makefile', line 115)
 OBJS_NAME_CALLGND = $(SRCS_NAME_PS:.c=.o)
 # environment
-JOURNAL_STREAM = 9:431999
+JOURNAL_STREAM = 9:57693
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 21)
@@ -92,10 +93,12 @@ VSCODE_VERBOSE_LOGGING = true
 SANITIZE = push_swap_sanitize
 # makefile (from 'Makefile', line 58)
 OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
+# makefile (from 'Makefile', line 128)
+OBJS_GDB = $(addprefix $(OBJS_PATH_GDB), $(OBJS_NAME_GDB))
 # environment
-MANAGERPID = 75884
+MANAGERPID = 4564
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/101772/vscode-ipc-711aba7e-c915-4001-a407-275d322c3917.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/101772/vscode-ipc-e0efbf59-c345-4efe-846a-580ef4105819.sock
 # makefile (from 'Makefile', line 78)
 OBJS_PATH_PROFILER = objs_prof/
 # makefile (from 'Makefile', line 82)
@@ -103,11 +106,11 @@ PROFILER_FLAG = -pg
 # makefile (from 'Makefile', line 56)
 OBJS_PATH = objs/
 # environment
-VSCODE_CWD = /mnt/nfs/homes/motero/42/Algo_Training
+VSCODE_CWD = /mnt/nfs/homes/motero/42
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session4
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session0
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_101772_ZWhaDZ
+KRB5CCNAME = FILE:/tmp/krb5cc_101772_ygcXID
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -117,7 +120,7 @@ GPG_AGENT_INFO = /run/user/101772/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/e1r6p3.clusters.42paris.fr:@/tmp/.ICE-unix/76394,unix/e1r6p3.clusters.42paris.fr:/tmp/.ICE-unix/76394
+SESSION_MANAGER = local/e2r6p5.clusters.42paris.fr:@/tmp/.ICE-unix/5073,unix/e2r6p5.clusters.42paris.fr:/tmp/.ICE-unix/5073
 # environment
 XDG_RUNTIME_DIR = /run/user/101772
 # makefile (from 'Makefile', line 50)
@@ -131,7 +134,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = d1191aed70aa4633961ee88600414a60
+INVOCATION_ID = 839b1ad494ba4f44be5f70555b903aba
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -159,13 +162,15 @@ PWD = /mnt/nfs/homes/motero/42/Algo_Training/MergeSort
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 76358
+SSH_AGENT_PID = 5029
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
-# makefile (from 'Makefile', line 125)
+# makefile (from 'Makefile', line 137)
 GREEN = \033[0;32m
 # environment
 GTK_MODULES = gail:atk-bridge
+# makefile (from 'Makefile', line 126)
+OBJS_PATH_GDB = objs_gdb/
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -208,6 +213,8 @@ SHLVL = 2
 LIBFT = libft/libft.a
 # makefile (from 'Makefile', line 64)
 CC = cc
+# makefile (from 'Makefile', line 124)
+BDG = push_swap_gdb
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -224,10 +231,12 @@ HDR_INC = -I includes -I libft/includes
 LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
+# makefile (from 'Makefile', line 130)
+GDB_FLAG = -g
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /mnt/nfs/homes/motero/42
+OLDPWD = /mnt/nfs/homes/motero
 # default
 .VARIABLES := 
 # makefile (from 'Makefile', line 76)
@@ -236,11 +245,11 @@ PROFILE = push_swap_prof
 *F = $(notdir $*)
 # environment
 XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
-# makefile (from 'Makefile', line 128)
+# makefile (from 'Makefile', line 140)
 NONE = \033[0m
 # environment
 VSCODE_IPC_HOOK = /run/user/101772/vscode-909febb7-1.68.1-main.sock
-# makefile (from 'Makefile', line 124)
+# makefile (from 'Makefile', line 136)
 RED = \033[0;31m
 # makefile
 MAKEFLAGS = pqrR
@@ -250,16 +259,18 @@ MFLAGS = -pqrR
 *D = $(patsubst %/,%,$(dir $*))
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
-# makefile (from 'Makefile', line 127)
+# makefile (from 'Makefile', line 139)
 YELLOW = \033[0;33m
 # makefile (from 'Makefile', line 28)
 LIBFT_HDIR = libft/includes
 # environment
 GDK_BACKEND = x11
-# makefile (from 'Makefile', line 131)
+# makefile (from 'Makefile', line 143)
 normal := (B[m
 # automatic
 +F = $(notdir $+)
+# makefile (from 'Makefile', line 127)
+OBJS_NAME_GDB = $(SRCS_NAME_PS:.c=.o)
 # environment
 QT_ACCESSIBILITY = 1
 # makefile (from 'Makefile', line 104)
@@ -268,15 +279,15 @@ OBJS_VALGND = $(addprefix $(OBJS_PATH_VALGND), $(OBJS_NAME_VALGND))
 OBJS_NAME_PROFILER = $(SRCS_NAME_PS:.c=.o)
 # environment
 DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
-# makefile (from 'Makefile', line 130)
+# makefile (from 'Makefile', line 142)
 bold := [1m
 # 'override' directive
 .SHELLSTATUS := 0
+ 
 # default
 MAKEFILES := 
 # makefile (from 'Makefile', line 114)
 OBJS_PATH_CALLGND = objs_callgrind/
- 
 # makefile (from 'Makefile', line 92)
 OBJS_SANITIZE = $(addprefix $(OBJS_PATH_SANITIZE), $(OBJS_NAME_SANITIZE))
 # automatic
@@ -296,11 +307,11 @@ GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # makefile (from 'Makefile', line 68)
 LIBS = ranlib
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/ed13d5e9_38e2_44a6_8e8d_5c8c1ac9e242
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/59b934f7_9c10_4939_aa76_26cd0d516981
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.186
+GNOME_TERMINAL_SERVICE = :1.159
 # default
 SUFFIXES := 
 # environment
@@ -326,9 +337,9 @@ TERM = xterm-256color
 # environment
 DOCKER_HOST = unix:///run/user/101772/docker.sock
 # environment
-VSCODE_PID = 84097
+VSCODE_PID = 10592
 # variable set hash-table stats:
-# Load=158/1024=15%, Rehash=0, Collisions=41/299=14%
+# Load=163/1024=16%, Rehash=0, Collisions=44/325=14%
 
 # Pattern-specific Variable Values
 
@@ -336,44 +347,55 @@ VSCODE_PID = 84097
 
 # Directories
 
-# . (device 59, inode 316571971): 8 files, no impossibilities.
-# sources (device 59, inode 28350568): No files, no impossibilities so far.
+# . (device 56, inode 316571971): 9 files, no impossibilities.
+# sources (device 56, inode 28350568): No files, no impossibilities so far.
 
-# 8 files, no impossibilities in 2 directories.
+# 9 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
 objs/%.o: sources/%.c includes/PushSwap.h
-#  recipe to execute (from 'Makefile', line 156):
+#  recipe to execute (from 'Makefile', line 168):
 		@$(CC) $(CFLAGS) $(HDR_INC) $(LIBFT_HDIR_INC) -o $@ -c $<
 		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap"
 
 objs_prof/%.o: sources/%.c includes/PushSwap.h libft/libft.a
-#  recipe to execute (from 'Makefile', line 186):
+#  recipe to execute (from 'Makefile', line 198):
 		@$(CC) $(CFLAGS) $(PROFILER_FLAG) $(HDR_INC) $(LIBFT_HDIR_INC) -o $@ -c $<
 		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap_prof"
 
 objs_sanitize/%.o: sources/%.c includes/PushSwap.h libft/libft.a
-#  recipe to execute (from 'Makefile', line 210):
+#  recipe to execute (from 'Makefile', line 222):
 		@$(CC) $(CFLAGS) $(SANITIZE_FLAG) $(HDR_INC) $(LIBFT_HDIR_INC) -o $@ -c $<
 		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap_sanitize"
 
 objs_valgrind/%.o: sources/%.c includes/PushSwap.h libft/libft.a
-#  recipe to execute (from 'Makefile', line 236):
+#  recipe to execute (from 'Makefile', line 248):
 		@$(CC) $(CFLAGS) $(VALGND_FLAG) $(HDR_INC) $(LIBFT_HDIR_INC) -o $@ -c $<
 		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap_valgrind"
 
 objs_callgrind/%.o: sources/%.c includes/PushSwap.h libft/libft.a
-#  recipe to execute (from 'Makefile', line 262):
+#  recipe to execute (from 'Makefile', line 274):
 		@$(CC) $(CFLAGS) $(CALLGND_FLAG) $(HDR_INC) $(LIBFT_HDIR_INC) -o $@ -c $<
 		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap_callgrind"
 
-# 5 implicit rules, 0 (0.0%) terminal.
+objs_gdb/%.o: sources/%.c includes/PushSwap.h libft/libft.a
+#  recipe to execute (from 'Makefile', line 298):
+		@$(CC) $(CFLAGS) $(GDB_FLAG) $(HDR_INC) $(LIBFT_HDIR_INC) -o $@ -c $<
+		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap_gdb"
+
+# 6 implicit rules, 0 (0.0%) terminal.
 
 # Files
 
 # Not a target:
 objs_callgrind/ft_calculate_mov_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_gdb/ft_calculate_mov_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -386,6 +408,12 @@ objs/ft_math_functions.o:
 
 # Not a target:
 objs/ft_stack_operations.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_gdb/ft_node_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -414,7 +442,7 @@ check_libft:
 # ? := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=5/14=36%
-#  recipe to execute (from 'Makefile', line 143):
+#  recipe to execute (from 'Makefile', line 155):
 		@echo "\n[ $(BLUE)$(bold)CHECKING LIBFT$(NONE)]"
 		@echo "============================================="
 		@make -C libft
@@ -423,9 +451,17 @@ run_valgnd: push_swap_valgrind
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 228):
+#  recipe to execute (from 'Makefile', line 240):
 	@echo "\n [ $(BLUE)$(bold) Executing binary with valgrind$(NONE)]\n"
 	@valgrind ./push_swap_valgrind $(var)
+
+run_bdg: push_swap_gdb
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 290):
+	@echo "\n\[ $(BLUE)$(bold)===EXECUTING BINARY====$(NONE)]\n"
+	gdb push_swap_gdb $(var)
 
 # Not a target:
 objs/main.o:
@@ -437,7 +473,7 @@ objs_valgrind/:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 232):
+#  recipe to execute (from 'Makefile', line 244):
 		@mkdir $@
 		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
 
@@ -450,7 +486,7 @@ all: check_libft project push_swap includes/PushSwap.h
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/6=0%
-#  recipe to execute (from 'Makefile', line 138):
+#  recipe to execute (from 'Makefile', line 150):
 		@echo "\n $(GREEN) $(bold) \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/"
 		@echo "\t \t[ $(GREEN)✔$(NONE)] $(bold)Project is ready [ $(GREEN)✔$(NONE)]"
 		@echo "$(GREEN) $(bold) /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ /|\ \n"
@@ -459,7 +495,7 @@ push_swap_sanitize: objs_sanitize/ objs_sanitize/main.o objs_sanitize/ft_calcula
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 214):
+#  recipe to execute (from 'Makefile', line 226):
 		@echo "\n [$(GREEN)$(bold)FSANITIZE COMPILATION$(NONE) ]"
 		@$(CC) $(CFLAGS) $(SANITIZE_FLAG) $(OBJS_SANITIZE) $(LIB_BINARY)  -o $@
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_sanitize"
@@ -468,11 +504,11 @@ run_prof: push_swap_prof
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 178):
+#  recipe to execute (from 'Makefile', line 190):
 	@echo "\n[ $(BLUE)$(bold)Executing binary$(NONE) ]"
 	./push_swap_prof $(var)
 
-.PHONY: all clean fclean re
+bdg: fclean check_libft project push_swap_gdb includes/PushSwap.h run_bdg
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -499,7 +535,7 @@ push_swap_prof: objs_prof/ objs_prof/main.o objs_prof/ft_calculate_mov_functions
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 190):
+#  recipe to execute (from 'Makefile', line 202):
 		@echo " \n[$(bold)$(YELLOW) PROFILER COMPILATION $(NONE)]"
 		$(CC) $(CFLAGS) $(PROFILER_FLAG) $(LIB_BINARY) $(OBJS_PROFILER) -o $@
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_prof"
@@ -510,6 +546,14 @@ objs_prof/ft_data_functions.o:
 #  Modification time never checked.
 #  File has not been updated.
 
+objs_gdb/:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 294):
+		@mkdir $@
+		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
+
 sanitizer: fclean check_libft project push_swap_sanitize includes/PushSwap.h run_san
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -518,8 +562,9 @@ sanitizer: fclean check_libft project push_swap_sanitize includes/PushSwap.h run
 project:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 148):
+#  recipe to execute (from 'Makefile', line 160):
 		@echo "\n == $(bold)$(YELLOW)CHECKING PROJECT$(normal)=="
 		@echo "==============================================="
 
@@ -554,11 +599,10 @@ objs_prof/ft_instructions_functions.o:
 #  File has not been updated.
 
 push_swap_callgrind: objs_callgrind/ objs_callgrind/main.o objs_callgrind/ft_calculate_mov_functions.o objs_callgrind/ft_data_functions.o objs_callgrind/ft_instructions_functions.o objs_callgrind/ft_list_functions.o objs_callgrind/ft_math_functions.o objs_callgrind/ft_move_functions.o objs_callgrind/ft_node_functions.o objs_callgrind/ft_parsing.o objs_callgrind/ft_sorting_functions.o objs_callgrind/ft_stack_operations.o libft/libft.a includes/PushSwap.h
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 266):
+#  recipe to execute (from 'Makefile', line 278):
 		@echo "\n[$(GREEN)$(bold)CALLGND COMPILATION]"
 		@$(CC) $(CFLAGS) $(CALLGND_FLAG) $(LIB_BINARY) $(OBJS_CALLGND) -o $@
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_callgrind"
@@ -572,7 +616,7 @@ objs_callgrind/ft_data_functions.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-25 18:07:21.996181006
+#  Last modified 2022-08-01 18:35:58.202410047
 #  File has been updated.
 #  Successfully updated.
 
@@ -592,7 +636,7 @@ objs/:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 152):
+#  recipe to execute (from 'Makefile', line 164):
 		@mkdir $@
 		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
 
@@ -606,7 +650,7 @@ run_callgnd: push_swap_callgrind
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 253):
+#  recipe to execute (from 'Makefile', line 265):
 	@echo "\n [ $(BLUE)$(bold) Executing binary with callgrind$(NONE)]\n"
 	@valgrind --tool=callgrind --dump-instr=yes --collect-jumps=yes  ./push_swap_callgrind $(var)
 	@kcachegrind callgrind.out.*
@@ -637,6 +681,11 @@ objs_prof/ft_move_functions.o:
 
 # Not a target:
 objs_sanitize/ft_sorting_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: all clean fclean re
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -693,8 +742,8 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 283):
-		@rm -f ${NAME} ${PROFILE} ${SANITIZE} ${VALGND} ${CALLGND}
+#  recipe to execute (from 'Makefile', line 319):
+		@rm -f ${NAME} ${PROFILE} ${SANITIZE} ${VALGND} ${CALLGND} ${BDG}
 		@echo "\t[ $(RED)✗$(NONE) ] $(NAME) executable"
 		@make -C ./libft/ fclean
 
@@ -714,7 +763,7 @@ push_swap_valgrind: objs_valgrind/ objs_valgrind/main.o objs_valgrind/ft_calcula
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 240):
+#  recipe to execute (from 'Makefile', line 252):
 		@echo "\n[$(GREEN)$(bold)VALGND COMPILATION"
 		@$(CC) $(CFLAGS) $(VALGND_FLAG) $(LIB_BINARY) $(OBJS_VALGND) -o $@
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_valgrind"
@@ -771,8 +820,23 @@ objs_callgrind/ft_math_functions.o:
 #  Modification time never checked.
 #  File has not been updated.
 
+push_swap_gdb: objs_gdb/ objs_gdb/main.o objs_gdb/ft_calculate_mov_functions.o objs_gdb/ft_data_functions.o objs_gdb/ft_instructions_functions.o objs_gdb/ft_list_functions.o objs_gdb/ft_math_functions.o objs_gdb/ft_move_functions.o objs_gdb/ft_node_functions.o objs_gdb/ft_parsing.o objs_gdb/ft_sorting_functions.o objs_gdb/ft_stack_operations.o libft/libft.a includes/PushSwap.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 302):
+		@echo "\n [$(GREEN)$(bold)BDG COMPILATION$(NONE) ]"
+		@$(CC) $(CFLAGS) $(GDB_FLAG) $(OBJS_GDB) $(LIB_BINARY)  -o $@
+		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_gdb"
+
 # Not a target:
 objs_callgrind/ft_stack_operations.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_gdb/ft_data_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -784,6 +848,13 @@ objs_callgrind/ft_stack_operations.o:
 #  File has not been updated.
 
 # Not a target:
+objs_gdb/ft_parsing.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ 
+# Not a target:
 objs_prof/ft_node_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -793,12 +864,18 @@ run_san: push_swap_sanitize
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 202):
+#  recipe to execute (from 'Makefile', line 214):
 	@echo "\n\[ $(BLUE)$(bold)===EXECUTING BINARY====$(NONE)]\n"
 	./push_swap_sanitize $(var)
 
 # Not a target:
 objs_callgrind/main.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_gdb/ft_instructions_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -814,10 +891,10 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 275):
+#  recipe to execute (from 'Makefile', line 311):
 		@echo "[ $(RED)$(bold)STARTING CLEAN$(NONE) ]"
 		@echo "==================================="
-		@${RM} $(OBJS_PATH) $(OBJS_PATH_PROFILER) $(OBJS_PATH_SANITIZE) $(OBJS_PATH_VALGND) $(OBJS_CALLGND)
+		@${RM} $(OBJS_PATH) $(OBJS_PATH_PROFILER) $(OBJS_PATH_SANITIZE) $(OBJS_PATH_VALGND) $(OBJS_CALLGND) $(OBJS_PATH_GDB)
 		@rm -rf analysis.txt gmon.out callgrind.out.* ${PROFILE}
 		@echo "\t[ $(RED)✗$(NONE) ] $(OBJ_DIR) directory"
 		@make -C ./libft/ clean
@@ -826,13 +903,12 @@ execute_profiler:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 172):
+#  recipe to execute (from 'Makefile', line 184):
 		@gprof -b ${PROFILE} gmon.out > analysis.txt
 		@echo "\t[ $(GREEN) Profling done!$(NONE) ]"
 		@echo "========================================"
 		@cat analysis.txt
 
- 
 # Not a target:
 objs_valgrind/ft_list_functions.o:
 #  Implicit rule search has not been done.
@@ -861,7 +937,7 @@ push_swap: objs/ objs/main.o objs/ft_calculate_mov_functions.o objs/ft_data_func
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 160):
+#  recipe to execute (from 'Makefile', line 172):
 		@$(CC) $(CFLAGS)  $(OBJS) $(LIB_BINARY) $(HDR_INC)  -o $@
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap"
 
@@ -869,7 +945,7 @@ objs_sanitize/:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 206):
+#  recipe to execute (from 'Makefile', line 218):
 		@mkdir $@
 		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
 
@@ -889,7 +965,7 @@ objs_prof/:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 182):
+#  recipe to execute (from 'Makefile', line 194):
 		@mkdir $@
 		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
 
@@ -906,7 +982,19 @@ objs_valgrind/ft_sorting_functions.o:
 #  File has not been updated.
 
 # Not a target:
+objs_gdb/ft_move_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 objs_valgrind/ft_math_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_gdb/ft_list_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -917,11 +1005,17 @@ objs_valgrind/ft_stack_operations.o:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+objs_gdb/ft_sorting_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 objs_callgrind/:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 258):
+#  recipe to execute (from 'Makefile', line 270):
 		@mkdir $@
 		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
 
@@ -933,6 +1027,18 @@ objs_valgrind/main.o:
 
 # Not a target:
 objs_sanitize/ft_calculate_mov_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_gdb/ft_math_functions.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+objs_gdb/ft_stack_operations.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -962,25 +1068,31 @@ objs_valgrind/ft_node_functions.o:
 #  File has not been updated.
 
 # Not a target:
+objs_gdb/main.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 objs/ft_sorting_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # files hash-table stats:
-# Load=86/1024=8%, Rehash=0, Collisions=5/220=2%
+# Load=101/1024=10%, Rehash=0, Collisions=13/258=5%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 101 / storage = 2262 B / avg = 22 B
-# current buf: size = 8162 B / used = 2262 B / count = 101 / avg = 22 B
+# strcache buffers: 1 (0) / strings = 117 / storage = 2627 B / avg = 22 B
+# current buf: size = 8162 B / used = 2627 B / count = 117 / avg = 22 B
 
-# strcache performance: lookups = 199 / hit rate = 49%
+# strcache performance: lookups = 233 / hit rate = 49%
 # hash-table stats:
-# Load=101/8192=1%, Rehash=0, Collisions=2/199=1%
-# Finished Make data base on Fri Jul 29 16:08:20 2022
+# Load=117/8192=1%, Rehash=0, Collisions=2/233=1%
+# Finished Make data base on Mon Aug  1 18:35:59 2022
 
  

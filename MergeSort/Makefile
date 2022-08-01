@@ -6,7 +6,7 @@
 #    By: motero <motero@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/10 18:38:23 by motero            #+#    #+#              #
-#    Updated: 2022/07/20 17:11:16 by motero           ###   ########.fr        #
+#    Updated: 2022/08/01 18:35:58 by motero           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,6 +116,18 @@ OBJS_NAME_CALLGND = $(SRCS_NAME_PS:.c=.o)
 OBJS_CALLGND = $(addprefix $(OBJS_PATH_CALLGND), $(OBJS_NAME_CALLGND))
 
 CALLGND_FLAG = -g
+
+#=============================================================================#
+#                                 GDB                                         #
+#=============================================================================#
+
+BDG = push_swap_gdb
+
+OBJS_PATH_GDB = objs_gdb/
+OBJS_NAME_GDB = $(SRCS_NAME_PS:.c=.o)
+OBJS_GDB = $(addprefix $(OBJS_PATH_GDB), $(OBJS_NAME_GDB))
+
+GDB_FLAG = -g
 
 #=============================================================================#
 #                                COLOURS                                      #
@@ -268,19 +280,43 @@ $(CALLGND) : $(OBJS_PATH_CALLGND) $(OBJS_CALLGND) $(LIBFT) $(HDRS)
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_callgrind"
 
 #=============================================================================#
+#                                RULES   GDB                                  #
+#=============================================================================#
+
+#to launch as folows  : make BDG
+bdg: fclean check_libft project ${BDG} ${HDRS} run_bdg
+
+run_bdg: push_swap_gdb
+	@echo "\n\[ $(BLUE)$(bold)===EXECUTING BINARY====$(NONE)]\n"
+	gdb push_swap_gdb $(var)
+
+$(OBJS_PATH_GDB):
+		@mkdir $@
+		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
+
+$(OBJS_PATH_GDB)%.o: $(SRCS_DIR_PS)%.c $(HDRS) $(LIBFT)
+		@$(CC) $(CFLAGS) $(GDB_FLAG) $(HDR_INC) $(LIBFT_HDIR_INC) -o $@ -c $<
+		@echo "\t[ $(GREEN)✔$(NONE) ] $@ objet push_swap_gdb"
+
+$(BDG) : $(OBJS_PATH_GDB) $(OBJS_GDB) $(LIBFT) $(HDRS)
+		@echo "\n [$(GREEN)$(bold)BDG COMPILATION$(NONE) ]"
+		@$(CC) $(CFLAGS) $(GDB_FLAG) $(OBJS_GDB) $(LIB_BINARY)  -o $@
+		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_gdb"
+
+#=============================================================================#
 #                                COMMANDS                                     #
 #=============================================================================#
 
 clean:
 		@echo "[ $(RED)$(bold)STARTING CLEAN$(NONE) ]"
 		@echo "==================================="
-		@${RM} $(OBJS_PATH) $(OBJS_PATH_PROFILER) $(OBJS_PATH_SANITIZE) $(OBJS_PATH_VALGND) $(OBJS_CALLGND)
+		@${RM} $(OBJS_PATH) $(OBJS_PATH_PROFILER) $(OBJS_PATH_SANITIZE) $(OBJS_PATH_VALGND) $(OBJS_CALLGND) $(OBJS_PATH_GDB)
 		@rm -rf analysis.txt gmon.out callgrind.out.* ${PROFILE}
 		@echo "\t[ $(RED)✗$(NONE) ] $(OBJ_DIR) directory"
 		@make -C ./libft/ clean
 
 fclean: clean
-		@rm -f ${NAME} ${PROFILE} ${SANITIZE} ${VALGND} ${CALLGND}
+		@rm -f ${NAME} ${PROFILE} ${SANITIZE} ${VALGND} ${CALLGND} ${BDG}
 		@echo "\t[ $(RED)✗$(NONE) ] $(NAME) executable"
 		@make -C ./libft/ fclean
 

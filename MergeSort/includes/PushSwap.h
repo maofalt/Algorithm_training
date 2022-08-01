@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/07/29 16:23:04 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/01 19:06:40 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ typedef struct s_list
 	t_node		*head;
 	t_node		*tail;
 	size_t		size;
+	size_t		index_node;
 }				t_list;
 
 typedef struct s_stacks
@@ -111,7 +112,6 @@ void		ft_node_insert_start(t_list *list, t_data data);
 
 void		ft_node_insert_start_node(t_list *list, t_node *node);
 void		ft_node_insert_end_node(t_list *list, t_node *node);
-
 
 /*############################################################################*/
 /*                            DATA FUNCTIONS                                  */

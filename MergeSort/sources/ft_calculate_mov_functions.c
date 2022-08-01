@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:44:10 by motero            #+#    #+#             */
-/*   Updated: 2022/07/28 21:25:01 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/01 19:10:46 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,19 @@ void	ft_calculate_sorting_size_five(t_stacks *stack)
 	ft_calculate_size_three(stack);
 	ft_sorting_apply_operations(stack);
 	ft_calculate_sorting_b_to_a(stack);
+	ft_sorting_apply_operations(stack);
 }
 
 void	ft_calculate_sorting_b_to_a(t_stacks *stack)
 {
 	t_node	*current[2];
+	t_node	*past;
 	int		times_to_rotate_a;
 	int		times_to_rotate_b;
 
 	times_to_rotate_b = 0;
 	current[1] = ft_node_next(*stack->b, 1, 0);
+	past = current[1];
 	while (times_to_rotate_b < (int)stack->b->size)
 	{
 		current[0] = ft_node_next(*stack->a, 0, 0);
@@ -86,10 +89,18 @@ void	ft_calculate_sorting_b_to_a(t_stacks *stack)
 				current[1]->nb_optn++;
 			}
 		}
-		current[1]->operations = ft_strjoin(current[1]->operations, "rb\n");
-		current[1]->nb_optn++;
-		times_to_rotate_b++;
+		if (stack->b->size > 1)
+		{
+			current[1]->operations = ft_strjoin(current[1]->operations, "rb\n");
+			current[1]->nb_optn++;
+			times_to_rotate_b++;
+		}
+		past = current[1];
+		if (stack->b->size == 1)
+			stack->operations = past->operations;
 		current[1] = ft_node_next(*stack->b, 1, -1);
+		else if (current[1]->nb_optn > past->nb_optn)
+			stack->operations = past->operations;
 	}
 }
 

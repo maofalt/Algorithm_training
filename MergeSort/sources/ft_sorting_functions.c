@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:51:03 by motero            #+#    #+#             */
-/*   Updated: 2022/07/28 21:21:34 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/02 18:53:22 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,20 @@ void	ft_sorting_apply_operations(t_stacks *stack)
 	if (mov.swap.pa || mov.swap.pb)
 		ft_sorting_apply_push(stack);
 	stack->mov = ft_mov_initiliaze();
+}
+
+void	ft_sorting_apply_and_reset(t_stacks *stack)
+{
+	t_mov	tmp;
+
+	tmp = stack->mov;
+	ft_sorting_apply_operations(stack);
+	while (tmp.a.ra--)
+		stack->mov.a.rra++;
+	printf("Intermediary\n");
+	ft_list_print_data(*stack->a);
+	printf("================\n");
+	ft_sorting_apply_operations(stack);
 }
 
 void	ft_sorting_apply_rotation(t_stacks *stack)

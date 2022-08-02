@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:28:54 by motero            #+#    #+#             */
-/*   Updated: 2022/07/19 14:47:32 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/02 19:36:48 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_list	*ft_parsing(char **raw_nb, int nb_arg)
 	{
 		data = ft_data_create(ft_atoi(raw_nb[i]), i);
 		ft_node_insert_end(list_a, data);
+		ft_extremes_parsing(list_a, data);
 		if (i == nb_arg - 1)
 			break ;
 		i++;

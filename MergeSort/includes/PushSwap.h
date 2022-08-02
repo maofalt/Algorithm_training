@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/08/01 19:06:40 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/02 19:36:09 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,30 @@ typedef struct s_mov
 	t_b			b;
 }				t_mov;
 
+typedef struct s_min
+{
+	int			nb;
+	size_t		i;
+}				t_min;
+
+typedef struct s_max
+{
+	int			nb;
+	size_t		i;
+}				t_max;
+
+typedef struct s_xtrm
+{
+	t_max		max;
+	t_min		min;
+}				t_xtrm;
+
 /*Our node structure, possessing npx (prev and next address XORed),
  as well as data structur*/
 typedef struct s_node
 {
 	t_data			data;
-	char			*operations;
+	t_mov			mov;
 	size_t			nb_optn;
 	struct s_node	*npx;
 }					t_node;
@@ -79,6 +97,7 @@ typedef struct s_list
 {
 	t_node		*head;
 	t_node		*tail;
+	t_xtrm		xtrm;
 	size_t		size;
 	size_t		index_node;
 }				t_list;
@@ -179,6 +198,7 @@ char		*ft_parsing_extract_nbr(char *nbr);
 
 void		ft_sorting_main(t_stacks *stack);
 void		ft_sorting_apply_operations(t_stacks *stack);
+void		ft_sorting_apply_and_reset(t_stacks *stack);
 int			ft_list_is_sorted(t_list list);
 void		ft_sorting_apply_rotation(t_stacks *stack);
 void		ft_sorting_apply_rev_rotation(t_stacks *stack);
@@ -215,5 +235,12 @@ int			ft_find_index_mid(t_list list);
 /*                    INSTRUCTIONS FUNCTIONS                                  */
 /*############################################################################*/
 size_t		ft_instructions_parsing(t_stacks *stack);
+
+/*############################################################################*/
+/*                        EXTREMES FUNCTIONS                                  */
+/*############################################################################*/
+
+t_xtrm		ft_extremes_initializes(void);
+void	ft_extremes_parsing(t_list *list, t_data data);
 
 #endif

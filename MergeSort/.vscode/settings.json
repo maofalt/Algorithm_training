@@ -3,7 +3,8 @@
         "concepts": "c",
         "mergesort.h": "c",
         "pushswap.h": "c",
-        "libft.h": "c"
+        "libft.h": "c",
+        "limits": "c"
     },
     "editor.insertSpaces": false,
     "editor.renderWhitespace": "all",

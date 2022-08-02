@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 12:09:20 by motero            #+#    #+#             */
-/*   Updated: 2022/08/01 19:07:09 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/02 19:25:57 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_list	*ft_list_create(t_node *head, t_node *tail, size_t size)
 	new_list->tail = tail;
 	new_list->size = size;
 	new_list->index_node = 0;
+	new_list->xtrm = ft_extremes_initializes();
 	return (new_list);
 }
 
@@ -99,14 +100,11 @@ void	ft_list_free(t_list *list)
 	current = list->head;
 	if (list->size == 1)
 	{
-		free(list->head->operations);
 		free(list->head);
 	}
 	else if (list->size == 2)
 	{
-		free(list->head->operations);
 		free(list->head);
-		free(list->tail->operations);
 		free(list->tail);
 	}
 	else
@@ -115,7 +113,6 @@ void	ft_list_free(t_list *list)
 		{
 			tmp = XOR(current->npx, t);
 			t = current;
-			free(current->operations);
 			free(current);
 			current = tmp;
 		}
@@ -189,14 +186,10 @@ void	ft_list_reset_mov(t_list *list)
 	current = list->head;
 	if (list->size <= 2)
 	{
-		if (list->head->operations)
-			free(list->head->operations);
-		list->head->operations = ft_strjoin("", "");
 		list->head->nb_optn = 0;
-		if (list->tail->operations)
-			free(list->tail->operations);
-		list->tail->operations = ft_strjoin("", "");
+		list->head->mov = ft_mov_initiliaze();
 		list->tail->nb_optn = 0;
+		list->tail->mov = ft_mov_initiliaze();
 	}
 	else
 	{
@@ -204,10 +197,7 @@ void	ft_list_reset_mov(t_list *list)
 		while (i++ < list->size)
 		{
 			tmp = XOR(current->npx, t);
-			if (current->operations)
-				free(current->operations);
 			current->nb_optn = 0;
-			list->tail->operations = ft_strjoin("", "");
 			t = current;
 			current = tmp;
 		}

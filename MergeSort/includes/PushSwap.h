@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/08/02 19:36:09 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/02 19:38:11 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,6 +241,6 @@ size_t		ft_instructions_parsing(t_stacks *stack);
 /*############################################################################*/
 
 t_xtrm		ft_extremes_initializes(void);
-void	ft_extremes_parsing(t_list *list, t_data data);
+void		ft_extremes_parsing(t_list *list, t_data data);
 
 #endif

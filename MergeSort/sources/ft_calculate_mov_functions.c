@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:44:10 by motero            #+#    #+#             */
-/*   Updated: 2022/08/02 19:42:11 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/03 16:07:11 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ void	ft_calculate_size_three(t_stacks *stack)
 	// index[0] = ft_find_index_min(list);
 	// index[1] = ft_find_index_mid(list);
 	// index[2] = ft_find_index_max(list);
-	index[0] = list->xtrm.min.nb;
-	index[2] = list->xtrm.max.nb;
+	index[0] = list->xtrm.min.i;
+	index[2] = list->xtrm.max.i;
 	index[1] = 3 - index[0] - index[2];
+	printf("Min {%d} mid {%d} Max{%d}\n",index[0], index[1], index[2]);
+	ft_list_print_data(*stack->a);
 	if (index[0] == 1 && index[1] == 0)
 		stack->mov.swap.sa = 1;
 	else if (index[2] == 0 && index[1] == 1)

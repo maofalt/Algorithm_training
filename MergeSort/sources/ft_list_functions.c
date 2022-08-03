@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 12:09:20 by motero            #+#    #+#             */
-/*   Updated: 2022/08/02 19:25:57 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/03 16:46:07 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void	ft_list_new_index(t_list *list)
 	t_node		*t;
 	size_t		i;
 
-	if (!list->size)
-		return ;
 	t = list->tail;
 	current = list->head;
 	i = 0;
-	if (list->size < 3)
+	if (list->size == 1)
+		list->head->data.index = 0;
+	else if (list->size < 3)
 	{
 		list->head->data.index = 0;
 		list->tail->data.index = 1;

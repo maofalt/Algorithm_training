@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 18:39:46 by motero            #+#    #+#             */
-/*   Updated: 2022/07/19 15:00:37 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/03 16:15:24 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_find_index_max(t_list list)
 	t_node	*current;
 	t_node	*tail;
 	t_node	*next;
-	size_t		i[2];
+	size_t	i[2];
 	int		max;
 
 	current = list.head;
@@ -50,7 +50,7 @@ int	ft_find_index_min(t_list list)
 	t_node	*current;
 	t_node	*tail;
 	t_node	*next;
-	size_t		i[2];
+	size_t	i[2];
 	int		min;
 
 	current = list.head;

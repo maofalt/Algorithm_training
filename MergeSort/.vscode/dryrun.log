@@ -1,15 +1,12 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/mnt/nfs/homes/motero/42/Algo_Training/MergeSort'
- 
 echo "\n[ \033[0;34m[1mCHECKING LIBFT\033[0m]"
 echo "============================================="
 make -C libft
- 
 echo "\n == [1m\033[0;33mCHECKING PROJECT(B[m=="
 echo "==============================================="
 mkdir objs/
 echo "\t [ \033[0;32m✔\033[0m] objs/directory"
- 
 cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/main.o -c sources/main.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/main.o objet push_swap"
 cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_calculate_mov_functions.o -c sources/ft_calculate_mov_functions.c
@@ -22,7 +19,6 @@ cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o
 echo "\t[ \033[0;32m✔\033[0m ] objs/ft_list_functions.o objet push_swap"
 cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_math_functions.o -c sources/ft_math_functions.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/ft_math_functions.o objet push_swap"
- 
 cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_move_functions.o -c sources/ft_move_functions.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/ft_move_functions.o objet push_swap"
 cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_node_functions.o -c sources/ft_node_functions.c

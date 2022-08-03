@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Aug  2 19:17:10 2022
+# Make data base, printed on Wed Aug  3 16:22:10 2022
 
 # Variables
 
@@ -28,7 +28,6 @@ XDG_SESSION_TYPE = x11
 VSCODE_LOG_NATIVE = false
 # makefile (from 'Makefile', line 103)
 OBJS_PATH_VALGND = objs_valgrind/
- 
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # makefile (from 'Makefile', line 37)
@@ -62,7 +61,7 @@ BLUE = \033[0;34m
 # makefile (from 'Makefile', line 116)
 OBJS_NAME_CALLGND = $(SRCS_NAME_PS:.c=.o)
 # environment
-JOURNAL_STREAM = 9:287078
+JOURNAL_STREAM = 9:424979
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 21)
@@ -96,9 +95,9 @@ OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
 # makefile (from 'Makefile', line 129)
 OBJS_GDB = $(addprefix $(OBJS_PATH_GDB), $(OBJS_NAME_GDB))
 # environment
-MANAGERPID = 67854
+MANAGERPID = 59517
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/101772/vscode-ipc-bd7912f4-738d-4c68-8f09-d77c11f32790.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/101772/vscode-ipc-b079c1d5-1693-4d17-9830-66bfe62d9416.sock
 # makefile (from 'Makefile', line 79)
 OBJS_PATH_PROFILER = objs_prof/
 # makefile (from 'Makefile', line 83)
@@ -108,9 +107,9 @@ OBJS_PATH = objs/
 # environment
 VSCODE_CWD = /mnt/nfs/homes/motero/42/Algo_Training/MergeSort
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session1
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session0
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_101772_UF2tpU
+KRB5CCNAME = FILE:/tmp/krb5cc_101772_9qbQV1
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -120,7 +119,7 @@ GPG_AGENT_INFO = /run/user/101772/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/e1r7p12.clusters.42paris.fr:@/tmp/.ICE-unix/68365,unix/e1r7p12.clusters.42paris.fr:/tmp/.ICE-unix/68365
+SESSION_MANAGER = local/e2r7p19.clusters.42paris.fr:@/tmp/.ICE-unix/60032,unix/e2r7p19.clusters.42paris.fr:/tmp/.ICE-unix/60032
 # environment
 XDG_RUNTIME_DIR = /run/user/101772
 # makefile (from 'Makefile', line 51)
@@ -134,7 +133,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 95b521c0656945bcb2d4c89259c1c142
+INVOCATION_ID = 425cdb0ac97f47bbad54e3f846f29b95
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -162,7 +161,7 @@ PWD = /mnt/nfs/homes/motero/42/Algo_Training/MergeSort
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 68329
+SSH_AGENT_PID = 59996
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # makefile (from 'Makefile', line 138)
@@ -236,7 +235,7 @@ GDB_FLAG = -g
 # default
 MAKE_COMMAND := make
 # environment
-OLDPWD = /mnt/nfs/homes/motero/42/Algo_Training
+OLDPWD = /mnt/nfs/homes/motero
 # default
 .VARIABLES := 
 # makefile (from 'Makefile', line 77)
@@ -304,14 +303,13 @@ HDR_DIR = includes/
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # makefile (from 'Makefile', line 69)
- 
 LIBS = ranlib
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/3cc05790_3c6f_4882_82d9_85b8eb64fa15
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/254fcd46_87e3_423f_825c_bcc6be69fed3
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.81
+GNOME_TERMINAL_SERVICE = :1.80
 # default
 SUFFIXES := 
 # environment
@@ -330,6 +328,7 @@ NAME = push_swap
 VALGND = push_swap_valgrind
 # makefile (from 'Makefile', line 81)
 OBJS_PROFILER = $(addprefix $(OBJS_PATH_PROFILER), $(OBJS_NAME_PROFILER))
+ 
 # environment
 LANG = C
 # environment
@@ -337,7 +336,7 @@ TERM = xterm-256color
 # environment
 DOCKER_HOST = unix:///run/user/101772/docker.sock
 # environment
-VSCODE_PID = 96065
+VSCODE_PID = 67258
 # variable set hash-table stats:
 # Load=163/1024=16%, Rehash=0, Collisions=44/325=14%
 
@@ -582,7 +581,6 @@ project:
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 161):
- 
 		@echo "\n == $(bold)$(YELLOW)CHECKING PROJECT$(normal)=="
 		@echo "==============================================="
 
@@ -608,6 +606,7 @@ objs_valgrind/ft_calculate_mov_functions.o:
 objs_prof/ft_instructions_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
 # Not a target:
@@ -876,7 +875,6 @@ objs_gdb/ft_data_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
- 
 
 # Not a target:
 objs/ft_extremes_functions.o:
@@ -892,6 +890,7 @@ objs_gdb/ft_parsing.o:
 
 # Not a target:
 objs_prof/ft_node_functions.o:
+ 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -1129,6 +1128,6 @@ objs/ft_sorting_functions.o:
 # strcache performance: lookups = 240 / hit rate = 48%
 # hash-table stats:
 # Load=124/8192=2%, Rehash=0, Collisions=2/240=1%
-# Finished Make data base on Tue Aug  2 19:17:10 2022
+# Finished Make data base on Wed Aug  3 16:22:10 2022
 
  

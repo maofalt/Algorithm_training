@@ -9,6 +9,7 @@ mkdir objs/
 echo "\t [ \033[0;32m✔\033[0m] objs/directory"
 cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/main.o -c sources/main.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/main.o objet push_swap"
+ 
 cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_calculate_mov_functions.o -c sources/ft_calculate_mov_functions.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/ft_calculate_mov_functions.o objet push_swap"
 cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_data_functions.o -c sources/ft_data_functions.c

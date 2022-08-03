@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/08/02 19:38:11 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/03 18:51:47 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,24 +65,6 @@ typedef struct s_mov
 	t_b			b;
 }				t_mov;
 
-typedef struct s_min
-{
-	int			nb;
-	size_t		i;
-}				t_min;
-
-typedef struct s_max
-{
-	int			nb;
-	size_t		i;
-}				t_max;
-
-typedef struct s_xtrm
-{
-	t_max		max;
-	t_min		min;
-}				t_xtrm;
-
 /*Our node structure, possessing npx (prev and next address XORed),
  as well as data structur*/
 typedef struct s_node
@@ -92,6 +74,26 @@ typedef struct s_node
 	size_t			nb_optn;
 	struct s_node	*npx;
 }					t_node;
+
+typedef struct s_min
+{
+	int			nb;
+	size_t		i;
+	t_node		*node;
+}				t_min;
+
+typedef struct s_max
+{
+	int			nb;
+	size_t		i;
+	t_node		*node;
+}				t_max;
+
+typedef struct s_xtrm
+{
+	t_max		max;
+	t_min		min;
+}				t_xtrm;
 
 typedef struct s_list
 {
@@ -242,5 +244,10 @@ size_t		ft_instructions_parsing(t_stacks *stack);
 
 t_xtrm		ft_extremes_initializes(void);
 void		ft_extremes_parsing(t_list *list, t_data data);
+void		ft_extremes_swap(t_list *list);
+void		ft_extremes_push(t_list *list_a, t_list *list_b);
+void		ft_extremes_rotate(t_list *list);
+void		ft_extremes_reverse_rotate(t_list *list);
+void		ft_extremes_initialize_list(t_list *list, t_data data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 12:09:20 by motero            #+#    #+#             */
-/*   Updated: 2022/08/03 16:46:07 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/03 18:16:28 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	ft_list_new_index(t_list *list)
 	t_node		*t;
 	size_t		i;
 
+	if (list->size == 0)
+		return ;
 	t = list->tail;
 	current = list->head;
 	i = 0;
@@ -150,7 +152,7 @@ void	ft_list_swap_first_nodes(t_list *list)
 	else
 	{
 		if (list->size == 2)
-			list = ft_list_create(list->tail, list->head, list->size);
+			ft_list_chge_nodes(list, list->tail, list->head);
 		else
 		{
 			tmp = list->head->data;

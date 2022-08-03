@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Aug  3 16:22:10 2022
+# Make data base, printed on Wed Aug  3 17:22:15 2022
 
 # Variables
 
@@ -97,7 +97,7 @@ OBJS_GDB = $(addprefix $(OBJS_PATH_GDB), $(OBJS_NAME_GDB))
 # environment
 MANAGERPID = 59517
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/101772/vscode-ipc-b079c1d5-1693-4d17-9830-66bfe62d9416.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/101772/vscode-ipc-1b214bae-c8a4-4e14-88b2-46092b898343.sock
 # makefile (from 'Makefile', line 79)
 OBJS_PATH_PROFILER = objs_prof/
 # makefile (from 'Makefile', line 83)
@@ -291,6 +291,7 @@ OBJS_SANITIZE = $(addprefix $(OBJS_PATH_SANITIZE), $(OBJS_NAME_SANITIZE))
 # automatic
 <F = $(notdir $<)
 # makefile (from 'Makefile', line 29)
+ 
 LIBFT_HDIR_INC = -I./libft/includes/
 # makefile (from 'Makefile', line 38)
 SRCS_NAME_PS = main.c ft_calculate_mov_functions.c ft_data_functions.c ft_instructions_functions.c ft_list_functions.c ft_math_functions.c ft_move_functions.c ft_node_functions.c ft_parsing.c ft_sorting_functions.c ft_stack_operations.c ft_extremes_functions.c
@@ -328,7 +329,6 @@ NAME = push_swap
 VALGND = push_swap_valgrind
 # makefile (from 'Makefile', line 81)
 OBJS_PROFILER = $(addprefix $(OBJS_PATH_PROFILER), $(OBJS_NAME_PROFILER))
- 
 # environment
 LANG = C
 # environment
@@ -336,7 +336,7 @@ TERM = xterm-256color
 # environment
 DOCKER_HOST = unix:///run/user/101772/docker.sock
 # environment
-VSCODE_PID = 67258
+VSCODE_PID = 81391
 # variable set hash-table stats:
 # Load=163/1024=16%, Rehash=0, Collisions=44/325=14%
 
@@ -346,10 +346,10 @@ VSCODE_PID = 67258
 
 # Directories
 
-# . (device 59, inode 316571971): 10 files, no impossibilities.
+# . (device 59, inode 316571971): 8 files, no impossibilities.
 # sources (device 59, inode 28350568): No files, no impossibilities so far.
 
-# 10 files, no impossibilities in 2 directories.
+# 8 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -571,6 +571,7 @@ objs_gdb/:
 		@mkdir $@
 		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
 
+ 
 sanitizer: fclean check_libft project push_swap_sanitize includes/PushSwap.h run_san
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -606,7 +607,6 @@ objs_valgrind/ft_calculate_mov_functions.o:
 objs_prof/ft_instructions_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
- 
 #  File has not been updated.
 
 # Not a target:
@@ -849,6 +849,7 @@ objs_callgrind/ft_math_functions.o:
 #  Modification time never checked.
 #  File has not been updated.
 
+ 
 push_swap_gdb: objs_gdb/ objs_gdb/main.o objs_gdb/ft_calculate_mov_functions.o objs_gdb/ft_data_functions.o objs_gdb/ft_instructions_functions.o objs_gdb/ft_list_functions.o objs_gdb/ft_math_functions.o objs_gdb/ft_move_functions.o objs_gdb/ft_node_functions.o objs_gdb/ft_parsing.o objs_gdb/ft_sorting_functions.o objs_gdb/ft_stack_operations.o objs_gdb/ft_extremes_functions.o libft/libft.a includes/PushSwap.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -890,7 +891,6 @@ objs_gdb/ft_parsing.o:
 
 # Not a target:
 objs_prof/ft_node_functions.o:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -1122,12 +1122,12 @@ objs/ft_sorting_functions.o:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 124 / storage = 2856 B / avg = 23 B
-# current buf: size = 8162 B / used = 2856 B / count = 124 / avg = 23 B
+# strcache buffers: 1 (0) / strings = 123 / storage = 2842 B / avg = 23 B
+# current buf: size = 8162 B / used = 2842 B / count = 123 / avg = 23 B
 
-# strcache performance: lookups = 240 / hit rate = 48%
+# strcache performance: lookups = 238 / hit rate = 48%
 # hash-table stats:
-# Load=124/8192=2%, Rehash=0, Collisions=2/240=1%
-# Finished Make data base on Wed Aug  3 16:22:10 2022
+# Load=123/8192=2%, Rehash=0, Collisions=2/238=1%
+# Finished Make data base on Wed Aug  3 17:22:15 2022
 
  

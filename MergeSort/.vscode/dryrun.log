@@ -9,7 +9,6 @@ mkdir objs/
 echo "\t [ \033[0;32m✔\033[0m] objs/directory"
 cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/main.o -c sources/main.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/main.o objet push_swap"
- 
 cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_calculate_mov_functions.o -c sources/ft_calculate_mov_functions.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/ft_calculate_mov_functions.o objet push_swap"
 cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_data_functions.o -c sources/ft_data_functions.c
@@ -32,7 +31,9 @@ cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o
 echo "\t[ \033[0;32m✔\033[0m ] objs/ft_stack_operations.o objet push_swap"
 cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_extremes_functions.o -c sources/ft_extremes_functions.c
 echo "\t[ \033[0;32m✔\033[0m ] objs/ft_extremes_functions.o objet push_swap"
-cc -Wall -Wextra -Werror -g  objs/main.o objs/ft_calculate_mov_functions.o objs/ft_data_functions.o objs/ft_instructions_functions.o objs/ft_list_functions.o objs/ft_math_functions.o objs/ft_move_functions.o objs/ft_node_functions.o objs/ft_parsing.o objs/ft_sorting_functions.o objs/ft_stack_operations.o objs/ft_extremes_functions.o -Llibft -lft -I includes -I libft/includes  -o push_swap
+cc -Wall -Wextra -Werror -g -I includes -I libft/includes -I./libft/includes/ -o objs/ft_pre_sorting_functions.o -c sources/ft_pre_sorting_functions.c
+echo "\t[ \033[0;32m✔\033[0m ] objs/ft_pre_sorting_functions.o objet push_swap"
+cc -Wall -Wextra -Werror -g  objs/main.o objs/ft_calculate_mov_functions.o objs/ft_data_functions.o objs/ft_instructions_functions.o objs/ft_list_functions.o objs/ft_math_functions.o objs/ft_move_functions.o objs/ft_node_functions.o objs/ft_parsing.o objs/ft_sorting_functions.o objs/ft_stack_operations.o objs/ft_extremes_functions.o objs/ft_pre_sorting_functions.o -Llibft -lft -I includes -I libft/includes  -o push_swap
 echo "\t[ \033[0;32m✔\033[0m ] push_swap"
 echo "\n \033[0;32m [1m \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/ \|/"
 echo "\t \t[ \033[0;32m✔\033[0m] [1mProject is ready [ \033[0;32m✔\033[0m]"

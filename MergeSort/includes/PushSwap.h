@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/08/03 18:51:47 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/24 20:53:02 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_data
 {
 	int		nb;
 	size_t	index;
+	size_t	final_index;
 }	t_data;
 
 typedef struct s_b
@@ -249,5 +250,13 @@ void		ft_extremes_push(t_list *list_a, t_list *list_b);
 void		ft_extremes_rotate(t_list *list);
 void		ft_extremes_reverse_rotate(t_list *list);
 void		ft_extremes_initialize_list(t_list *list, t_data data);
+
+/*############################################################################*/
+/*                        PRE SORTING FUNCTIONS                               */
+/*############################################################################*/
+
+void		ft_pre_sorting_general(t_list *list);
+void		ft_pre_sorting_bigger_two(t_list *list);
+void		ft_pre_sorting_big(t_list *list, int i);
 
 #endif

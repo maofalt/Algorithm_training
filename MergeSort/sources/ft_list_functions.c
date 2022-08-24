@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 12:09:20 by motero            #+#    #+#             */
-/*   Updated: 2022/08/03 18:16:28 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/23 19:14:56 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	ft_list_print_data(t_list list)
 	{
 		while (i < list.size)
 		{
-			printf("Index:[%zu]= %d\n", current->data.index, current->data.nb);
+			printf("INDEX:\t%zu\t|:NB\t%d\t|FINAL INDEX\t%zu|\n", current->data.index, current->data.nb, current->data.final_index);
 			tmp = XOR(current->npx, t);
 			t = current;
 			current = tmp;

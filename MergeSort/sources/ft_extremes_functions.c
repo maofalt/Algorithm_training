@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:17:45 by motero            #+#    #+#             */
-/*   Updated: 2022/08/03 19:11:54 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/22 20:22:22 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ void	ft_extremes_push(t_list *list_a, t_list *list_b)
 			ft_extremes_initialize_list(list_b, list_a->head->data);
 		else
 		{
-			if (list_b->xtrm.min > list_a->xtrm.min)
-				list_b->xtrm.min = list_a->xtrm.min;
-			if (list_b->xtrm.max < list_a->xtrm.max)
-				list_b->xtrm.max = list_a->xtrm.max;
+			if (list_b->xtrm.min.nb > list_a->xtrm.min.nb)
+				list_b->xtrm.min.nb = list_a->xtrm.min.nb;
+			if (list_b->xtrm.max.nb < list_a->xtrm.max.nb)
+				list_b->xtrm.max.nb= list_a->xtrm.max.nb;
 			//pass next node info (node, index and) to min or max
 			//After applying operation or applying all push apply find max and find min
 		}
@@ -78,6 +78,7 @@ void	ft_extremes_push(t_list *list_a, t_list *list_b)
 	else
 		list_a->xtrm.min.i = list_a->xtrm.min.node->data.index;
 }
+
 void	ft_extremes_rotate(t_list *list)
 {
 	list->xtrm.min.i = list->xtrm.min.node->data.index;

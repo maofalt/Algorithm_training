@@ -6,7 +6,7 @@
 #    By: motero <motero@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/10 18:38:23 by motero            #+#    #+#              #
-#    Updated: 2022/08/02 19:17:07 by motero           ###   ########.fr        #
+#    Updated: 2022/08/23 16:26:45 by motero           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ ft_node_functions.c \
 ft_parsing.c \
 ft_sorting_functions.c \
 ft_stack_operations.c \
-ft_extremes_functions.c
+ft_extremes_functions.c \
+ft_pre_sorting_functions.c
 
 SRCS_PS = $(addprefix $(SRCS_DIR_PS), $(SRCS_NAME_PS))
 

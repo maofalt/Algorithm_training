@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 15:14:11 by motero            #+#    #+#             */
-/*   Updated: 2022/08/24 21:16:15 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/25 11:35:55 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,6 @@
 
 void	ft_pre_sorting_general(t_list *list)
 {
-	size_t	size;
-	size_t	i;
-	t_node	*current;
-	t_node	*tmp;
-	t_node	*t;
-	t_node	*max;
-
-	t = list->tail;
-	current = list->head;
-	max = current;
 	if (list->size == 1)
 		return ;
 	else if (list->size == 2)
@@ -35,23 +25,45 @@ void	ft_pre_sorting_general(t_list *list)
 		}
 	}
 	else
+		ft_pre_sorting_bigger_two(list);
+}
+
+void	ft_pre_sorting_bigger_two(t_list *list)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < list->size)
 	{
-		i = 0;
-		while (i < list->size)
-		{
-			size = list->size;
-			while (size)
-			{
-				if (current->data.nb > max->data.nb && current->data.final_index < list->size - i)
-					max = current;
-				tmp = XOR(current->npx, t);
-				t = current;
-				current = tmp;
-				size--;
-			}
-			max->data.final_index = list->size - 1 - i;
-			max = XOR(current->npx, t);
-			i++;
-		}
+		ft_pre_sorting_big(list, i);
+		i++;
 	}
+}
+
+void	ft_pre_sorting_big(t_list *list, int i)
+{
+	size_t				size;
+	t_node static		*c;
+	t_node				*tmp;
+	t_node static		*t;
+	t_node static		*max;
+
+	if (i == 0)
+	{
+		t = list->tail;
+		c = list->head;
+		max = c;
+	}
+	size = list->size;
+	while (size)
+	{
+		if (c->data.nb > max->data.nb && c->data.final_index < list->size - i)
+			max = c;
+		tmp = XOR(c->npx, t);
+		t = c;
+		c = tmp;
+		size--;
+	}
+	max->data.final_index = list->size - 1 - i;
+	max = XOR(c->npx, t);
 }

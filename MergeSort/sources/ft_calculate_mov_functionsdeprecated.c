@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:44:10 by motero            #+#    #+#             */
-/*   Updated: 2022/08/25 20:51:07 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/25 19:02:53 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,49 +64,42 @@ void	ft_calculate_sorting_size_five(t_stacks *stack)
 /* Calculate for each nbr is B stack the number of moves needed to be inserted in A Stack. We chose the one with the less amount of moves and we insert it.*/
 void	ft_calculate_sorting_b_to_a(t_stacks *stack)
 {
-	t_node	*c_a;
-	t_node	*t_a;
-	t_node	*c_b;
-	t_node	*t_b;
+	t_node	*current[2];
 	t_node	*min;
 	size_t	i;
 
-	c_b = stack->b->head;
-	t_b = stack->b->tail;
-	min = c_b;
+	current[1] = ft_node_next(*stack->b, 1, 0);
+	min = current[1];
 	i = 0;
 	while (i < stack->b->size)
 	{
-		c_a = stack->a->head;
-		t_a = stack->a->tail;
-		c_b->nb_optn = 0;
-		c_b->mov = ft_mov_initiliaze();
-		printf("mov=%zu\n", c_b->mov.b.rb);
+		current[0] = ft_node_next(*stack->a, 0, 0);
+		current[1]->nb_optn = 0;
+		current[1]->mov = ft_mov_initiliaze();
+		printf("mov=%zu\n", current[1]->mov.b.rb);
 		//this loop do : find how many rotations A, to insert 1st nb from stack B, B is the smallest number or we rotated the whole  Stack A
-		while (c_b->mov.a.ra < stack->a->size)
+		while (/*current[1]->data.nb > current[0]->data.nb
+			&&*/ current[1]->mov.a.ra < stack->a->size)
 		{
-			if (c_b->data.nb < c_a->data.nb && c_b->data.nb > t_a->data.nb)
-				break ;
-//DO IT WITH FINAL INDEXES!!
-			c_b->mov.a.ra += 1;
-			c_b->nb_optn++;
-			printf("\tStack\tA\t||\tStack\tB\n\t\t%d\t||\t\t%d\n", c_a->data.nb, c_b->data.nb);
-			ft_node_next(&c_a, &t_a);
+			current[1]->mov.a.ra += 1;
+			current[1]->nb_optn++;
+			printf("\tStack\tA\t||\tStack\tB\n\t\t%d\t||\t\t%d\n", current[0]->data.nb, current[1]->data.nb);
+			current[0] = ft_node_next(*stack->a, 0, -1);
 		}
 		//If StacB number is bigger than all numbers in STack A,  nbr of rotation fo Stack A will be equal to its size. We reset them to 0 in order to not waste 3 actions.
-		if (c_b->mov.a.ra <= stack->a->size)
+		if (current[1]->mov.a.ra <= stack->a->size)
 		{
-			c_b->nb_optn -= (c_b->mov.a.ra - 1);
-			c_b->mov.a.ra = 0;
+			current[1]->nb_optn -= (current[1]->mov.a.ra - 1);
+			current[1]->mov.a.ra = 0;
 		}
 		//this do we move to next nbr in B stack.
-		c_b->mov.b.rb += i;
-		c_b->nb_optn += i;
+		current[1]->mov.b.rb += i;
+		current[1]->nb_optn += i;
 		//We compare the number of oeprations done agaisnt the minimum, and copy it if necessary
-		if (min->nb_optn > c_b->nb_optn)
-			min = c_b;
+		if (min->nb_optn > current[1]->nb_optn)
+			min = current[1];
 		printf("\nmin %zu\n", min->nb_optn);
-		ft_node_next(&c_b, &t_b);
+		current[1] = ft_node_next(*stack->b, 1, -1);
 		i++;
 	}
 	//this do
@@ -114,33 +107,24 @@ void	ft_calculate_sorting_b_to_a(t_stacks *stack)
 	stack->mov.swap.pa += 1;
 }
 
-// t_node	*ft_node_next(t_list list, size_t i, size_t init)
-// {
-// 	static t_node	*current[10];
-// 	static t_node	*tail[10];
-// 	static t_node	*tmp[10];
-
-// 	if (init == 0)
-// 	{
-// 			current[i] = list.head;
-// 			tail[i] = list.tail;
-// 	}
-// 	else
-// 	{
-// 		tmp[i] = XOR(current[i]->npx, tail[i]);
-// 		tail[i] = current[i];
-// 		current[i] = tmp[i];
-// 	}
-// 	return (current[i]);
-// }
-
-void	ft_node_next(t_node **c, t_node **t)
+t_node	*ft_node_next(t_list list, size_t i, size_t init)
 {
-	t_node	*tmp;
+	static t_node	*current[10];
+	static t_node	*tail[10];
+	static t_node	*tmp[10];
 
-	tmp = XOR((*c)->npx, (*t));
-	(*t) = (*c);
-	(*c) = tmp;
+	if (init == 0)
+	{
+			current[i] = list.head;
+			tail[i] = list.tail;
+	}
+	else
+	{
+		tmp[i] = XOR(current[i]->npx, tail[i]);
+		tail[i] = current[i];
+		current[i] = tmp[i];
+	}
+	return (current[i]);
 }
 
 // int	main(int argc, char **argv)

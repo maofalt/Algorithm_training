@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Aug 25 14:31:30 2022
+# Make data base, printed on Thu Aug 25 17:00:42 2022
 
 # Variables
 
@@ -61,7 +61,7 @@ BLUE = \033[0;34m
 # makefile (from 'Makefile', line 117)
 OBJS_NAME_CALLGND = $(SRCS_NAME_PS:.c=.o)
 # environment
-JOURNAL_STREAM = 9:1475642
+JOURNAL_STREAM = 9:1585724
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 21)
@@ -95,7 +95,7 @@ OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
 # makefile (from 'Makefile', line 130)
 OBJS_GDB = $(addprefix $(OBJS_PATH_GDB), $(OBJS_NAME_GDB))
 # environment
-MANAGERPID = 248301
+MANAGERPID = 280931
 # makefile (from 'Makefile', line 80)
 OBJS_PATH_PROFILER = objs_prof/
 # makefile (from 'Makefile', line 58)
@@ -103,9 +103,9 @@ OBJS_PATH = objs/
 # environment
 VSCODE_CWD = /mnt/nfs/homes/motero/42/Algo_Training/MergeSort
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session6
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session7
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_101772_mQu8RF
+KRB5CCNAME = FILE:/tmp/krb5cc_101772_67RxeJ
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -115,7 +115,7 @@ GPG_AGENT_INFO = /run/user/101772/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/e1r6p17.clusters.42paris.fr:@/tmp/.ICE-unix/248828,unix/e1r6p17.clusters.42paris.fr:/tmp/.ICE-unix/248828
+SESSION_MANAGER = local/e1r6p17.clusters.42paris.fr:@/tmp/.ICE-unix/281431,unix/e1r6p17.clusters.42paris.fr:/tmp/.ICE-unix/281431
 # environment
 XDG_RUNTIME_DIR = /run/user/101772
 # makefile (from 'Makefile', line 52)
@@ -127,7 +127,7 @@ OBJS_NAME_VALGND = $(SRCS_NAME_PS:.c=.o)
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 9b9f56a6bb1247cd91b8c2c14ae8cb03
+INVOCATION_ID = 0f2333a46b064f05ae7f456b2e7224a4
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -153,7 +153,7 @@ PWD = /mnt/nfs/homes/motero/42/Algo_Training/MergeSort
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 248792
+SSH_AGENT_PID = 281395
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # makefile (from 'Makefile', line 139)
@@ -276,7 +276,6 @@ DEFAULTS_PATH = /usr/share/gconf/ubuntu.default.path
 bold := [1m
 # 'override' directive
 .SHELLSTATUS := 0
- 
 # default
 MAKEFILES := 
 # makefile (from 'Makefile', line 116)
@@ -288,6 +287,7 @@ OBJS_SANITIZE = $(addprefix $(OBJS_PATH_SANITIZE), $(OBJS_NAME_SANITIZE))
 # makefile (from 'Makefile', line 29)
 LIBFT_HDIR_INC = -I./libft/includes/
 # makefile (from 'Makefile', line 38)
+ 
 SRCS_NAME_PS = main.c ft_calculate_mov_functions.c ft_data_functions.c ft_instructions_functions.c ft_list_functions.c ft_math_functions.c ft_move_functions.c ft_node_functions.c ft_parsing.c ft_sorting_functions.c ft_stack_operations.c ft_extremes_functions.c ft_pre_sorting_functions.c
 # environment
 PAGER = less
@@ -300,11 +300,11 @@ GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # makefile (from 'Makefile', line 70)
 LIBS = ranlib
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/2303f904_a717_4e3d_a0aa_d8e1d293c842
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/7d2d3ab0_75bb_47be_99be_dec45e6cb8fa
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.81
+GNOME_TERMINAL_SERVICE = :1.90
 # default
 SUFFIXES := 
 # environment
@@ -330,7 +330,7 @@ TERM = xterm-256color
 # environment
 DOCKER_HOST = unix:///run/user/101772/docker.sock
 # environment
-VSCODE_PID = 250533
+VSCODE_PID = 284798
 # variable set hash-table stats:
 # Load=160/1024=16%, Rehash=0, Collisions=43/322=13%
 
@@ -554,7 +554,6 @@ push_swap_prof: objs_prof/ objs_prof/main.o objs_prof/ft_calculate_mov_functions
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 204):
 		@echo " \n[$(bold)$(YELLOW) PROFILER COMPILATION $(NONE)]"
- 
 		$(CC) $(CFLAGS) $(PROFILER_FLAG) $(LIB_BINARY) $(OBJS_PROFILER) -o $@
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_prof"
 
@@ -569,6 +568,7 @@ objs_gdb/:
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 296):
+ 
 		@mkdir $@
 		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
 
@@ -838,7 +838,6 @@ objs_callgrind/ft_sorting_functions.o:
 #  File has not been updated.
 
 # Not a target:
- 
 objs_prof/ft_pre_sorting_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -851,6 +850,7 @@ objs_sanitize/ft_node_functions.o:
 #  File has not been updated.
 
 # Not a target:
+ 
 objs_valgrind/ft_instructions_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -1127,8 +1127,8 @@ objs_valgrind/ft_node_functions.o:
 #  File has not been updated.
 
 # Not a target:
-objs_gdb/main.o:
  
+objs_gdb/main.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -1159,6 +1159,6 @@ objs/ft_sorting_functions.o:
 # strcache performance: lookups = 246 / hit rate = 47%
 # hash-table stats:
 # Load=130/8192=2%, Rehash=0, Collisions=2/246=1%
-# Finished Make data base on Thu Aug 25 14:31:30 2022
+# Finished Make data base on Thu Aug 25 17:00:42 2022
 
  

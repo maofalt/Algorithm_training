@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 15:14:11 by motero            #+#    #+#             */
-/*   Updated: 2022/08/25 11:35:55 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/25 16:49:19 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ void	ft_pre_sorting_big(t_list *list, int i)
 	size = list->size;
 	while (size)
 	{
-		if (c->data.nb > max->data.nb && c->data.final_index < list->size - i)
+		if (max->data.final_index >= list->size - i)
+			max = XOR(c->npx, t);
+		else if (c->data.nb > max->data.nb && c->data.final_index < (list->size - i))
 			max = c;
 		tmp = XOR(c->npx, t);
 		t = c;
@@ -65,5 +67,4 @@ void	ft_pre_sorting_big(t_list *list, int i)
 		size--;
 	}
 	max->data.final_index = list->size - 1 - i;
-	max = XOR(c->npx, t);
 }

@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 12:09:20 by motero            #+#    #+#             */
-/*   Updated: 2022/08/23 19:14:56 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/25 14:26:01 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_list	*ft_list_create(t_node *head, t_node *tail, size_t size)
 	new_list->tail = tail;
 	new_list->size = size;
 	new_list->index_node = 0;
-	new_list->xtrm = ft_extremes_initializes();
+	new_list->xtrm = ft_extremes_initializes(new_list);
 	return (new_list);
 }
 

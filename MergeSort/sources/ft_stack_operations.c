@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:37:05 by motero            #+#    #+#             */
-/*   Updated: 2022/08/03 18:34:59 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/25 15:00:17 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	ft_stack_swap(t_stacks *stack)
 	if ((stack->mov.swap.sa || stack->mov.swap.ss) && stack->a->size > 1)
 	{
 		ft_list_swap_first_nodes(stack->a);
-		ft_extremes_swap(stack->a);
+		//ft_extremes_swap(stack->a);
 	}
 	if ((stack->mov.swap.sb || stack->mov.swap.ss) && stack->b->size > 1)
 	{
 		ft_list_swap_first_nodes(stack->b);
-		ft_extremes_swap(stack->b);
+		//ft_extremes_swap(stack->b);
 	}
 }
 
@@ -39,12 +39,12 @@ void	ft_stack_rotate(t_stacks *stack)
 	if ((stack->mov.a.ra || stack->mov.a.rr) && stack->a->size > 1)
 	{
 		ft_list_rotate((stack->a));
-		ft_extremes_rotate(stack->a);
+		//ft_extremes_rotate(stack->a);
 	}
 	if ((stack->mov.b.rb || stack->mov.a.rr) && stack->b->size > 1)
 	{
 		ft_list_rotate((stack->b));
-		ft_extremes_rotate(stack->b);
+		//ft_extremes_rotate(stack->b);
 	}
 }
 
@@ -53,12 +53,12 @@ void	ft_stack_reverse_rotate(t_stacks *stack)
 	if ((stack->mov.a.rra || stack->mov.a.rrr) && stack->a->size > 1)
 	{
 		ft_list_reverse_rotate(stack->a);
-		ft_extremes_reverse_rotate(stack->a);
+		//ft_extremes_reverse_rotate(stack->a);
 	}
 	if ((stack->mov.b.rrb || stack->mov.a.rrr) && stack->b->size > 1)
 	{
 		ft_list_reverse_rotate(stack->b);
-		ft_extremes_reverse_rotate(stack->b);
+		//ft_extremes_reverse_rotate(stack->b);
 	}
 }
 

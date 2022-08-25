@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/08/24 20:53:02 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/25 14:26:34 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -243,13 +243,14 @@ size_t		ft_instructions_parsing(t_stacks *stack);
 /*                        EXTREMES FUNCTIONS                                  */
 /*############################################################################*/
 
-t_xtrm		ft_extremes_initializes(void);
+t_xtrm		ft_extremes_initializes(t_list *list);
 void		ft_extremes_parsing(t_list *list, t_data data);
 void		ft_extremes_swap(t_list *list);
 void		ft_extremes_push(t_list *list_a, t_list *list_b);
 void		ft_extremes_rotate(t_list *list);
 void		ft_extremes_reverse_rotate(t_list *list);
 void		ft_extremes_initialize_list(t_list *list, t_data data);
+void		ft_extremes_find(t_list *list);
 
 /*############################################################################*/
 /*                        PRE SORTING FUNCTIONS                               */

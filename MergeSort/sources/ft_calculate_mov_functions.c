@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:44:10 by motero            #+#    #+#             */
-/*   Updated: 2022/08/03 17:29:29 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/25 15:22:27 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	ft_calculate_size_three(t_stacks *stack)
 	index[0] = list->xtrm.min.i;
 	index[2] = list->xtrm.max.i;
 	index[1] = 3 - index[0] - index[2];
-	printf("Min {%d} mid {%d} Max{%d}\n",index[0], index[1], index[2]);
-	ft_list_print_data(*stack->a);
+	//printf("Min {%d} mid {%d} Max{%d}\n",index[0], index[1], index[2]);
+	//ft_list_print_data(*stack->a);
 	if (index[0] == 1 && index[1] == 0)
 		stack->mov.swap.sa = 1;
 	else if (index[2] == 0 && index[1] == 1)
@@ -45,6 +45,8 @@ void	ft_calculate_sorting_size_five(t_stacks *stack)
 {
 	stack->mov.swap.pb = stack->a->size - 3;
 	ft_sorting_apply_operations(stack);
+	ft_extremes_find(stack->a);
+	//printf("Min {%zu} mid {%zu} Max{%zu}\n", stack->a->xtrm.min.i, 3 - stack->a->xtrm.min.i - stack->a->xtrm.max.i, stack->a->xtrm.max.i);
 	ft_calculate_size_three(stack);
 	ft_sorting_apply_operations(stack);
 	printf("\n3-stack A ordered\n");

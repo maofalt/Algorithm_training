@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:44:10 by motero            #+#    #+#             */
-/*   Updated: 2022/08/25 20:51:07 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/29 10:47:38 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,8 @@ void	ft_calculate_size_three(t_stacks *stack)
 
 void	ft_calculate_sorting_size_five(t_stacks *stack)
 {
-	stack->mov.swap.pb = stack->a->size - 3;
-	ft_sorting_apply_operations(stack);
 	ft_extremes_find(stack->a);
+	ft_pre_sorting_push_except_min_max(stack);
 	ft_calculate_size_three(stack);
 	ft_sorting_apply_operations(stack);
 	printf("\n3-stack A ordered\n");

@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/08/25 20:41:00 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/29 09:45:17 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -259,5 +259,6 @@ void		ft_extremes_find(t_list *list);
 void		ft_pre_sorting_general(t_list *list);
 void		ft_pre_sorting_bigger_two(t_list *list);
 void		ft_pre_sorting_big(t_list *list, int i);
+void		ft_pre_sorting_push_except_min_max(t_stacks *stack);
 
 #endif

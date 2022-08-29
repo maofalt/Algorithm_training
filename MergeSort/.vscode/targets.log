@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Aug 25 17:00:42 2022
+# Make data base, printed on Mon Aug 29 08:50:05 2022
 
 # Variables
 
@@ -47,8 +47,6 @@ RM = rm -Rf
 # makefile (from 'Makefile', line 92)
 OBJS_PATH_SANITIZE = objs_sanitize/
 # environment
-GDM_LANG = en
-# environment
 VTE_VERSION = 6003
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
@@ -61,7 +59,7 @@ BLUE = \033[0;34m
 # makefile (from 'Makefile', line 117)
 OBJS_NAME_CALLGND = $(SRCS_NAME_PS:.c=.o)
 # environment
-JOURNAL_STREAM = 9:1585724
+JOURNAL_STREAM = 9:1495421
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 21)
@@ -95,7 +93,7 @@ OBJS = $(addprefix $(OBJS_PATH), $(OBJS_NAME))
 # makefile (from 'Makefile', line 130)
 OBJS_GDB = $(addprefix $(OBJS_PATH_GDB), $(OBJS_NAME_GDB))
 # environment
-MANAGERPID = 280931
+MANAGERPID = 239696
 # makefile (from 'Makefile', line 80)
 OBJS_PATH_PROFILER = objs_prof/
 # makefile (from 'Makefile', line 58)
@@ -103,9 +101,9 @@ OBJS_PATH = objs/
 # environment
 VSCODE_CWD = /mnt/nfs/homes/motero/42/Algo_Training/MergeSort
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session7
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session2
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_101772_67RxeJ
+KRB5CCNAME = FILE:/tmp/krb5cc_101772_JKJiQm
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -115,7 +113,7 @@ GPG_AGENT_INFO = /run/user/101772/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/e1r6p17.clusters.42paris.fr:@/tmp/.ICE-unix/281431,unix/e1r6p17.clusters.42paris.fr:/tmp/.ICE-unix/281431
+SESSION_MANAGER = local/e1r8p15.clusters.42paris.fr:@/tmp/.ICE-unix/240203,unix/e1r8p15.clusters.42paris.fr:/tmp/.ICE-unix/240203
 # environment
 XDG_RUNTIME_DIR = /run/user/101772
 # makefile (from 'Makefile', line 52)
@@ -127,7 +125,7 @@ OBJS_NAME_VALGND = $(SRCS_NAME_PS:.c=.o)
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 0f2333a46b064f05ae7f456b2e7224a4
+INVOCATION_ID = 54bbcc3cbe9247d9a4a132570af65022
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -153,7 +151,7 @@ PWD = /mnt/nfs/homes/motero/42/Algo_Training/MergeSort
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 281395
+SSH_AGENT_PID = 240169
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # makefile (from 'Makefile', line 139)
@@ -235,8 +233,6 @@ PROFILE = push_swap_prof
 # automatic
 *F = $(notdir $*)
 # environment
-LANGUAGE = en
-# environment
 XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
 # makefile (from 'Makefile', line 142)
 NONE = \033[0m
@@ -280,6 +276,7 @@ bold := [1m
 MAKEFILES := 
 # makefile (from 'Makefile', line 116)
 OBJS_PATH_CALLGND = objs_callgrind/
+ 
 # makefile (from 'Makefile', line 94)
 OBJS_SANITIZE = $(addprefix $(OBJS_PATH_SANITIZE), $(OBJS_NAME_SANITIZE))
 # automatic
@@ -287,7 +284,6 @@ OBJS_SANITIZE = $(addprefix $(OBJS_PATH_SANITIZE), $(OBJS_NAME_SANITIZE))
 # makefile (from 'Makefile', line 29)
 LIBFT_HDIR_INC = -I./libft/includes/
 # makefile (from 'Makefile', line 38)
- 
 SRCS_NAME_PS = main.c ft_calculate_mov_functions.c ft_data_functions.c ft_instructions_functions.c ft_list_functions.c ft_math_functions.c ft_move_functions.c ft_node_functions.c ft_parsing.c ft_sorting_functions.c ft_stack_operations.c ft_extremes_functions.c ft_pre_sorting_functions.c
 # environment
 PAGER = less
@@ -300,11 +296,11 @@ GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # makefile (from 'Makefile', line 70)
 LIBS = ranlib
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/7d2d3ab0_75bb_47be_99be_dec45e6cb8fa
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/06355fa4_114c_4a22_80a5_1ab4eec575b9
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.90
+GNOME_TERMINAL_SERVICE = :1.83
 # default
 SUFFIXES := 
 # environment
@@ -330,9 +326,9 @@ TERM = xterm-256color
 # environment
 DOCKER_HOST = unix:///run/user/101772/docker.sock
 # environment
-VSCODE_PID = 284798
+VSCODE_PID = 241605
 # variable set hash-table stats:
-# Load=160/1024=16%, Rehash=0, Collisions=43/322=13%
+# Load=158/1024=15%, Rehash=0, Collisions=43/320=13%
 
 # Pattern-specific Variable Values
 
@@ -340,8 +336,8 @@ VSCODE_PID = 284798
 
 # Directories
 
-# . (device 59, inode 316571971): 10 files, no impossibilities.
-# sources (device 59, inode 28350568): No files, no impossibilities so far.
+# . (device 56, inode 316571971): 10 files, no impossibilities.
+# sources (device 56, inode 28350568): No files, no impossibilities so far.
 
 # 10 files, no impossibilities in 2 directories.
 
@@ -558,6 +554,7 @@ push_swap_prof: objs_prof/ objs_prof/main.o objs_prof/ft_calculate_mov_functions
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap_prof"
 
 # Not a target:
+ 
 objs_prof/ft_data_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -568,7 +565,6 @@ objs_gdb/:
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 296):
- 
 		@mkdir $@
 		@echo "\t [ $(GREEN)✔$(NONE)] $@directory"
 
@@ -835,6 +831,7 @@ objs_prof/main.o:
 objs_callgrind/ft_sorting_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
 # Not a target:
@@ -850,7 +847,6 @@ objs_sanitize/ft_node_functions.o:
 #  File has not been updated.
 
 # Not a target:
- 
 objs_valgrind/ft_instructions_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -1112,6 +1108,7 @@ objs/ft_list_functions.o:
 objs/ft_move_functions.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
 # Not a target:
@@ -1127,7 +1124,6 @@ objs_valgrind/ft_node_functions.o:
 #  File has not been updated.
 
 # Not a target:
- 
 objs_gdb/main.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -1159,6 +1155,6 @@ objs/ft_sorting_functions.o:
 # strcache performance: lookups = 246 / hit rate = 47%
 # hash-table stats:
 # Load=130/8192=2%, Rehash=0, Collisions=2/246=1%
-# Finished Make data base on Thu Aug 25 17:00:42 2022
+# Finished Make data base on Mon Aug 29 08:50:05 2022
 
  

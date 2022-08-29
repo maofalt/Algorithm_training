@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 15:14:11 by motero            #+#    #+#             */
-/*   Updated: 2022/08/25 16:49:19 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/29 19:19:27 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,31 +40,34 @@ void	ft_pre_sorting_bigger_two(t_list *list)
 	}
 }
 
-void	ft_pre_sorting_big(t_list *list, int i)
+void	ft_pre_sorting_big(t_list *list, size_t i)
 {
-	size_t				size;
 	t_node static		*c;
-	t_node				*tmp;
 	t_node static		*t;
 	t_node static		*max;
+	size_t				size;
 
 	if (i == 0)
 	{
-		t = list->tail;
 		c = list->head;
-		max = c;
+		t = list->tail;
 	}
-	size = list->size;
+	size = list->size - i;
+	max = c;
+	//printf("\nITERATION %zu\ncurrent |%d|max |%d|\n ", i, c->data.nb, max->data.nb);
 	while (size)
 	{
-		if (max->data.final_index >= list->size - i)
-			max = XOR(c->npx, t);
-		else if (c->data.nb > max->data.nb && c->data.final_index < (list->size - i))
+		if (c->data.nb > max->data.nb)
 			max = c;
-		tmp = XOR(c->npx, t);
-		t = c;
-		c = tmp;
+		ft_node_next(&c, &t);
+		while (c->data.final_index != 0)
+			ft_node_next(&c, &t);
 		size--;
 	}
-	max->data.final_index = list->size - 1 - i;
+	max->data.final_index = list->size - i - 1;
+	//printf("MAX nb %d |FI %zu\n", max->data.nb, max->data.final_index);
+	while (c->data.final_index != 0)
+		ft_node_next(&c, &t);
+	//ft_list_print_data(*list);
+	//printf("end sortin big \n\n");
 }

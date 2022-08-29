@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/08/29 09:45:17 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/29 17:40:26 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,7 +201,6 @@ char		*ft_parsing_extract_nbr(char *nbr);
 
 void		ft_sorting_main(t_stacks *stack);
 void		ft_sorting_apply_operations(t_stacks *stack);
-void		ft_sorting_apply_and_reset(t_stacks *stack);
 int			ft_list_is_sorted(t_list list);
 void		ft_sorting_apply_rotation(t_stacks *stack);
 void		ft_sorting_apply_rev_rotation(t_stacks *stack);
@@ -258,7 +257,7 @@ void		ft_extremes_find(t_list *list);
 
 void		ft_pre_sorting_general(t_list *list);
 void		ft_pre_sorting_bigger_two(t_list *list);
-void		ft_pre_sorting_big(t_list *list, int i);
+void		ft_pre_sorting_big(t_list *list, size_t i);
 void		ft_pre_sorting_push_except_min_max(t_stacks *stack);
 
 #endif

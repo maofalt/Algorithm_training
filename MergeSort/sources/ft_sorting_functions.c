@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:51:03 by motero            #+#    #+#             */
-/*   Updated: 2022/08/29 11:49:36 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/29 21:34:40 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,18 +110,6 @@ void	ft_sorting_apply_operations(t_stacks *stack)
 	if (mov.swap.pa || mov.swap.pb)
 		ft_sorting_apply_push(stack);
 	stack->mov = ft_mov_initiliaze();
-}
-
-void	ft_sorting_apply_and_reset(t_stacks *stack)
-{
-	t_mov	tmp;
-
-	tmp = stack->mov;
-	ft_sorting_apply_operations(stack);
-	printf("Intermediary\n");
-	ft_list_print_data(*stack->a);
-	printf("================\n");
-	ft_sorting_apply_operations(stack);
 }
 
 void	ft_sorting_apply_rotation(t_stacks *stack)
@@ -238,18 +226,37 @@ void	ft_pre_sorting_push_except_min_max(t_stacks *stack)
 	t_list	*list;
 	t_node	*current;
 	t_node	*tail;
+	t_node	*tmp;
 
 	list = stack->a;
-	current = list->head;
-	tail = list->tail;
+	current = stack->a->head;
+	//printf("Head %d\n", stack->a->head->data.nb);
+	tail = stack->a->tail;
 	while (list->size > 3)
 	{
+		//printf("current %d FI %zu\n", current->data.nb, current->data.final_index);
+		//ft_list_print_data(*stack->a);
+		//printf("\n");
 		if (current->data.final_index == 0 || current->data.nb == list->xtrm.max.nb)
-			stack->mov.a.ra++;
+		{
+			stack->mov.a.ra = 1;
+			tmp = XOR(current->npx, tail);
+			tail = current;
+			current = tmp;
+		}
 		else
-			stack->mov.swap.pb++;
-		ft_node_next(&current, &tail);
+		{
+			stack->mov.swap.pb = 1;
+			current = XOR(current->npx, tail);
+			//tail = tail;
+		}
+		//ft_node_next(&current, &tail);
 		ft_sorting_apply_operations(stack);
+		//printf("\nDList A\n");
+		//ft_list_print_data(*stack->a);
+		//printf("DList B\n");
+		//ft_list_print_data(*stack->b);
+		//printf("==========\n");
 	}
 	ft_extremes_find(stack->a);
 }

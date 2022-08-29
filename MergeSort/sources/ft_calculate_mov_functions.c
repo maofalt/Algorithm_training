@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:44:10 by motero            #+#    #+#             */
-/*   Updated: 2022/08/29 12:08:15 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/29 21:35:10 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,16 @@ void	ft_calculate_size_three(t_stacks *stack)
 void	ft_calculate_sorting_size_five(t_stacks *stack)
 {
 	ft_extremes_find(stack->a);
+	//printf("Min %d Max %d \n", stack->a->xtrm.min.nb, stack->a->xtrm.max.nb);
 	ft_pre_sorting_push_except_min_max(stack);
+	//ft_list_print_data(*stack->a);
 	ft_calculate_size_three(stack);
 	ft_sorting_apply_operations(stack);
-	printf("\n3-stack A ordered\n");
-	ft_list_print_data(*stack->a);
-	printf("\n");
+	//ft_list_print_data(*stack->a);
 	while (stack->b->size)
 	{
 		ft_calculate_sorting_b_to_a(stack);
-		ft_sorting_apply_and_reset(stack);
-		ft_printf("%s", stack->operations);
+		ft_sorting_apply_operations(stack);
 	}
 	if (stack->a->head->data.final_index != 0)
 	{
@@ -65,8 +64,6 @@ void	ft_calculate_sorting_size_five(t_stacks *stack)
 		}
 	}
 	ft_sorting_apply_operations(stack);
-	printf("\nFinql Results\n");
-	ft_list_print_data(*stack->a);
 }
 
 /* Calculate for each nbr is B stack the number of moves needed to be inserted in A Stack. We chose the one with the less amount of moves and we insert it.*/
@@ -89,7 +86,7 @@ void	ft_calculate_sorting_b_to_a(t_stacks *stack)
 		t_a = stack->a->tail;
 		c_b->nb_optn = 0;
 		c_b->mov = ft_mov_initiliaze();
-		printf("mov=%zu\n", c_b->mov.b.rb);
+	//	printf("mov=%zu\n", c_b->mov.b.rb);
 		//this loop do : find how many rotations A, to insert 1st nb from stack B, B is the smallest number or we rotated the whole  Stack A
 		while (c_b->mov.a.ra < stack->a->size)
 		{
@@ -98,7 +95,7 @@ void	ft_calculate_sorting_b_to_a(t_stacks *stack)
 //DO IT WITH FINAL INDEXES!!
 			c_b->mov.a.ra += 1;
 			c_b->nb_optn++;
-			printf("\tStack\tA\t||\tStack\tB\n\t\t%d\t||\t\t%d\n", c_a->data.nb, c_b->data.nb);
+	//		printf("\tStack\tA\t||\tStack\tB\n\t\t%d\t||\t\t%d\n", c_a->data.nb, c_b->data.nb);
 			ft_node_next(&c_a, &t_a);
 		}
 		//If StacB number is bigger than all numbers in STack A,  nbr of rotation fo Stack A will be equal to its size. We reset them to 0 in order to not waste 3 actions.
@@ -119,7 +116,7 @@ void	ft_calculate_sorting_b_to_a(t_stacks *stack)
 		//We compare the number of oeprations done agaisnt the minimum, and copy it if necessary
 		if (min->nb_optn > c_b->nb_optn)
 			min = c_b;
-		printf("\nmin %zu\n", min->nb_optn);
+	//	printf("\nmin %zu\n", min->nb_optn);
 		ft_node_next(&c_b, &t_b);
 		i++;
 	}

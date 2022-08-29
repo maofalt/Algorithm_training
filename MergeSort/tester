@@ -9,7 +9,7 @@ maxseq=0
 average=0
 total=0
 
-while [ $i -lt 100 ]
+while [ $i -lt 1000 ]
 do
     seq=$(seq 1 5 | shuf | tr '\n' ' ')
     nb=$(./push_swap $seq)
@@ -23,6 +23,11 @@ do
     if [ $total -gt 12 ]
     then
         wrong=$(( $wrong + 1 ))
+        echo $seq
+    fi
+    if [ $total == 1 ]
+    then
+        echo "error"
         echo $seq
     fi
 

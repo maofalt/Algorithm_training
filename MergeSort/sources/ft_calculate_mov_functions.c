@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:44:10 by motero            #+#    #+#             */
-/*   Updated: 2022/08/29 10:47:38 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/29 12:08:15 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,18 @@ void	ft_calculate_sorting_size_five(t_stacks *stack)
 	{
 		ft_calculate_sorting_b_to_a(stack);
 		ft_sorting_apply_and_reset(stack);
+		ft_printf("%s", stack->operations);
 	}
-	if (stack->a->head->data.nb > stack->a->tail->data.nb)
-		stack->mov.a.ra++;
+	if (stack->a->head->data.final_index != 0)
+	{
+		ft_extremes_find(stack->a);
+		stack->mov.a.ra += stack->a->xtrm.min.i;
+		if (stack->mov.a.ra > stack->a->size / 2)
+		{
+			stack->mov.a.rra = stack->a->size - stack->mov.a.ra ;
+			stack->mov.a.ra = 0 ;
+		}
+	}
 	ft_sorting_apply_operations(stack);
 	printf("\nFinql Results\n");
 	ft_list_print_data(*stack->a);
@@ -93,10 +102,16 @@ void	ft_calculate_sorting_b_to_a(t_stacks *stack)
 			ft_node_next(&c_a, &t_a);
 		}
 		//If StacB number is bigger than all numbers in STack A,  nbr of rotation fo Stack A will be equal to its size. We reset them to 0 in order to not waste 3 actions.
-		if (c_b->mov.a.ra <= stack->a->size)
+		if (c_b->mov.a.ra >= stack->a->size)
 		{
 			c_b->nb_optn -= (c_b->mov.a.ra - 1);
 			c_b->mov.a.ra = 0;
+		}
+		if (c_b->mov.a.ra > stack->a->size / 2)
+		{
+			c_b->mov.a.rra = stack->a->size - c_b->mov.a.ra ;
+			c_b->nb_optn -= (c_b->mov.a.ra - c_b->mov.a.rra);
+			c_b->mov.a.ra = 0 ;
 		}
 		//this do we move to next nbr in B stack.
 		c_b->mov.b.rb += i;

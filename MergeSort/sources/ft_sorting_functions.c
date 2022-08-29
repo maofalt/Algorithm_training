@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:51:03 by motero            #+#    #+#             */
-/*   Updated: 2022/08/29 10:47:52 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/29 11:49:36 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,8 +118,6 @@ void	ft_sorting_apply_and_reset(t_stacks *stack)
 
 	tmp = stack->mov;
 	ft_sorting_apply_operations(stack);
-	while (tmp.a.ra--)
-		stack->mov.a.rra++;
 	printf("Intermediary\n");
 	ft_list_print_data(*stack->a);
 	printf("================\n");

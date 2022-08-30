@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/08/30 13:19:15 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/30 17:22:43 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,6 +224,9 @@ void		ft_calculate_size_three_wo_rot(t_stacks *stack);
 void		ft_calculate_sorting_size_five(t_stacks *stack);
 void		ft_calculate_sorting_b_to_a(t_stacks *stack);
 void		ft_node_next(t_node **c, t_node **t);
+
+void		ft_calculate_rot_to_fit(t_stacks *stack, t_node *c_b);
+void		ft_calculate_fix_rot_size(t_stacks *stack, t_node *c_b);
 
 /*############################################################################*/
 /*                            MATH FUNCTIONS                                  */

@@ -6,7 +6,7 @@
 #    By: motero <motero@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/10 18:38:23 by motero            #+#    #+#              #
-#    Updated: 2022/07/20 16:39:14 by motero           ###   ########.fr        #
+#    Updated: 2022/08/30 19:29:15 by motero           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -112,7 +112,7 @@ OBJS_PRINT = $(addprefix $(OBJS_PATH), $(OBJS_NAME_PRINT))
 #=============================================================================#
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -pg -O3
 
 LIBA = ar rc
 LIBS = ranlib

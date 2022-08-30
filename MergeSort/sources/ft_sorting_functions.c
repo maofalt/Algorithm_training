@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:51:03 by motero            #+#    #+#             */
-/*   Updated: 2022/08/30 15:42:36 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/30 20:31:15 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,18 +130,21 @@ void	ft_sorting_apply_rotation(t_stacks *stack)
 			//ft_stack_rotate(stack);
 			if (i == 0)
 			{
-				stack->operations = ft_strjoin_w_free(stack->operations, "ra\n");
+				//stack->operations = ft_strjoin_w_free(stack->operations, "ra\n");
+				ft_printf("ra\n");
 				ft_list_rotate((stack->a));
 			}
 			if (i == 1)
 			{
-				stack->operations = ft_strjoin_w_free(stack->operations, "rr\n");
+				//stack->operations = ft_strjoin_w_free(stack->operations, "rr\n");
+				ft_printf("rr\n");
 				ft_list_rotate((stack->a));
 				ft_list_rotate((stack->b));
 			}
 			if (i == 2)
 			{
-				stack->operations = ft_strjoin_w_free(stack->operations, "rb\n");
+				//stack->operations = ft_strjoin_w_free(stack->operations, "rb\n");
+				ft_printf("rb\n");
 				ft_list_rotate((stack->b));
 			}
 			movs[i]--;
@@ -167,11 +170,14 @@ void	ft_sorting_apply_rev_rotation(t_stacks *stack)
 		{
 			ft_stack_reverse_rotate(stack);
 			if (i == 0)
-				stack->operations = ft_strjoin_w_free(stack->operations, "rra\n");
+				//stack->operations = ft_strjoin_w_free(stack->operations, "rra\n");
+				ft_printf("rra\n");
 			if (i == 1)
-				stack->operations = ft_strjoin_w_free(stack->operations, "rrr\n");
+				//stack->operations = ft_strjoin_w_free(stack->operations, "rrr\n");
+				ft_printf("rrr\n");
 			if (i == 2)
-				stack->operations = ft_strjoin_w_free(stack->operations, "rrb\n");
+				//stack->operations = ft_strjoin_w_free(stack->operations, "rrb\n");
+				ft_printf("rrb\n");
 			movs[i]--;
 		}
 		i++;
@@ -195,11 +201,14 @@ void	ft_sorting_apply_swap(t_stacks *stack)
 		{
 			ft_stack_swap(stack);
 			if (i == 0)
-				stack->operations = ft_strjoin_w_free(stack->operations, "sa\n");
+				//stack->operations = ft_strjoin_w_free(stack->operations, "sa\n");
+				ft_printf("sa\n");
 			if (i == 1)
-				stack->operations = ft_strjoin_w_free(stack->operations, "sb\n");
+				//stack->operations = ft_strjoin_w_free(stack->operations, "sb\n");
+				ft_printf("sb\n");
 			if (i == 2)
-				stack->operations = ft_strjoin_w_free(stack->operations, "ss\n");
+				//stack->operations = ft_strjoin_w_free(stack->operations, "ss\n");
+				ft_printf("ss\n");
 			movs[i]--;
 		}
 		i++;
@@ -222,9 +231,11 @@ void	ft_sorting_apply_push(t_stacks *stack)
 		{
 			ft_stack_push(stack);
 			if (i == 0)
-				stack->operations = ft_strjoin_w_free(stack->operations, "pa\n");
+				//stack->operations = ft_strjoin_w_free(stack->operations, "pa\n");
+				ft_printf("pa\n");
 			if (i == 1)
-				stack->operations = ft_strjoin_w_free(stack->operations, "pb\n");
+				//stack->operations = ft_strjoin_w_free(stack->operations, "pb\n");
+				ft_printf("pb\n");
 			movs[i]--;
 		}
 		i++;

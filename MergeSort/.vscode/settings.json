@@ -4,7 +4,12 @@
         "mergesort.h": "c",
         "pushswap.h": "c",
         "libft.h": "c",
-        "limits": "c"
+        "limits": "c",
+        "array": "c",
+        "string_view": "c",
+        "initializer_list": "c",
+        "ranges": "c",
+        "utility": "c"
     },
     "editor.insertSpaces": false,
     "editor.renderWhitespace": "all",

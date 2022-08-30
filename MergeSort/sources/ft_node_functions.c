@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:47:09 by motero            #+#    #+#             */
-/*   Updated: 2022/08/02 15:03:49 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/30 20:37:52 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_node	*XOR(t_node *a, t_node *b)
 {
-	return (t_node*)((uintptr_t)(a) ^ (uintptr_t)(b));
+	return ((t_node *)((uintptr_t)(a) ^ (uintptr_t)(b)));
 }
 
 t_node	*ft_node_create(t_data data, t_node *npx)

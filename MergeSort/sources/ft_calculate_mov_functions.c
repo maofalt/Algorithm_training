@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:44:10 by motero            #+#    #+#             */
-/*   Updated: 2022/08/30 19:57:03 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/30 20:56:57 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,24 +60,48 @@ void	ft_calculate_size_three_wo_rot(t_stacks *stack)
 		return ;
 }
 
+// void	ft_calculate_sorting_size_five(t_stacks *stack)
+// {
+// 	ft_extremes_find(stack->a);
+// 	//printf("Min %d Max %d \n", stack->a->xtrm.min.nb, stack->a->xtrm.max.nb);
+// 	ft_pre_sorting_push_except_min_max(stack);
+// 	//ft_list_print_data(*stack->a);
+// 	ft_calculate_size_three_wo_rot(stack);
+// 	ft_sorting_apply_operations(stack);
+// 	//ft_list_print_data(*stack->a);
+// 	while (stack->b->size)
+// 	{
+// 		ft_calculate_sorting_b_to_a(stack);
+// 		ft_sorting_apply_operations(stack);
+// 		//ft_printf("%s", stack->operations);
+// 		// printf("\nSTACK A\n");
+// 		// ft_list_print_data(*stack->a);
+// 		// printf("\nSTACK B\n");
+// 		// ft_list_print_data(*stack->b);
+// 	}
+// 	if (stack->a->head->data.final_index != 0)
+// 	{
+// 		ft_extremes_find(stack->a);
+// 		stack->mov.a.ra += stack->a->xtrm.min.i;
+// 		if (stack->mov.a.ra > stack->a->size / 2)
+// 		{
+// 			stack->mov.a.rra = stack->a->size - stack->mov.a.ra ;
+// 			stack->mov.a.ra = 0 ;
+// 		}
+// 	}
+// 	ft_sorting_apply_operations(stack);
+// }
+
 void	ft_calculate_sorting_size_five(t_stacks *stack)
 {
 	ft_extremes_find(stack->a);
-	//printf("Min %d Max %d \n", stack->a->xtrm.min.nb, stack->a->xtrm.max.nb);
 	ft_pre_sorting_push_except_min_max(stack);
-	//ft_list_print_data(*stack->a);
-	ft_calculate_size_three_wo_rot(stack);
+	//ft_calculate_size_three_wo_rot(stack);
 	ft_sorting_apply_operations(stack);
-	//ft_list_print_data(*stack->a);
 	while (stack->b->size)
 	{
 		ft_calculate_sorting_b_to_a(stack);
 		ft_sorting_apply_operations(stack);
-		//ft_printf("%s", stack->operations);
-		// printf("\nSTACK A\n");
-		// ft_list_print_data(*stack->a);
-		// printf("\nSTACK B\n");
-		// ft_list_print_data(*stack->b);
 	}
 	if (stack->a->head->data.final_index != 0)
 	{

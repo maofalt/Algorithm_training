@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:17:45 by motero            #+#    #+#             */
-/*   Updated: 2022/08/25 15:04:03 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/30 22:05:20 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_extremes_parsing(t_list *list, t_data data)
 		{
 			list->xtrm.min.nb = data.nb;
 			list->xtrm.min.i = data.index;
+			list->xtrm.min.tail = list->xtrm.min.node;
 			list->xtrm.min.node = list->tail;
 		}
 		if (data.nb > list->xtrm.max.nb)
@@ -65,6 +66,7 @@ void	ft_extremes_find(t_list *list)
 		{
 			list->xtrm.max.nb = c->data.nb;
 			list->xtrm.max.i = c->data.index;
+			list->xtrm.min.tail = list->xtrm.min.node;
 			list->xtrm.max.node = c;
 		}
 		if (c->data.nb < list->xtrm.min.nb)

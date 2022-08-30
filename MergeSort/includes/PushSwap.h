@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/08/30 19:12:42 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/30 22:10:46 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ typedef struct s_min
 	int			nb;
 	size_t		i;
 	t_node		*node;
+	t_node		*tail;
 }				t_min;
 
 typedef struct s_max
@@ -263,5 +264,6 @@ void		ft_pre_sorting_general(t_list *list);
 void		ft_pre_sorting_bigger_two(t_list *list);
 void		ft_pre_sorting_big(t_list *list, size_t i);
 void		ft_pre_sorting_push_except_min_max(t_stacks *stack);
+void		ft_pre_sorting_find_big_seq(t_stacks *stack, t_node *seq, size_t *size);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:51:03 by motero            #+#    #+#             */
-/*   Updated: 2022/08/30 20:31:15 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/30 22:13:50 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,6 @@ void	ft_sorting_main(t_stacks *stack)
 		else
 		{
 			ft_calculate_sorting_size_five(stack);
-			ft_sorting_apply_operations(stack);
-		}
-	}
-	else if (stack->a->size > 5)
-	{
-		if (ft_list_is_sorted(*stack->a))
-			stack->operations = NULL;
-		else
-		{
-			stack->mov.a.ra = 1;
 			ft_sorting_apply_operations(stack);
 		}
 	}
@@ -248,17 +238,17 @@ void	ft_pre_sorting_push_except_min_max(t_stacks *stack)
 	t_node	*current;
 	t_node	*tail;
 	t_node	*tmp;
+	t_node	*seq;
+	size_t	size;
 
 	list = stack->a;
 	current = stack->a->head;
-	//printf("Head %d\n", stack->a->head->data.nb);
 	tail = stack->a->tail;
+	size = 0;
+	ft_pre_sorting_find_big_seq(stack, seq, &size);
 	while (list->size > 3)
 	{
-		//printf("current %d FI %zu\n", current->data.nb, current->data.final_index);
-		//ft_list_print_data(*stack->a);
-		//printf("\n");
-		if (current->data.final_index == 0 || current->data.nb == list->xtrm.max.nb)
+		if (current == list->xtrm.min.node || current == list->xtrm.max.node)
 		{
 			stack->mov.a.ra = 1;
 			tmp = XOR(current->npx, tail);
@@ -269,15 +259,71 @@ void	ft_pre_sorting_push_except_min_max(t_stacks *stack)
 		{
 			stack->mov.swap.pb = 1;
 			current = XOR(current->npx, tail);
-			//tail = tail;
 		}
-		//ft_node_next(&current, &tail);
 		ft_sorting_apply_operations(stack);
-		//printf("\nDList A\n");
-		//ft_list_print_data(*stack->a);
-		//printf("DList B\n");
-		//ft_list_print_data(*stack->b);
-		//printf("==========\n");
 	}
 	ft_extremes_find(stack->a);
 }
+
+void	ft_pre_sorting_find_big_seq(t_stacks *stack, t_node *seq, size_t *size)
+{
+	size_t			i;
+	int				max_nb;
+	t_node			*current;
+	t_node			*next;
+	t_node			*t;
+
+	t = stack->a->xtrm.min.tail;
+	current = stack->a->xtrm.min.node;
+	i = 0;
+	*size = 0;
+	max_nb = stack->a->xtrm.min.nb;
+	while (next != stack->a->xtrm.min.node)
+	{
+		next = XOR(current->npx, t);
+		if (max_nb > next->data.nb)
+		{
+			if (i > *size)
+			{
+				*size = i;
+				seq = next;
+			}
+			i = 0;
+		}
+		else
+		{
+			max_nb = next->data.nb;
+			t = current;
+			current = next;
+			i++;
+		}
+	}
+}
+// void	ft_pre_sorting_push_except_min_max(t_stacks *stack)
+// {
+// 	t_list	*list;
+// 	t_node	*current;
+// 	t_node	*tail;
+// 	t_node	*tmp;
+
+// 	list = stack->a;
+// 	current = stack->a->head;
+// 	tail = stack->a->tail;
+// 	while (list->size > 3)
+// 	{
+// 		if (current->data.final_index == 0 || current->data.nb == list->xtrm.max.nb)
+// 		{
+// 			stack->mov.a.ra = 1;
+// 			tmp = XOR(current->npx, tail);
+// 			tail = current;
+// 			current = tmp;
+// 		}
+// 		else
+// 		{
+// 			stack->mov.swap.pb = 1;
+// 			current = XOR(current->npx, tail);
+// 		}
+// 		ft_sorting_apply_operations(stack);
+// 	}
+// 	ft_extremes_find(stack->a);
+// }

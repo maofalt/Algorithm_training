@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/08/29 21:39:53 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/30 13:19:15 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,8 +212,8 @@ void		ft_sorting_apply_push(t_stacks *stack);
 /*############################################################################*/
 
 t_mov		ft_mov_initiliaze(void);
-void		ft_move_compound_rotation(t_stacks stack);
-void		ft_move_compound_swap(t_stacks stack);
+void		ft_move_compound_rotation(t_stacks *stack);
+void		ft_move_compound_swap(t_stacks *stack);
 
 /*############################################################################*/
 /*                       PRE-CALCULATE MOV FUNCTIONS                          */

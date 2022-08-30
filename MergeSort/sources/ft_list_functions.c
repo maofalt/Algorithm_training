@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 12:09:20 by motero            #+#    #+#             */
-/*   Updated: 2022/08/29 19:17:43 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/30 11:46:43 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,16 @@ void	ft_list_print_data(t_list list)
 	i = 0;
 	if (list.size < 3)
 	{
-		printf("Index:[%zu]= %d\n", current->data.index, list.head->data.nb);
-		printf("Index:[%zu]= %d\n", list.tail->data.index, list.tail->data.nb);
+		//printf("Index:[%zu]= %d\n", current->data.index, list.head->data.nb);
+		printf("INDEX:\t%zu\t|:NB\t%d\t|FINAL INDEX\t%zu|\tMOVES %zu\n", current->data.index, list.head->data.nb, list.head->data.final_index, list.head->nb_optn);
+		printf("INDEX:\t%zu\t|:NB\t%d\t|FINAL INDEX\t%zu|\tMOVES %zu\n", list.tail->data.index, list.tail->data.nb, list.tail->data.final_index, list.tail->nb_optn);
+		//printf("Index:[%zu]= %d\n", list.tail->data.index, list.tail->data.nb);
 	}
 	else
 	{
 		while (i < list.size)
 		{
-			printf("INDEX:\t%zu\t|:NB\t%d\t|FINAL INDEX\t%zu|\n", current->data.index, current->data.nb, current->data.final_index);
+			printf("INDEX:\t%zu\t|:NB\t%d\t|FINAL INDEX\t%zu|\t|MOVES %zu\n", current->data.index, current->data.nb, current->data.final_index, current->nb_optn);
 			tmp = XOR(current->npx, t);
 			t = current;
 			current = tmp;

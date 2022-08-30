@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:51:03 by motero            #+#    #+#             */
-/*   Updated: 2022/08/29 21:47:57 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/30 15:04:13 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ void	ft_sorting_apply_operations(t_stacks *stack)
 	t_mov	mov;
 
 	mov = stack->mov;
-	ft_move_compound_rotation(*stack);
-	ft_move_compound_swap(*stack);
+	ft_move_compound_rotation(stack);
+	ft_move_compound_swap(stack);
 	stack->total_moves += ft_instructions_parsing(stack);
 	if (mov.swap.sa || mov.swap.sb || mov.swap.ss)
 		ft_sorting_apply_swap(stack);
@@ -123,17 +123,29 @@ void	ft_sorting_apply_rotation(t_stacks *stack)
 	movs[1] = mov.a.rr;
 	movs[2] = mov.b.rb;
 	i = 0;
+	if (stack->b->size <= 2)
+		ft_list_print_data(*stack->b);
 	while (i < 3)
 	{
 		while (movs[i])
 		{
-			ft_stack_rotate(stack);
+			//ft_stack_rotate(stack);
 			if (i == 0)
+			{
 				stack->operations = ft_strjoin_w_free(stack->operations, "ra\n");
+				ft_list_rotate((stack->a));
+			}
 			if (i == 1)
+			{
 				stack->operations = ft_strjoin_w_free(stack->operations, "rr\n");
+				ft_list_rotate((stack->a));
+				ft_list_rotate((stack->b));
+			}
 			if (i == 2)
+			{
 				stack->operations = ft_strjoin_w_free(stack->operations, "rb\n");
+				ft_list_rotate((stack->b));
+			}
 			movs[i]--;
 		}
 		i++;

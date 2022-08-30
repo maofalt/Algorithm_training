@@ -11,7 +11,7 @@ total=0
 
 while [ $i -lt 1000 ]
 do
-    seq=$(seq 1 500 | shuf | tr '\n' ' ')
+    seq=$(seq 1 10 | shuf | tr '\n' ' ')
     nb=$(./push_swap $seq)
     total=$(echo "$nb" | wc -l)
 
@@ -20,7 +20,7 @@ do
         max=$total
         maxseq=$seq
     fi
-    if [ $total -gt 5500 ]
+    if [ $total -gt 100 ]
     then
         wrong=$(( $wrong + 1 ))
         echo $seq
@@ -33,6 +33,7 @@ do
 
     echo "moves = $total"
     echo "total wrong = $wrong"
+    echo "$OK"
     echo ---------
     average=$(( $average + $total ))
     i=$(( $i + 1 ))

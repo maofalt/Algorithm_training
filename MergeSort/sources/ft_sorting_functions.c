@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:51:03 by motero            #+#    #+#             */
-/*   Updated: 2022/08/30 15:04:13 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/30 15:42:36 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,8 +123,6 @@ void	ft_sorting_apply_rotation(t_stacks *stack)
 	movs[1] = mov.a.rr;
 	movs[2] = mov.b.rb;
 	i = 0;
-	if (stack->b->size <= 2)
-		ft_list_print_data(*stack->b);
 	while (i < 3)
 	{
 		while (movs[i])

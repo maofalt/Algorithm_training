@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:44:10 by motero            #+#    #+#             */
-/*   Updated: 2022/08/30 20:56:57 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/31 21:20:22 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,7 @@ void	ft_calculate_sorting_b_to_a(t_stacks *stack)
 		if (min->nb_optn > c_b->nb_optn)
 			min = c_b;
 		if (min->mov.a.ra == 0 && min->mov.a.rra == 0)
-		 	break ;
+			break ;
 		ft_node_next(&c_b, &t_b);
 		i++;
 	}

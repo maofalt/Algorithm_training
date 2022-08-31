@@ -11,7 +11,7 @@ total=0
 
 while [ $i -lt 1000 ]
 do
-    seq=$(seq 1 500 | shuf | tr '\n' ' ')
+    seq=$(seq 1 5 | shuf | tr '\n' ' ')
     nb=$(./push_swap $seq)
     total=$(echo "$nb" | wc -l)
 
@@ -20,7 +20,7 @@ do
         max=$total
         maxseq=$seq
     fi
-    if [ $total -gt 7000 ]
+    if [ $total -gt 12 ]
     then
         wrong=$(( $wrong + 1 ))
         echo $seq

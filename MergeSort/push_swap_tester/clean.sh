@@ -5,4 +5,3 @@ bash clean.sh
 cd ..
 make fclean -C ./files
 printf "clean done"
-cd ..

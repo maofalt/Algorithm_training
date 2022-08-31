@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:06:37 by motero            #+#    #+#             */
-/*   Updated: 2022/08/30 19:50:42 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/31 22:21:53 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,13 @@ int	main(int argc, char **argv)
 			ft_pre_sorting_general(list_a);
 			//ft_printf("=====Values before sorting=====\n");
 			//ft_list_print_data(*stack->a);
+			ft_extremes_find(stack->a);
 			ft_sorting_main(stack);
 			//ft_list_print_data(*stack->a);
 			// ft_list_print_data(*stack->a);
 			// ft_list_print_data(*stack->b);
-			// printf("=====Values after sorting=====\n");
-			// ft_list_print_data(*stack->a);
+			//  printf("=====Values after sorting=====\n");
+			//  ft_list_print_data(*stack->a);
 			// ft_printf("%s", stack->operations);
 			///ft_list_print_data(*stack->a);
 			if (ft_list_is_sorted(*stack->a))

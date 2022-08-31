@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:47:09 by motero            #+#    #+#             */
-/*   Updated: 2022/08/30 20:37:52 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/31 13:49:19 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_node	*ft_node_create(t_data data, t_node *npx)
 	new->npx = npx;
 	new->mov = ft_mov_initiliaze();
 	new->nb_optn = 0;
+	new->to_keep = 0;
 	return (new);
 }
 

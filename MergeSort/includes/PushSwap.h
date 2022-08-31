@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/08/30 22:10:46 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/31 13:48:49 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ typedef struct s_node
 	t_data			data;
 	t_mov			mov;
 	size_t			nb_optn;
+	size_t			to_keep;
 	struct s_node	*npx;
 }					t_node;
 

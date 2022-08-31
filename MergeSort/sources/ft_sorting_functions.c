@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 18:51:03 by motero            #+#    #+#             */
-/*   Updated: 2022/08/30 22:13:50 by motero           ###   ########.fr       */
+/*   Updated: 2022/08/31 22:47:56 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@
 // if there are no moves we move first two to the stack b
 void	ft_sorting_main(t_stacks *stack)
 {
+	size_t	sorted;
+
+	sorted = ft_list_is_sorted(*stack->a);
 	if (stack->a->size == 1)
 		stack->operations = NULL;
 	else if (stack->a->size == 2)
 	{
-		if (ft_list_is_sorted(*stack->a))
+		if (sorted)
 			stack->operations = NULL;
 		else
 		{
@@ -30,7 +33,7 @@ void	ft_sorting_main(t_stacks *stack)
 	}
 	else if (stack->a->size == 3)
 	{
-		if (ft_list_is_sorted(*stack->a))
+		if (sorted)
 			stack->operations = NULL;
 		else
 		{
@@ -40,8 +43,18 @@ void	ft_sorting_main(t_stacks *stack)
 	}
 	else if (stack->a->size > 3)
 	{
-		if (ft_list_is_sorted(*stack->a))
-			stack->operations = NULL;
+		if (sorted && stack->a->xtrm.min.i == 0)
+			return ;
+		else if (sorted && stack->a->xtrm.min.i != 0)
+		{
+			stack->mov.a.ra += stack->a->xtrm.min.i;
+			if (stack->mov.a.ra > stack->a->size / 2)
+			{
+				stack->mov.a.rra = stack->a->size - stack->mov.a.ra ;
+				stack->mov.a.ra = 0 ;
+			}
+			ft_sorting_apply_operations(stack);
+		}
 		else
 		{
 			ft_calculate_sorting_size_five(stack);
@@ -51,6 +64,38 @@ void	ft_sorting_main(t_stacks *stack)
 	stack->total_moves++;
 }
 
+// int	ft_list_is_sorted(t_list list)
+// {
+// 	size_t			i;
+// 	int				max;
+// 	t_node			*current;
+// 	t_node			*next;
+// 	t_node			*t;
+
+// 	t = list.tail;
+// 	current = list.head;
+// 	if (list.size == 1)
+// 		return (1);
+// 	else if (list.size == 2)
+// 		return (list.head->data.nb < list.tail->data.nb);
+// 	else
+// 	{
+// 		i = 0;
+// 		max = list.head->data.nb;
+// 		while (i < list.size - 1)
+// 		{
+// 			next = XOR(current->npx, t);
+// 			if (max > next->data.nb)
+// 				return (0);
+// 			max = next->data.nb;
+// 			t = current;
+// 			current = next;
+// 			i++;
+// 		}
+// 		return (1);
+// 	}
+// }
+
 int	ft_list_is_sorted(t_list list)
 {
 	size_t			i;
@@ -59,16 +104,16 @@ int	ft_list_is_sorted(t_list list)
 	t_node			*next;
 	t_node			*t;
 
-	t = list.tail;
-	current = list.head;
+	t = list.xtrm.min.tail;
+	current = list.xtrm.min.node;
 	if (list.size == 1)
 		return (1);
 	else if (list.size == 2)
-		return (list.head->data.nb < list.tail->data.nb);
+		return (1);
 	else
 	{
 		i = 0;
-		max = list.head->data.nb;
+		max = list.xtrm.min.nb;
 		while (i < list.size - 1)
 		{
 			next = XOR(current->npx, t);
@@ -237,7 +282,6 @@ void	ft_pre_sorting_push_except_min_max(t_stacks *stack)
 	t_list	*list;
 	t_node	*current;
 	t_node	*tail;
-	t_node	*tmp;
 	t_node	*seq;
 	size_t	size;
 
@@ -245,15 +289,22 @@ void	ft_pre_sorting_push_except_min_max(t_stacks *stack)
 	current = stack->a->head;
 	tail = stack->a->tail;
 	size = 0;
+	seq = current;
+	ft_extremes_find(stack->a);
 	ft_pre_sorting_find_big_seq(stack, seq, &size);
-	while (list->size > 3)
+	if (list->xtrm.min.i - list->xtrm.max.i == 1)
+		size = 2;
+	else
+		size += 2;
+	//printf("numbrs to keep %zu\n", size);
+	while (list->size > size)
 	{
-		if (current == list->xtrm.min.node || current == list->xtrm.max.node)
+		if (current == list->xtrm.min.node || current == list->xtrm.max.node || current->to_keep == 1)
 		{
+		//	printf("Number to keep %d\n", current->data.nb);
 			stack->mov.a.ra = 1;
-			tmp = XOR(current->npx, tail);
-			tail = current;
-			current = tmp;
+			current->to_keep = 0;
+			ft_node_next(&current, &tail);
 		}
 		else
 		{
@@ -262,43 +313,73 @@ void	ft_pre_sorting_push_except_min_max(t_stacks *stack)
 		}
 		ft_sorting_apply_operations(stack);
 	}
+	// printf("\nStack A\n");
+	// ft_list_print_data(*stack->a);
+	// printf("\nStack B\n");
+	// ft_list_print_data(*stack->b);
 	ft_extremes_find(stack->a);
 }
 
 void	ft_pre_sorting_find_big_seq(t_stacks *stack, t_node *seq, size_t *size)
 {
 	size_t			i;
-	int				max_nb;
 	t_node			*current;
 	t_node			*next;
 	t_node			*t;
+	t_node			*t_seq;
+	t_node			*max;
+	t_node			*t_max;
 
 	t = stack->a->xtrm.min.tail;
 	current = stack->a->xtrm.min.node;
-	i = 0;
-	*size = 0;
-	max_nb = stack->a->xtrm.min.nb;
-	while (next != stack->a->xtrm.min.node)
+	i = 1;
+	*size = 1;
+	next = XOR(current->npx, t);
+	seq = stack->a->xtrm.min.node;
+	t_seq = stack->a->xtrm.min.tail;
+	max = stack->a->xtrm.min.node;
+	t_max = stack->a->xtrm.min.tail;
+	while (next != stack->a->xtrm.max.node)
 	{
-		next = XOR(current->npx, t);
-		if (max_nb > next->data.nb)
+		//printf("--------------\nIs %d > %d ?\n", next->data.nb, current->data.nb);
+		if (next->data.nb > current->data.nb)
 		{
+			i++;
 			if (i > *size)
 			{
 				*size = i;
-				seq = next;
+				seq = max;
+				t_seq = t_max;
 			}
-			i = 0;
+			//printf("New max %d find for seq starting at %d, with length %zu\n", next->data.nb , max->data.nb, i);
 		}
 		else
 		{
-			max_nb = next->data.nb;
-			t = current;
-			current = next;
-			i++;
+			//printf("No new max\n");
+			if (i > *size)
+				*size = i;
+			i = 1;
+			t_max = current;
+			max = XOR(current->npx, t);
 		}
+		ft_node_next(&current, &t);
+		next = XOR(current->npx, t);
+	}
+	if (seq == stack->a->xtrm.min.node)
+		*size = *size - 1;
+	if (seq == stack->a->xtrm.max.node)
+		*size = *size - 1;
+//	printf("Best big seq starting at %d, with length %zu\n", seq->data.nb, *size);
+	i = 0;
+	while (i < *size)
+	{
+		seq->to_keep = 1;
+		//printf("nb to keep %d\n", seq->data.nb);
+		ft_node_next (&seq, &t_seq);
+		i++;
 	}
 }
+
 // void	ft_pre_sorting_push_except_min_max(t_stacks *stack)
 // {
 // 	t_list	*list;

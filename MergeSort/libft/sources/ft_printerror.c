@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_data_functions.c                                :+:      :+:    :+:   */
+/*   ft_printerror.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:58:05 by motero            #+#    #+#             */
-/*   Updated: 2022/09/23 17:00:07 by motero           ###   ########.fr       */
+/*   Created: 2022/05/31 11:59:55 by motero            #+#    #+#             */
+/*   Updated: 2022/09/21 15:55:03 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PushSwap.h"
+#include "libft.h"
 
-t_data	ft_data_create(int nb, size_t index)
+void	ft_printerror(char *str)
 {
-	t_data	new_data;
+	int	i;
 
-	new_data.nb = nb;
-	new_data.index = index;
-	new_data.final_index = 0;
-	return (new_data);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(2, &str[i], 1);
+		i++;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:06:37 by motero            #+#    #+#             */
-/*   Updated: 2022/08/30 19:50:42 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/23 15:03:18 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,18 @@ int	main(int argc, char **argv)
 	t_stacks	*stack;
 	t_list		*list_a;
 
+	if (argc == 1)
+	{
+		ft_printerror("Error\n");
+		return (0);
+	}	
 	if (argc >= 2)
 	{
-		list_a = ft_parsing(argv, argc);
+		if (argc == 2 && ft_nbr_words(argv[1], ' ') > 1)
+			list_a = ft_split_argument(argv[1]);
+		else
+			list_a = ft_parsing(argv, argc);
+		//ft_list_print_data(*list_a);
 		stack = ft_stack_initilize(list_a);
 		if (stack->a->head)
 		{
@@ -41,19 +50,32 @@ int	main(int argc, char **argv)
 				// 	ft_printf("%s", stack->operations);
 			}
 			else
-				printf("**NOT SORTED CORRECTLY\n");
+				ft_printerror("Error\n");
 			ft_stack_free(stack);
 		}
 		else
 		{
-			ft_printf("Error while Parsing\n");
+			ft_printerror("Error\n");
 			ft_stack_free(stack);
 			return (1);
 		}
 	}
-	else
-	{
-		ft_printf("There are not numbers\n");
-	}
 	return (0);
+}
+
+t_list	*ft_split_argument(char *s)
+{
+	char	**str;
+	t_list	*list;
+	size_t	qty;
+
+	qty = ft_nbr_words(s, ' ');
+	//printf("nbr nbrs %zu\n", qty);
+	str = ft_split(s, ' ');
+	list = ft_parsing(str, qty);
+	while (qty--)
+		free(str[qty]);
+	//free(str[qty]);
+	free(str);
+	return (list);
 }

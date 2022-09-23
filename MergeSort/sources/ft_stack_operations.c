@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:37:05 by motero            #+#    #+#             */
-/*   Updated: 2022/08/25 15:00:17 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/22 19:09:04 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,9 @@
 void	ft_stack_swap(t_stacks *stack)
 {
 	if ((stack->mov.swap.sa || stack->mov.swap.ss) && stack->a->size > 1)
-	{
 		ft_list_swap_first_nodes(stack->a);
-		//ft_extremes_swap(stack->a);
-	}
 	if ((stack->mov.swap.sb || stack->mov.swap.ss) && stack->b->size > 1)
-	{
 		ft_list_swap_first_nodes(stack->b);
-		//ft_extremes_swap(stack->b);
-	}
 }
 
 void	ft_stack_push(t_stacks *stack)
@@ -37,29 +31,17 @@ void	ft_stack_push(t_stacks *stack)
 void	ft_stack_rotate(t_stacks *stack)
 {
 	if ((stack->mov.a.ra || stack->mov.a.rr) && stack->a->size > 1)
-	{
 		ft_list_rotate((stack->a));
-		//ft_extremes_rotate(stack->a);
-	}
 	if ((stack->mov.b.rb || stack->mov.a.rr) && stack->b->size > 1)
-	{
 		ft_list_rotate((stack->b));
-		//ft_extremes_rotate(stack->b);
-	}
 }
 
 void	ft_stack_reverse_rotate(t_stacks *stack)
 {
 	if ((stack->mov.a.rra || stack->mov.a.rrr) && stack->a->size > 1)
-	{
 		ft_list_reverse_rotate(stack->a);
-		//ft_extremes_reverse_rotate(stack->a);
-	}
 	if ((stack->mov.b.rrb || stack->mov.a.rrr) && stack->b->size > 1)
-	{
 		ft_list_reverse_rotate(stack->b);
-		//ft_extremes_reverse_rotate(stack->b);
-	}
 }
 
 t_stacks	*ft_stack_initilize(t_list *list_a)
@@ -75,14 +57,11 @@ t_stacks	*ft_stack_initilize(t_list *list_a)
 	stack->b = list_b;
 	stack->mov = ft_mov_initiliaze();
 	stack->total_moves = 0;
-	stack->operations = (char *)malloc(sizeof(char));
-	stack->operations[0] = 0;
 	return (stack);
 }
 
 void	ft_stack_free(t_stacks *stack)
 {
-	free(stack->operations);
 	ft_list_free(stack->a);
 	if (stack->b->head)
 		ft_list_free(stack->b);

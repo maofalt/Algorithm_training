@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: motero <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 11:16:12 by motero            #+#    #+#             */
-/*   Updated: 2022/05/13 14:22:21 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/22 18:59:26 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_nbr_words(char const *s, char c)
+size_t	ft_nbr_words(char const *s, char c)
 {
 	size_t	nbr_words;
 

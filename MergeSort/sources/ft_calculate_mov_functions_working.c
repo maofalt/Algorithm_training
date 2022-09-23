@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calculate_mov_functions.c                       :+:      :+:    :+:   */
+/*   ft_calculate_mov_functions_working.c               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 15:44:10 by motero            #+#    #+#             */
-/*   Updated: 2022/08/30 12:59:38 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/22 19:09:15 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	ft_calculate_sorting_size_five(t_stacks *stack)
 	{
 		ft_calculate_sorting_b_to_a(stack);
 		ft_sorting_apply_operations(stack);
-		//ft_printf("%s", stack->operations);
 		// printf("\nSTACK A\n");
 		// ft_list_print_data(*stack->a);
 		// printf("\nSTACK B\n");

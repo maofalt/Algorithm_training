@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:28:54 by motero            #+#    #+#             */
-/*   Updated: 2022/09/24 16:46:02 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/24 17:38:14 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int	ft_atoi(const char *nptr)
 
 int	ft_parsing_allowed_chars(char *str)
 {
-	const char	allow_char[] = "0123456789-";
+	const char	allow_char[] = "0123456789-+";
 	int			size;
 	int			i;
 	int			j;

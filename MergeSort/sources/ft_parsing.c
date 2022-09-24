@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:28:54 by motero            #+#    #+#             */
-/*   Updated: 2022/09/23 17:44:49 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/24 16:46:02 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ size_t	ft_check_doubles(t_list *list)
 		while (j++ < list->size - i)
 		{
 			ft_node_next(&c, &t);
+			printf("Compare %d =? %d\n", nb, c->data.nb);
 			if (nb == c->data.nb)
 				return (1);
 		}

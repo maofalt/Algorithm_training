@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:28:54 by motero            #+#    #+#             */
-/*   Updated: 2022/09/24 17:38:14 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/24 19:14:04 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,27 +46,28 @@ t_list	*ft_parsing(char **raw_nb, int nb_arg)
 
 size_t	ft_check_doubles(t_list *list)
 {
-	t_node	*c;
-	t_node	*t;
+	t_node	*nodes[2];
 	size_t	i;
 	size_t	j;
+	size_t	k;
 	int		nb;
 
-	c = list->head;
-	t = list->tail;
+	nodes[0] = list->head;
+	nodes[1] = list->tail;
 	i = 0;
 	while (i++ < list->size)
 	{
 		j = 0;
-		nb = c->data.nb;
+		nb = nodes[0]->data.nb;
 		while (j++ < list->size - i)
 		{
-			ft_node_next(&c, &t);
-			printf("Compare %d =? %d\n", nb, c->data.nb);
-			if (nb == c->data.nb)
+			ft_node_next(&nodes[0], &nodes[1]);
+			if (nb == nodes[0]->data.nb)
 				return (1);
 		}
-		ft_node_next(&c, &t);
+		k = 1 + i;
+		while (k--)
+			ft_node_next(&nodes[0], &nodes[1]);
 	}
 	return (0);
 }
@@ -126,11 +127,11 @@ int	ft_parsing_allowed_chars(char *str)
 	{
 		j = 0;
 		exist = 0;
-		while (j < 11)
+		while (j < 12)
 		{
 			if (str[i] == allow_char[j])
 				exist++;
-			j ++;
+			j++;
 		}
 		if (!exist)
 			return (1);
@@ -187,19 +188,28 @@ int	ft_count_minus(char *nbr)
 int	ft_check_forbidden_order(char *nbr)
 {
 	char	c;
+	int		min;
+	int		plus;
 
 	c = *nbr;
+	min = 0;
+	plus = 0;
 	while (ft_isspace(*nbr))
 		c = *nbr++;
-	while (*nbr == '-')
-		c = *nbr++;
-	if (!ft_isdigit(*nbr))
-		return (1);
-	while (*nbr)
+	while (*nbr == '-' || *nbr == '+')
 	{
 		if (*nbr == '-')
-			return (1);
+			min = 1;
+		if (*nbr == '+')
+			plus = 1;
 		c = *nbr++;
+	}
+	if (!ft_isdigit(*nbr) || plus + min == 2)
+		return (1);
+	while (*nbr++)
+	{
+		if (*nbr == '-' || *nbr == '+')
+			return (1);
 	}
 	return (0);
 }
@@ -222,7 +232,10 @@ int	ft_verify_number(char *nbr)
 	nbr_small = ft_parsing_extract_nbr(nbr);
 	nbr_size = ft_strlen(nbr_small);
 	if (nbr_size > 11)
+	{
+		free(nbr_small);
 		return (1);
+	}
 	res = 0;
 	tmp_nbr = ft_atoi(nbr_small);
 	if (nbr[0] == '-')

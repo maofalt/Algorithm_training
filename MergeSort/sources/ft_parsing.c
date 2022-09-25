@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:28:54 by motero            #+#    #+#             */
-/*   Updated: 2022/09/24 19:14:04 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/25 19:56:50 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,8 @@ int	ft_atoi(const char *nptr)
 	c = *nptr;
 	if (c == '-')
 		sign = 1 - (2 * (*nptr++ == '-'));
+	if (c == '+')
+		c = *nptr++;
 	while (ft_isdigit(*nptr))
 	{
 		num *= 10;
@@ -150,10 +152,12 @@ char	*ft_parsing_extract_nbr(char *nbr)
 	k = 0;
 	while (ft_isspace(nbr[k]))
 		k++;
-	while (nbr[k] == '-')
+	while (nbr[k] == '-' || nbr[k] == '+')
 		k++;
 	while (nbr[k] == '0')
 		k++;
+	if (nbr[k] == 0)
+		k--;
 	nbr_small = malloc(sizeof(char) * (nbr_size - k));
 	if (!nbr_small)
 		return (NULL);
@@ -178,6 +182,24 @@ int	ft_count_minus(char *nbr)
 		c = *nbr++;
 	while (*nbr)
 		if (*nbr++ == '-')
+			i++;
+	if (i > 1)
+		return (1);
+	else
+		return (0);
+}
+
+int	ft_count_plus(char *nbr)
+{
+	char	c;
+	int		i;
+
+	c = *nbr;
+	i = 0;
+	while (ft_isspace(*nbr))
+		c = *nbr++;
+	while (*nbr)
+		if (*nbr++ == '+')
 			i++;
 	if (i > 1)
 		return (1);
@@ -225,13 +247,13 @@ int	ft_verify_number(char *nbr)
 
 	if (ft_parsing_allowed_chars(nbr))
 		return (1);
-	if (ft_count_minus(nbr))
+	if (ft_count_minus(nbr) || ft_count_plus(nbr))
 		return (1);
 	if (ft_check_forbidden_order(nbr))
 		return (1);
 	nbr_small = ft_parsing_extract_nbr(nbr);
 	nbr_size = ft_strlen(nbr_small);
-	if (nbr_size > 11)
+	if (nbr_size > 9)
 	{
 		free(nbr_small);
 		return (1);

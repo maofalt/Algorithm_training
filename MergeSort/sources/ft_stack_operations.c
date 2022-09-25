@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:37:05 by motero            #+#    #+#             */
-/*   Updated: 2022/09/22 19:09:04 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/26 01:38:15 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,20 @@ t_stacks	*ft_stack_initilize(t_list *list_a)
 
 	stack = (t_stacks *)malloc(sizeof(t_stacks));
 	if (!stack)
+	{
+		ft_list_free(list_a);
+		free(list_a);
 		return (NULL);
+	}
 	stack->a = list_a;
 	list_b = ft_list_create(NULL, NULL, 0);
+	if (!list_b)
+	{
+		ft_list_free(list_a);
+		free(list_a);
+		free(stack);
+		return (NULL);
+	}
 	stack->b = list_b;
 	stack->mov = ft_mov_initiliaze();
 	stack->total_moves = 0;

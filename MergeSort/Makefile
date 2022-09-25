@@ -6,7 +6,7 @@
 #    By: motero <motero@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/10 18:38:23 by motero            #+#    #+#              #
-#    Updated: 2022/08/30 19:19:07 by motero           ###   ########.fr        #
+#    Updated: 2022/09/25 23:51:55 by motero           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -173,6 +173,10 @@ $(OBJS_PATH)%.o: $(SRCS_DIR_PS)%.c $(HDRS)
 $(NAME): $(OBJS_PATH) $(OBJS) $(HDRS)
 		@$(CC) $(CFLAGS)  $(OBJS) $(LIB_BINARY) $(HDR_INC)  -o $@
 		@echo "\t[ $(GREEN)✔$(NONE) ] push_swap"
+
+malloc_test: $(OBJS_PATH) $(OBJS)
+		@make -C libft
+		$(CC) $(CFLAGS) -fsanitize=undefined -rdynamic -o $@ ${OBJS} $(LIB_BINARY) -L. -lmallocator
 
 #=============================================================================#
 #                                RULES   PROFILER                             #

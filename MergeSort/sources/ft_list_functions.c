@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 12:09:20 by motero            #+#    #+#             */
-/*   Updated: 2022/09/23 14:56:28 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/26 01:47:04 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,15 +103,13 @@ void	ft_list_free(t_list *list)
 	t = list->tail;
 	current = list->head;
 	if (list->size == 1)
-	{
 		free(list->head);
-	}
 	else if (list->size == 2)
 	{
 		free(list->head);
 		free(list->tail);
 	}
-	else
+	else if (list->size > 2)
 	{
 		while (list->size--)
 		{

@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:06:37 by motero            #+#    #+#             */
-/*   Updated: 2022/09/25 15:31:45 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/26 01:18:27 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,16 @@ int	main(int argc, char **argv)
 	}	
 	if (argc >= 2)
 	{
-		if (argc == 2 && ft_nbr_words(argv[1], ' ') > 1)
-			list_a = ft_split_argument(argv[1]);
-		else
-			list_a = ft_parsing(argv, argc);
+		// if (argc == 2 && ft_nbr_words(argv[1], ' ') > 1)
+		// 	list_a = ft_split_argument(argv[1]);
+		// else
+		list_a = ft_parsing(argv, argc);
 		//ft_list_print_data(*list_a);
+		if (!list_a)
+			return (1);
 		stack = ft_stack_initilize(list_a);
+		if (!stack)
+			return (1);
 		if (stack->a->head)
 		{
 			ft_pre_sorting_general(list_a);
@@ -61,21 +65,4 @@ int	main(int argc, char **argv)
 		}
 	}
 	return (0);
-}
-
-t_list	*ft_split_argument(char *s)
-{
-	char	**str;
-	t_list	*list;
-	size_t	qty;
-
-	qty = ft_nbr_words(s, ' ');
-	//printf("nbr nbrs %zu\n", qty);
-	str = ft_split(s, ' ');
-	list = ft_parsing(str, qty);
-	while (qty--)
-		free(str[qty]);
-	//free(str[qty]);
-	free(str);
-	return (list);
 }

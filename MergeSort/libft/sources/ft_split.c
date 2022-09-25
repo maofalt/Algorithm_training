@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 11:16:12 by motero            #+#    #+#             */
-/*   Updated: 2022/09/22 18:59:26 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/26 00:52:29 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,13 @@ char	**ft_split(char const *s, char c)
 			s++;
 		w_len = ft_wlen(s, c);
 		split[i] = ft_substr(s, 0, w_len);
+		if (!split[i])
+		{
+			while (i--)
+				free(split[i]);
+			free(split);
+			return (NULL);
+		}
 		i++;
 		s += w_len;
 	}

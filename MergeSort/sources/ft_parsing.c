@@ -6,12 +6,21 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:28:54 by motero            #+#    #+#             */
-/*   Updated: 2022/09/25 19:56:50 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/26 01:46:04 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PushSwap.h"
 
+void	ft_free_split(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		free(str[i++]);
+	free(str);
+}
 /* Parse entry numbers
 -1  Creation of list struct
 -2a While loop, as long as it is a valid int number we insert a new node into our list
@@ -21,26 +30,60 @@ t_list	*ft_parsing(char **raw_nb, int nb_arg)
 {
 	int		i;
 	int		j;
+	int 	k;
+	char	**str;
 	t_list	*list_a;
 	t_data	data;
 
-	if (raw_nb[0][0] == '.' || raw_nb[0][0] == '/')
-		i = 1;
-	else
-		i = 0;
-	list_a = ft_list_create(NULL, NULL, 0);
+	k = 1;
 	j = 0;
-	while (!ft_verify_number(raw_nb[i]))
+	list_a = ft_list_create(NULL, NULL, 0);
+	if (!list_a)
+		return (NULL);
+	while (k < nb_arg)
 	{
-		data = ft_data_create(ft_atoi(raw_nb[i]), j++);
-		ft_node_insert_end(list_a, data);
-		ft_extremes_parsing(list_a, data);
-		if (i == nb_arg - 1)
-			break ;
-		i++;
+		str = ft_split(raw_nb[k], ' ');
+		if (!str)
+		{
+			ft_list_free(list_a);
+			free(list_a);
+			return (NULL);
+		}
+		i = 0;
+		//printf("nbr nbrs %zu\n", ft_nbr_words(raw_nb[1], ' '));
+		while (i < (int)(ft_nbr_words(raw_nb[k], ' ')) && !ft_verify_number(str[i]))
+		{
+			//printf("[%d]=%d\n", i, ft_atoi(str[i]));
+			data = ft_data_create(ft_atoi(str[i]), j++);
+			//printf("-->data %zu\n", data.index);
+			ft_node_insert_end(list_a, data);
+			ft_extremes_parsing(list_a, data);
+			i++;
+		}
+		if (i != (int)ft_nbr_words(raw_nb[k], ' ') || ft_check_doubles(list_a))
+		{
+			ft_list_free(list_a);
+			ft_free_split(str);
+			return (list_a);
+		}
+		ft_free_split(str);
+		k++;
 	}
-	if ((ft_verify_number(raw_nb[i])) || ft_check_doubles(list_a))
-		ft_list_free(list_a);
+	// if (nb_arg > 2)
+	// {
+	// 	i = 2;
+	// 	while (!ft_verify_number(raw_nb[i]))
+	// 	{
+	// 		data = ft_data_create(ft_atoi(raw_nb[i]), j++);
+	// 		ft_node_insert_end(list_a, data);
+	// 		ft_extremes_parsing(list_a, data);
+	// 		if (i == nb_arg - 1)
+	// 			break ;
+	// 		i++;
+	// 	}
+	// 	if ((ft_verify_number(raw_nb[i])) || ft_check_doubles(list_a))
+	// 		ft_list_free(list_a);
+	// }
 	return (list_a);
 }
 
@@ -252,6 +295,8 @@ int	ft_verify_number(char *nbr)
 	if (ft_check_forbidden_order(nbr))
 		return (1);
 	nbr_small = ft_parsing_extract_nbr(nbr);
+	if (!nbr_small)
+		return (1);
 	nbr_size = ft_strlen(nbr_small);
 	if (nbr_size > 9)
 	{
@@ -259,12 +304,10 @@ int	ft_verify_number(char *nbr)
 		return (1);
 	}
 	res = 0;
-	tmp_nbr = ft_atoi(nbr_small);
+	if (nbr_small)
+		tmp_nbr = ft_atoi(nbr_small);
 	if (nbr[0] == '-')
 		tmp_nbr = -1 * tmp_nbr;
-	// printf("str %s \n", nbr);
-	// printf("small nb %s \n", nbr_small);
-	// printf("tmp nb %d \n", tmp_nbr);
 	if (tmp_nbr > (INT_MAX / 10) || tmp_nbr < (INT_MIN / 10))
 		res = 1;
 	if (tmp_nbr == (INT_MAX / 10) && (nbr[ft_strlen(nbr)- 1] - '0') > 7)

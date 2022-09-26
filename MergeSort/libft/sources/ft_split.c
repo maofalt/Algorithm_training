@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 11:16:12 by motero            #+#    #+#             */
-/*   Updated: 2022/09/26 00:52:29 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/26 02:04:42 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,20 @@ static size_t	ft_wlen(char const *s, char c)
 	return (w_len);
 }
 
+static void	ft_free_split(char **split, int i)
+{
+	while (i--)
+		free(split[i]);
+	free(split);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	char	**split;
-	size_t	nbr_words;
-	size_t	w_len;
-	size_t	i;
+	char			**split;
+	const size_t	nbr_words = ft_nbr_words(s, c);
+	size_t			w_len;
+	size_t			i;
 
-	if (!s)
-		return (NULL);
-	nbr_words = ft_nbr_words(s, c);
 	split = (char **)malloc(sizeof(char *) * (nbr_words + 1));
 	if (!split)
 		return (NULL);
@@ -62,14 +66,11 @@ char	**ft_split(char const *s, char c)
 			s++;
 		w_len = ft_wlen(s, c);
 		split[i] = ft_substr(s, 0, w_len);
-		if (!split[i])
+		if (!split[i++])
 		{
-			while (i--)
-				free(split[i]);
-			free(split);
+			ft_free_split(split, --i);
 			return (NULL);
 		}
-		i++;
 		s += w_len;
 	}
 	split[i] = 0;

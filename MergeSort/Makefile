@@ -6,7 +6,7 @@
 #    By: motero <motero@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/10 18:38:23 by motero            #+#    #+#              #
-#    Updated: 2022/09/25 23:51:55 by motero           ###   ########.fr        #
+#    Updated: 2022/09/26 02:50:48 by motero           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,9 @@ ft_list_functions.c \
 ft_math_functions.c \
 ft_move_functions.c \
 ft_node_functions.c \
-ft_parsing.c \
+ft_parsing_one.c \
+ft_parsing_two.c \
+ft_parsing_three.c \
 ft_sorting_functions.c \
 ft_stack_operations.c \
 ft_extremes_functions.c \

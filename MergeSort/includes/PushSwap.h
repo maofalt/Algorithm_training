@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/09/22 19:34:48 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/26 02:51:48 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,6 +201,10 @@ int			ft_verify_number(char *nbr);
 int			ft_parsing_allowed_chars(char *str);
 char		*ft_parsing_extract_nbr(char *nbr);
 size_t		ft_check_doubles(t_list *list);
+void		ft_free_split(char **str);
+int			ft_parse_data(t_list *list_a, char *raw_nb, char **str, int j);
+int			ft_count_minus(char *nbr);
+int			ft_count_plus(char *nbr);
 
 /*############################################################################*/
 /*                          SORTING FUNCTIONS                                 */

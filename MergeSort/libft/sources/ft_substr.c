@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 16:17:51 by motero            #+#    #+#             */
-/*   Updated: 2022/09/26 00:44:08 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/26 01:52:26 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*new_s;
 	size_t	i;
 
-	if (!s)
-		return (NULL);
 	i = 0;
 	if (len > ft_strlen(s))
 		len = ft_strlen(s);

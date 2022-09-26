@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 18:39:46 by motero            #+#    #+#             */
-/*   Updated: 2022/08/03 16:15:24 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/26 03:19:49 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_find_index_max(t_list list)
 	max = current->data.nb;
 	while (i[0] < list.size)
 	{
-		next = XOR(current->npx, tail);
+		next = xor(current->npx, tail);
 		if (max < next->data.nb)
 		{
 			max = next->data.nb;
@@ -60,7 +60,7 @@ int	ft_find_index_min(t_list list)
 	min = current->data.nb;
 	while (i[0] < list.size)
 	{
-		next = XOR(current->npx, tail);
+		next = xor(current->npx, tail);
 		if (min > next->data.nb)
 		{
 			min = next->data.nb;

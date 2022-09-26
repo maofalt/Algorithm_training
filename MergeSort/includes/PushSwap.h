@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 11:36:43 by motero            #+#    #+#             */
-/*   Updated: 2022/09/26 02:51:48 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/26 06:30:45 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@
 /*                             NODE DEFINITION                                */
 /*############################################################################*/
 
-//Note structure of a memory efficient doubly linked list, npx store the XOR
+//Note structure of a memory efficient doubly linked list, npx store the xor
 //of next and previous node
-//Normally a Circular XOR list is impossible however we just need t keep track
+//Normally a Circular xor list is impossible however we just need t keep track
 //of both  the head and tail ptrs (handling edge cases of 1 and 2 elements)
 typedef struct s_data
 {
@@ -66,7 +66,7 @@ typedef struct s_mov
 	t_b			b;
 }				t_mov;
 
-/*Our node structure, possessing npx (prev and next address XORed),
+/*Our node structure, possessing npx (prev and next address xored),
  as well as data structur*/
 typedef struct s_node
 {
@@ -124,9 +124,9 @@ t_list		*ft_split_argument(char *s);
 /*                            NODE FUNCTIONS                                  */
 /*############################################################################*/
 
-/* retuns XORed value of the node addresses */
-t_node		*XOR(t_node *a, t_node *b);
-//Creates new node from a dats structure and from the XOR address of previous &&
+/* retuns xored value of the node addresses */
+t_node		*xor(t_node *a, t_node *b);
+//Creates new node from a dats structure and from the xor address of previous &&
 // next nodes
 t_node		*ft_node_create(t_data data, t_node *npx);
 //Remove the head node of the list structure,
@@ -238,6 +238,9 @@ void		ft_node_next(t_node **c, t_node **t);
 
 void		ft_calculate_rot_to_fit(t_stacks *stack, t_node *c_b);
 void		ft_calculate_fix_rot_size(t_stacks *stack, t_node *c_b);
+void		ft_cal_init_nodes(size_t (*f_b_fit)[2], t_node *c_b);
+void		ft_cal_init_fit(size_t *f_b_fit, t_node **c_b);
+void		ft_cal_init_node(t_node **fnode, t_node **bnode, t_stacks *stack);
 
 /*############################################################################*/
 /*                            MATH FUNCTIONS                                  */
@@ -259,10 +262,6 @@ size_t		ft_instructions_parsing(t_stacks *stack);
 
 t_xtrm		ft_extremes_initializes(t_list *list);
 void		ft_extremes_parsing(t_list *list, t_data data);
-void		ft_extremes_swap(t_list *list);
-void		ft_extremes_push(t_list *list_a, t_list *list_b);
-void		ft_extremes_rotate(t_list *list);
-void		ft_extremes_reverse_rotate(t_list *list);
 void		ft_extremes_initialize_list(t_list *list, t_data data);
 void		ft_extremes_find(t_list *list);
 

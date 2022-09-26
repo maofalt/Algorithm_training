@@ -6,7 +6,7 @@
 /*   By: motero <motero@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:17:45 by motero            #+#    #+#             */
-/*   Updated: 2022/08/25 15:04:03 by motero           ###   ########.fr       */
+/*   Updated: 2022/09/26 04:20:49 by motero           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	ft_extremes_find(t_list *list)
 {
 	size_t				i;
 	t_node static		*c;
-	t_node				*tmp;
 	t_node static		*t;
 
 	i = 0;
@@ -73,57 +72,9 @@ void	ft_extremes_find(t_list *list)
 			list->xtrm.min.i = c->data.index;
 			list->xtrm.min.node = c;
 		}
-		tmp = XOR(c->npx, t);
-		t = c;
-		c = tmp;
+		ft_node_next(&c, &t);
 		i++;
 	}
-}
-
-
-void	ft_extremes_swap(t_list *list)
-{
-	if (list->xtrm.min.i < 2)
-		list->xtrm.min.i = list->xtrm.min.node->data.index;
-	if (list->xtrm.max.i < 2)
-		list->xtrm.max.i = list->xtrm.max.node->data.index;
-}
-
-void	ft_extremes_push(t_list *list_a, t_list *list_b)
-{
-	if (list_a->xtrm.min.i == 0)
-	{
-		if (list_b->size == 0)
-			ft_extremes_initialize_list(list_b, list_a->head->data);
-		else
-		{
-			if (list_b->xtrm.min.nb > list_a->xtrm.min.nb)
-				list_b->xtrm.min.nb = list_a->xtrm.min.nb;
-			if (list_b->xtrm.max.nb < list_a->xtrm.max.nb)
-				list_b->xtrm.max.nb= list_a->xtrm.max.nb;
-			//pass next node info (node, index and) to min or max
-			//After applying operation or applying all push apply find max and find min
-		}
-
-	}
-	else
-		list_a->xtrm.min.i = list_a->xtrm.min.node->data.index;
-	if (list_a->xtrm.min.i == 0)
-		;
-	else
-		list_a->xtrm.min.i = list_a->xtrm.min.node->data.index;
-}
-
-void	ft_extremes_rotate(t_list *list)
-{
-	list->xtrm.min.i = list->xtrm.min.node->data.index;
-	list->xtrm.max.i = list->xtrm.max.node->data.index;
-}
-
-void	ft_extremes_reverse_rotate(t_list *list)
-{
-	list->xtrm.min.i = list->xtrm.min.node->data.index;
-	list->xtrm.max.i = list->xtrm.max.node->data.index;
 }
 
 void	ft_extremes_initialize_list(t_list *list, t_data data)
